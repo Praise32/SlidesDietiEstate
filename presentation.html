@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DietiEstates25 - Project Presentation</title>
+    <title>DietiEstates25 - Presentazione Tecnica</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -13,13 +13,15 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
-                        primary: '#1F2937', // Gray 800
-                        secondary: '#3B82F6', // Blue 500
-                        accent: '#10B981', // Emerald 500
-                        background: '#F9FAFB', // Gray 50
-                        text: '#111827', // Gray 900
+                        bg: '#1F2937',      // Dark Gray Background
+                        text: '#F9FAFB',    // Off-white Text
+                        primary: '#3B82F6', // Blue Accent
+                        success: '#10B981', // Green Accent
+                        surface: '#374151', // Lighter Gray for Cards
+                        border: '#4B5563',  // Border Gray
                     }
                 }
             }
@@ -29,6 +31,7 @@
         body {
             overflow: hidden;
             background-color: #1F2937;
+            color: #F9FAFB;
         }
         .slide-container {
             width: 100vw;
@@ -43,444 +46,496 @@
             height: 100%;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.5s ease-in-out, visibility 0.5s;
+            transition: opacity 0.4s ease-in-out, visibility 0.4s;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
-            background-color: #F9FAFB;
+            padding: 3rem;
         }
         .slide.active {
             opacity: 1;
             visibility: visible;
             z-index: 10;
         }
-        .slide-content {
+        .slide-grid {
             width: 100%;
-            max-width: 1400px;
-            height: 90%;
+            max-width: 1600px;
+            height: 85%;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
             align-items: center;
         }
-        .slide-content.single-col {
+        .slide-grid.single-col {
             grid-template-columns: 1fr;
             text-align: center;
+            max-width: 1200px;
         }
-        .card {
-            background: white;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        .tech-card {
+            background: #374151;
+            border: 1px solid #4B5563;
+            border-radius: 0.75rem;
             padding: 2rem;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+        .tech-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        .tech-list i {
+            margin-top: 0.3rem;
+            margin-right: 1rem;
+            color: #3B82F6;
         }
         .nav-btn {
             position: fixed;
             bottom: 2rem;
             z-index: 50;
-            background-color: #1F2937;
+            background-color: #374151;
             color: white;
-            border: none;
-            padding: 1rem 1.5rem;
+            border: 1px solid #4B5563;
+            padding: 0.75rem 1.25rem;
             border-radius: 0.5rem;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.2s;
         }
         .nav-btn:hover {
-            background-color: #374151;
+            background-color: #4B5563;
+            border-color: #6B7280;
         }
         .prev-btn { right: 6rem; }
         .next-btn { right: 2rem; }
         .slide-number {
             position: fixed;
             bottom: 2.5rem;
-            left: 2rem;
-            font-family: 'Inter', sans-serif;
-            color: #6B7280;
+            left: 3rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: #9CA3AF;
             z-index: 50;
+            font-size: 0.875rem;
         }
-        /* Custom Scrollbar for code blocks */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
+        .code-block {
+            font-family: 'JetBrains Mono', monospace;
+            background: #111827;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            border: 1px solid #374151;
+            color: #E5E7EB;
         }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1; 
+        .keyword { color: #C084FC; } /* Purple */
+        .function { color: #60A5FA; } /* Blue */
+        .string { color: #34D399; } /* Green */
+        .comment { color: #6B7280; font-style: italic; } /* Gray */
+        
+        h2 {
+            letter-spacing: -0.025em;
         }
-        ::-webkit-scrollbar-thumb {
-            background: #888; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555; 
+        .placeholder-box {
+            border: 2px dashed #4B5563;
+            background: rgba(55, 65, 81, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9CA3AF;
+            font-family: 'JetBrains Mono', monospace;
+            height: 100%;
+            border-radius: 0.75rem;
+            text-align: center;
+            padding: 2rem;
         }
     </style>
 </head>
 <body>
 
-<div class="slide-container" id="slideContainer">
+<div class="slide-container">
 
-    <!-- Slide 1: Title Slide -->
+    <!-- Slide 1: Frontespizio -->
     <div class="slide active" id="slide-1">
-        <div class="slide-content single-col">
+        <div class="slide-grid single-col">
             <div class="flex flex-col items-center justify-center h-full space-y-8">
-                <div class="w-48 h-48 bg-white rounded-full shadow-xl flex items-center justify-center overflow-hidden mb-6">
-                    <img src="logo.png" alt="DietiEstates25 Logo" class="w-full h-full object-cover scale-110">
+                <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center mb-4 overflow-hidden">
+                    <img src="logo.png" alt="Logo" class="w-full h-full object-cover scale-110">
                 </div>
-                <h1 class="text-7xl font-extrabold text-primary tracking-tight">DietiEstates25</h1>
-                <h2 class="text-3xl text-secondary font-light">Piattaforma Immobiliare Next-Gen</h2>
-                <div class="w-24 h-1 bg-accent rounded-full my-8"></div>
-                <div class="text-xl text-gray-600">
-                    <p class="font-semibold">Ingegneria del Software A.A. 2024/2025</p>
-                    <p class="mt-2">Gruppo 41: <span class="text-primary font-bold">Gennaro Ventrone</span> &bull; <span class="text-primary font-bold">Mariano Sommella</span></p>
+                <h1 class="text-7xl font-extrabold text-white tracking-tight mb-2">DietiEstates25</h1>
+                <h2 class="text-3xl text-primary font-light tracking-wide">Sistema Distribuito per la Gestione Immobiliare Cloud-Native</h2>
+                
+                <div class="w-32 h-1 bg-success rounded-full my-10"></div>
+                
+                <div class="grid grid-cols-2 gap-12 text-left mt-8">
+                    <div>
+                        <p class="text-gray-400 text-sm uppercase tracking-wider font-bold mb-1">Corso</p>
+                        <p class="text-xl font-medium">Ingegneria del Software</p>
+                        <p class="text-gray-400">A.A. 2024/2025</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-400 text-sm uppercase tracking-wider font-bold mb-1">Gruppo 41</p>
+                        <p class="text-xl font-medium">Gennaro Ventrone</p>
+                        <p class="text-xl font-medium">Mariano Sommella</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 2: Vision & Requisiti -->
+    <!-- Slide 2: Analisi dei Requisiti (ISO 25010) -->
     <div class="slide" id="slide-2">
-        <div class="slide-content">
-            <div class="space-y-6">
-                <h2 class="text-5xl font-bold text-primary mb-4">Vision & Requisiti</h2>
-                <p class="text-xl text-gray-600 leading-relaxed">
-                    Una piattaforma distribuita moderna per la gestione immobiliare, progettata per scalabilità e sicurezza.
-                </p>
-                <ul class="space-y-4 mt-8">
-                    <li class="flex items-start">
-                        <i class="fas fa-users text-secondary mt-1 mr-4 text-xl"></i>
+        <div class="slide-grid">
+            <div class="pr-8">
+                <h2 class="text-5xl font-bold text-white mb-8">Analisi dei Requisiti</h2>
+                <p class="text-xl text-gray-400 mb-8 font-light">Mappatura secondo lo standard di qualità <span class="text-primary font-mono">ISO/IEC 25010</span>.</p>
+                
+                <ul class="tech-list space-y-6 text-lg">
+                    <li>
+                        <i class="fas fa-check-circle"></i>
                         <div>
-                            <h3 class="font-bold text-lg text-primary">5 Ruoli Distinti</h3>
-                            <p class="text-gray-500">Admin, Manager, Agent, Support, Customer. Accesso granulare (RBAC).</p>
+                            <strong class="text-white block mb-1">Functional Suitability</strong>
+                            <span class="text-gray-300">Completezza del workflow appuntamenti (Pending &rarr; Confirmed/Rejected) e gestione ciclo di vita inserzioni.</span>
                         </div>
                     </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-user-shield text-secondary mt-1 mr-4 text-xl"></i>
+                    <li>
+                        <i class="fas fa-shield-alt"></i>
                         <div>
-                            <h3 class="font-bold text-lg text-primary">Sicurezza "Invitation-Only"</h3>
-                            <p class="text-gray-500">Registrazione staff solo tramite invito sicuro per prevenire accessi non autorizzati.</p>
+                            <strong class="text-white block mb-1">Security (Confidentiality)</strong>
+                            <span class="text-gray-300">Accesso Staff tramite "Invitation-Only" (RBAC rigoroso). Autenticazione Stateless via JWT.</span>
                         </div>
                     </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-map-marked-alt text-secondary mt-1 mr-4 text-xl"></i>
+                    <li>
+                        <i class="fas fa-tachometer-alt"></i>
                         <div>
-                            <h3 class="font-bold text-lg text-primary">Ricerca Geospaziale</h3>
-                            <p class="text-gray-500">Motore basato su PostGIS per query di prossimità precise.</p>
+                            <strong class="text-white block mb-1">Performance Efficiency</strong>
+                            <span class="text-gray-300">Time-behavior &lt; 2s grazie a query spaziali ottimizzate e indici database.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-hand-pointer"></i>
+                        <div>
+                            <strong class="text-white block mb-1">Usability (Operability)</strong>
+                            <span class="text-gray-300">Interfaccia "Walk-up-and-use" per utenti non registrati (Customer).</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-gavel"></i>
+                        <div>
+                            <strong class="text-white block mb-1">Requisito di Dominio</strong>
+                            <span class="text-gray-300">Conformità D.Lgs 192/2005: Obbligatorietà Classe Energetica (A4-G).</span>
                         </div>
                     </li>
                 </ul>
             </div>
-            <div class="card bg-gray-50 border border-gray-200 flex items-center justify-center">
-                <i class="fas fa-project-diagram text-9xl text-gray-200"></i>
-                <p class="mt-4 text-gray-400 font-mono text-sm">Conceptual Model Placeholder</p>
+            <div class="tech-card bg-surface flex items-center justify-center">
+                <div class="text-center">
+                    <i class="fas fa-balance-scale text-6xl text-gray-500 mb-4"></i>
+                    <p class="font-mono text-sm text-gray-400">ISO/IEC 25010<br>Quality Model</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 3: Architettura Generale -->
+    <!-- Slide 3: Attori e Casi d'Uso -->
     <div class="slide" id="slide-3">
-        <div class="slide-content">
-            <div class="space-y-6">
-                <h2 class="text-5xl font-bold text-primary">Architettura Distribuita</h2>
-                <h3 class="text-2xl text-secondary font-light">Cloud-Hybrid Approach</h3>
-                <div class="space-y-6 mt-8">
-                    <div class="p-4 bg-white border-l-4 border-blue-500 shadow-sm">
-                        <h4 class="font-bold text-primary">Frontend</h4>
-                        <p class="text-gray-600">Angular 20 (SPA) - Reactive & Component Based</p>
+        <div class="slide-grid">
+            <div>
+                <h2 class="text-5xl font-bold text-white mb-8">Attori e Casi d'Uso</h2>
+                <p class="text-xl text-gray-400 mb-8">Distinzione architetturale tra flussi pubblici e aree protette.</p>
+                
+                <div class="space-y-6">
+                    <div class="bg-surface p-6 rounded-lg border-l-4 border-primary">
+                        <h3 class="text-xl font-bold text-white mb-2">Area Pubblica (Customer)</h3>
+                        <p class="text-gray-300 text-sm">Accesso anonimo per ricerca e visualizzazione. Registrazione richiesta solo per interazioni (Prenotazione visite, Messaggistica).</p>
                     </div>
-                    <div class="p-4 bg-white border-l-4 border-green-500 shadow-sm">
-                        <h4 class="font-bold text-primary">Backend</h4>
-                        <p class="text-gray-600">Node.js + Express v5 - Stateless REST API</p>
-                    </div>
-                    <div class="p-4 bg-white border-l-4 border-purple-500 shadow-sm">
-                        <h4 class="font-bold text-primary">Database</h4>
-                        <p class="text-gray-600">PostgreSQL (NeonDB Serverless) + PostGIS</p>
-                    </div>
-                    <div class="p-4 bg-white border-l-4 border-orange-500 shadow-sm">
-                        <h4 class="font-bold text-primary">Storage</h4>
-                        <p class="text-gray-600">AWS S3 (IaaS) per media e documenti</p>
+                    
+                    <div class="bg-surface p-6 rounded-lg border-l-4 border-success">
+                        <h3 class="text-xl font-bold text-white mb-2">Area Staff (RBAC)</h3>
+                        <ul class="text-sm text-gray-300 space-y-2 mt-2">
+                            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-success rounded-full"></span> <strong>Admin:</strong> Gestione Agenzia e Staff.</li>
+                            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-success rounded-full"></span> <strong>Manager:</strong> Supervisione inserzioni e reportistica.</li>
+                            <li class="flex items-center gap-2"><span class="w-2 h-2 bg-success rounded-full"></span> <strong>Agent:</strong> Operatività quotidiana (Appuntamenti, Immobili).</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="card bg-primary text-white p-8 flex flex-col justify-center items-center">
-                <div class="text-center space-y-8 w-full">
-                    <div class="border-2 border-white/20 p-4 rounded-lg bg-white/5">
-                        <i class="fab fa-angular text-4xl text-red-500 mb-2"></i>
-                        <p class="font-mono text-sm">Client (Browser)</p>
-                    </div>
-                    <i class="fas fa-arrow-down text-white/50"></i>
-                    <div class="border-2 border-white/20 p-4 rounded-lg bg-white/5">
-                        <i class="fab fa-node text-4xl text-green-500 mb-2"></i>
-                        <p class="font-mono text-sm">API Gateway / Server</p>
-                    </div>
-                    <div class="flex justify-center gap-4 w-full">
-                        <i class="fas fa-arrow-down text-white/50 rotate-45"></i>
-                        <i class="fas fa-arrow-down text-white/50 -rotate-45"></i>
-                    </div>
-                    <div class="flex justify-between gap-4 w-full">
-                        <div class="border-2 border-white/20 p-4 rounded-lg bg-white/5 flex-1">
-                            <i class="fas fa-database text-3xl text-blue-400 mb-2"></i>
-                            <p class="font-mono text-xs">PostgreSQL</p>
-                        </div>
-                        <div class="border-2 border-white/20 p-4 rounded-lg bg-white/5 flex-1">
-                            <i class="fab fa-aws text-3xl text-orange-400 mb-2"></i>
-                            <p class="font-mono text-xs">AWS S3</p>
-                        </div>
+            <div class="tech-card p-0">
+                <div class="placeholder-box w-full h-full">
+                    <div>
+                        <i class="fas fa-project-diagram text-5xl mb-4"></i>
+                        <p>[INSERIRE DIAGRAMMA UML USE CASE]</p>
+                        <p class="text-xs mt-2 text-gray-500">Focus: Relazione Generalizzazione User -> Staff</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 4: Backend Deep Dive -->
+    <!-- Slide 4: Architettura di Sistema -->
     <div class="slide" id="slide-4">
-        <div class="slide-content">
-            <div class="space-y-6">
-                <h2 class="text-5xl font-bold text-primary">Backend Deep Dive</h2>
-                <p class="text-xl text-gray-600">Focus su Type-Safety e Validazione Rigorosa.</p>
+        <div class="slide-grid">
+            <div>
+                <h2 class="text-5xl font-bold text-white mb-4">Architettura Logica</h2>
+                <h3 class="text-2xl text-primary font-mono mb-8">3-Tier Distributed Architecture</h3>
                 
-                <div class="grid grid-cols-2 gap-4 mt-8">
-                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                        <div class="flex items-center gap-3 mb-2">
-                            <i class="fab fa-js text-yellow-400 text-2xl"></i>
-                            <h3 class="font-bold text-primary">Express v5</h3>
+                <div class="space-y-8 relative">
+                    <!-- Connecting Line -->
+                    <div class="absolute left-6 top-4 bottom-4 w-0.5 bg-gray-600 -z-10"></div>
+
+                    <div class="flex items-start gap-6">
+                        <div class="w-12 h-12 rounded-full bg-gray-700 border border-gray-500 flex items-center justify-center text-xl font-bold text-white z-10">1</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-white">Presentation Layer</h4>
+                            <p class="text-gray-400 mt-1">Single Page Application (SPA) Angular 20.</p>
+                            <p class="text-sm text-gray-500 mt-1 font-mono">Client-side rendering, Lazy Loading.</p>
                         </div>
-                        <p class="text-sm text-gray-500">Modern routing & error handling.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                        <div class="flex items-center gap-3 mb-2">
-                            <i class="fas fa-code text-blue-600 text-2xl"></i>
-                            <h3 class="font-bold text-primary">TypeScript</h3>
+
+                    <div class="flex items-start gap-6">
+                        <div class="w-12 h-12 rounded-full bg-gray-700 border border-gray-500 flex items-center justify-center text-xl font-bold text-white z-10">2</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-white">Application Layer</h4>
+                            <p class="text-gray-400 mt-1">REST API Stateless (Node.js + Express v5).</p>
+                            <p class="text-sm text-gray-500 mt-1 font-mono">Container Dockerizzato, Scalabilità orizzontale.</p>
                         </div>
-                        <p class="text-sm text-gray-500">Static typing per ridurre bug a runtime.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                        <div class="flex items-center gap-3 mb-2">
-                            <i class="fas fa-database text-green-600 text-2xl"></i>
-                            <h3 class="font-bold text-primary">Drizzle ORM</h3>
+
+                    <div class="flex items-start gap-6">
+                        <div class="w-12 h-12 rounded-full bg-gray-700 border border-gray-500 flex items-center justify-center text-xl font-bold text-white z-10">3</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-white">Data Layer</h4>
+                            <p class="text-gray-400 mt-1">PostgreSQL (Relazionale) + AWS S3 (Object Storage).</p>
+                            <p class="text-sm text-gray-500 mt-1 font-mono">ACID Compliance + Scalable Blob Storage.</p>
                         </div>
-                        <p class="text-sm text-gray-500">Type-safe SQL queries & migrations.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                        <div class="flex items-center gap-3 mb-2">
-                            <i class="fas fa-shield-alt text-purple-600 text-2xl"></i>
-                            <h3 class="font-bold text-primary">Zod</h3>
-                        </div>
-                        <p class="text-sm text-gray-500">Schema validation a runtime.</p>
-                    </div>
+                </div>
+                
+                <div class="mt-8 p-4 bg-blue-900/20 border border-blue-900/50 rounded text-sm text-blue-200">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <strong>Motivazione:</strong> Il disaccoppiamento totale tra Frontend e Backend permette cicli di rilascio indipendenti e scalabilità mirata dei container API.
                 </div>
             </div>
-            <div class="card bg-[#1e1e1e] text-gray-300 font-mono text-sm overflow-hidden relative">
-                <div class="absolute top-0 left-0 w-full bg-[#2d2d2d] px-4 py-2 text-xs text-gray-400 flex gap-2">
-                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                    <span class="ml-2">schema.ts</span>
+            <div class="tech-card bg-[#111827] border-gray-700">
+                <div class="flex flex-col justify-between h-full py-8 px-4">
+                    <div class="border border-gray-600 rounded p-4 text-center bg-gray-800">
+                        <i class="fab fa-angular text-red-500 text-3xl mb-2"></i>
+                        <div class="text-xs font-mono">Client (Browser)</div>
+                    </div>
+                    <div class="flex justify-center"><i class="fas fa-arrow-down text-gray-500"></i> <span class="text-xs text-gray-500 ml-2 font-mono">HTTPS / JSON</span></div>
+                    <div class="border border-gray-600 rounded p-4 text-center bg-gray-800">
+                        <i class="fab fa-node text-green-500 text-3xl mb-2"></i>
+                        <div class="text-xs font-mono">API Gateway / Express</div>
+                    </div>
+                    <div class="flex justify-center"><i class="fas fa-arrow-down text-gray-500"></i> <span class="text-xs text-gray-500 ml-2 font-mono">TCP / SQL</span></div>
+                    <div class="flex gap-4">
+                        <div class="border border-gray-600 rounded p-4 text-center bg-gray-800 flex-1">
+                            <i class="fas fa-database text-blue-400 text-2xl mb-2"></i>
+                            <div class="text-xs font-mono">PostgreSQL</div>
+                        </div>
+                        <div class="border border-gray-600 rounded p-4 text-center bg-gray-800 flex-1">
+                            <i class="fab fa-aws text-orange-400 text-2xl mb-2"></i>
+                            <div class="text-xs font-mono">S3 Bucket</div>
+                        </div>
+                    </div>
                 </div>
-                <pre class="p-6 pt-12 overflow-auto h-full">
-<span class="text-purple-400">const</span> UserSchema = z.object({
-  email: z.string().email(),
-  role: z.enum([<span class="text-green-400">'admin'</span>, <span class="text-green-400">'agent'</span>, <span class="text-green-400">'customer'</span>]),
-  password: z.string().min(<span class="text-orange-400">8</span>)
-});
-
-<span class="text-blue-400">type</span> User = z.infer&lt;<span class="text-purple-400">typeof</span> UserSchema&gt;;
-
-<span class="text-gray-500">// Automatic validation & type inference</span>
-app.post(<span class="text-green-400">'/register'</span>, (req, res) => {
-  <span class="text-purple-400">const</span> data = UserSchema.parse(req.body);
-  <span class="text-gray-500">// data is strictly typed here</span>
-});</pre>
             </div>
         </div>
     </div>
 
-    <!-- Slide 5: Backend Design Patterns -->
+    <!-- Slide 5: Backend Design & Patterns -->
     <div class="slide" id="slide-5">
-        <div class="slide-content">
-            <div class="space-y-6">
-                <h2 class="text-5xl font-bold text-primary">Design Patterns</h2>
-                <p class="text-xl text-gray-600">Architettura software robusta e manutenibile.</p>
+        <div class="slide-grid">
+            <div>
+                <h2 class="text-5xl font-bold text-white mb-8">Ingegneria del Backend</h2>
+                <p class="text-xl text-gray-400 mb-8">Design Patterns implementati per manutenibilità e testabilità.</p>
                 
-                <div class="space-y-4 mt-6">
-                    <div class="flex gap-4">
-                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 flex-shrink-0">1</div>
+                <ul class="tech-list space-y-6">
+                    <li>
+                        <i class="fas fa-layer-group"></i>
                         <div>
-                            <h3 class="font-bold text-lg text-primary">Layered Architecture</h3>
-                            <p class="text-gray-500">Separazione netta: Controller (HTTP) &rarr; Service (Business Logic) &rarr; Repository (Data Access).</p>
+                            <strong class="text-white text-lg">Repository Pattern</strong>
+                            <p class="text-gray-400 text-sm mt-1">Astrazione dell'accesso ai dati (Drizzle ORM) dalla Business Logic. Facilita il mocking nei test unitari.</p>
                         </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 flex-shrink-0">2</div>
+                    </li>
+                    <li>
+                        <i class="fas fa-link"></i>
                         <div>
-                            <h3 class="font-bold text-lg text-primary">Repository Pattern</h3>
-                            <p class="text-gray-500">Astrazione dell'accesso ai dati tramite Drizzle ORM, facilitando il testing.</p>
+                            <strong class="text-white text-lg">Chain of Responsibility</strong>
+                            <p class="text-gray-400 text-sm mt-1">Pipeline dei Middleware Express: <span class="font-mono text-xs bg-gray-700 px-1 rounded">Logger -> Auth -> Validation -> Controller</span>.</p>
                         </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 flex-shrink-0">3</div>
+                    </li>
+                    <li>
+                        <i class="fas fa-chess-knight"></i>
                         <div>
-                            <h3 class="font-bold text-lg text-primary">Strategy Pattern</h3>
-                            <p class="text-gray-500">Gestione flessibile dell'autenticazione con Passport.js (Strategie: JWT, Local, Google OAuth).</p>
+                            <strong class="text-white text-lg">Strategy Pattern</strong>
+                            <p class="text-gray-400 text-sm mt-1">Implementato via <strong>Passport.js</strong> per l'intercambiabilità delle strategie di autenticazione (Local, Google OAuth, JWT).</p>
                         </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 flex-shrink-0">4</div>
+                    </li>
+                    <li>
+                        <i class="fas fa-industry"></i>
                         <div>
-                            <h3 class="font-bold text-lg text-primary">Chain of Responsibility</h3>
-                            <p class="text-gray-500">Middleware Express per validazione, auth e logging in sequenza.</p>
+                            <strong class="text-white text-lg">Factory Pattern</strong>
+                            <p class="text-gray-400 text-sm mt-1">Generazione automatica degli schemi di validazione Zod a partire dai modelli Drizzle (<span class="font-mono text-xs bg-gray-700 px-1 rounded">drizzle-zod</span>).</p>
                         </div>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
-            <div class="card flex items-center justify-center bg-gray-50">
-                <img src="https://refactoring.guru/images/patterns/diagrams/strategy/structure.png" alt="Strategy Pattern Diagram" class="max-w-full max-h-full opacity-80 mix-blend-multiply">
+            <div class="tech-card p-0 bg-[#111827]">
+                <div class="code-block h-full border-none rounded-none overflow-auto">
+<span class="comment">// Esempio: Repository Pattern & Dependency Injection</span>
+<span class="keyword">export class</span> PropertyService {
+  <span class="keyword">constructor</span>(
+    <span class="keyword">private</span> repo: <span class="function">PropertyRepository</span>
+  ) {}
+
+  <span class="keyword">async</span> <span class="function">createListing</span>(data: CreatePropertyDto) {
+    <span class="comment">// Business Logic Validation</span>
+    <span class="keyword">if</span> (!data.energyClass) {
+      <span class="keyword">throw new</span> Error(<span class="string">"Energy Class Required"</span>);
+    }
+    
+    <span class="comment">// Data Access Abstraction</span>
+    <span class="keyword">return await</span> <span class="keyword">this</span>.repo.<span class="function">save</span>(data);
+  }
+}
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Slide 6: Frontend Engineering -->
     <div class="slide" id="slide-6">
-        <div class="slide-content">
-            <div class="space-y-6">
-                <h2 class="text-5xl font-bold text-primary">Frontend Engineering</h2>
-                <h3 class="text-2xl text-secondary font-light">Angular 20 & Reactive Patterns</h3>
+        <div class="slide-grid">
+            <div>
+                <h2 class="text-5xl font-bold text-white mb-8">Frontend Engineering</h2>
+                <p class="text-xl text-gray-400 mb-8">Architettura Client Angular 20 & State Management.</p>
                 
-                <ul class="space-y-6 mt-8">
-                    <li class="border-l-4 border-red-500 pl-4">
-                        <h4 class="font-bold text-xl text-primary">Standalone Components</h4>
-                        <p class="text-gray-600">Architettura modulare senza NgModules, lazy loading nativo.</p>
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="bg-surface p-5 rounded border border-gray-600">
+                        <h3 class="text-lg font-bold text-white mb-2">Component-Based Architecture</h3>
+                        <p class="text-gray-400 text-sm">Adozione completa di <strong>Standalone Components</strong>. Eliminazione di NgModules per ridurre boilerplate e migliorare il Tree-shaking.</p>
+                    </div>
+
+                    <div class="bg-surface p-5 rounded border border-gray-600">
+                        <h3 class="text-lg font-bold text-white mb-2">Reactive Programming (RxJS)</h3>
+                        <p class="text-gray-400 text-sm">Gestione asincrona tramite <strong>Observer Pattern</strong>. Uso di Pipeable Operators per trasformazione flussi dati.</p>
+                    </div>
+
+                    <div class="bg-surface p-5 rounded border border-gray-600">
+                        <h3 class="text-lg font-bold text-white mb-2">Service-based State Management</h3>
+                        <p class="text-gray-400 text-sm">Uso di <span class="font-mono text-primary">BehaviorSubject</span> come "Single Source of Truth" per lo stato utente, evitando la complessità accidentale di Redux/NgRx per questo scope.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tech-card p-0 bg-[#111827]">
+                <div class="code-block h-full border-none rounded-none overflow-auto">
+<span class="comment">// auth.service.ts - State Management</span>
+@Injectable({ providedIn: <span class="string">'root'</span> })
+<span class="keyword">export class</span> AuthService {
+  <span class="comment">// Private source of truth</span>
+  <span class="keyword">private</span> _user = <span class="keyword">new</span> <span class="function">BehaviorSubject</span>&lt;User | null&gt;(<span class="keyword">null</span>);
+  
+  <span class="comment">// Public read-only stream</span>
+  user$ = <span class="keyword">this</span>._user.<span class="function">asObservable</span>();
+
+  <span class="function">login</span>(credentials: LoginDto) {
+    <span class="keyword">return this</span>.http.<span class="function">post</span>(<span class="string">'/api/auth'</span>, credentials)
+      .<span class="function">pipe</span>(
+        <span class="function">tap</span>(user => <span class="keyword">this</span>._user.<span class="function">next</span>(user))
+      );
+  }
+}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: Servizi Esterni -->
+    <div class="slide" id="slide-7">
+        <div class="slide-grid">
+            <div>
+                <h2 class="text-5xl font-bold text-white mb-8">Servizi Esterni & Integrazioni</h2>
+                <p class="text-xl text-gray-400 mb-8">Orchestrazione di servizi specializzati per funzionalità avanzate.</p>
+                
+                <ul class="tech-list space-y-8">
+                    <li>
+                        <i class="fas fa-globe-americas text-2xl"></i>
+                        <div>
+                            <strong class="text-white text-xl">PostGIS (Database Extension)</strong>
+                            <p class="text-gray-400 mt-2">Motore geospaziale nativo. Utilizzo della funzione <span class="font-mono text-primary text-sm">ST_DWithin</span> per query di prossimità su coordinate sferiche (WGS 84), superiore ai calcoli euclidei approssimativi.</p>
+                        </div>
                     </li>
-                    <li class="border-l-4 border-blue-500 pl-4">
-                        <h4 class="font-bold text-xl text-primary">Service-based State Management</h4>
-                        <p class="text-gray-600">Gestione dello stato leggera con <code class="bg-gray-200 px-1 rounded text-sm">BehaviorSubject</code> invece di NgRx per ridurre boilerplate.</p>
+                    <li>
+                        <i class="fas fa-cloud-sun text-2xl"></i>
+                        <div>
+                            <strong class="text-white text-xl">OpenMeteo API</strong>
+                            <p class="text-gray-400 mt-2">Integrazione REST per dati meteorologici real-time. Arricchisce l'UX in fase di prenotazione visita, fornendo supporto decisionale all'utente.</p>
+                        </div>
                     </li>
-                    <li class="border-l-4 border-purple-500 pl-4">
-                        <h4 class="font-bold text-xl text-primary">Observer Pattern</h4>
-                        <p class="text-gray-600">Uso intensivo di <strong>RxJS</strong> per gestire flussi di dati asincroni e reattività.</p>
-                    </li>
-                    <li class="border-l-4 border-green-500 pl-4">
-                        <h4 class="font-bold text-xl text-primary">Dependency Injection</h4>
-                        <p class="text-gray-600">Disaccoppiamento dei servizi per testabilità e riuso.</p>
+                    <li>
+                        <i class="fas fa-envelope text-2xl"></i>
+                        <div>
+                            <strong class="text-white text-xl">Nodemailer (SMTP)</strong>
+                            <p class="text-gray-400 mt-2">Gestione asincrona delle notifiche transazionali (Conferma registrazione, Update appuntamenti) per non bloccare il thread principale di Node.js.</p>
+                        </div>
                     </li>
                 </ul>
             </div>
-            <div class="card bg-[#1e1e1e] text-gray-300 font-mono text-sm overflow-hidden relative">
-                 <div class="absolute top-0 left-0 w-full bg-[#2d2d2d] px-4 py-2 text-xs text-gray-400">auth.service.ts</div>
-                 <pre class="p-6 pt-12 overflow-auto h-full">
-@Injectable({ providedIn: <span class="text-green-400">'root'</span> })
-<span class="text-purple-400">export class</span> AuthService {
-  <span class="text-gray-500">// State Management via BehaviorSubject</span>
-  <span class="text-purple-400">private</span> currentUserSubject = 
-    <span class="text-blue-400">new</span> BehaviorSubject&lt;User | null&gt;(<span class="text-blue-400">null</span>);
-    
-  <span class="text-gray-500">// Observable exposed to components</span>
-  public currentUser$ = 
-    <span class="text-blue-400">this</span>.currentUserSubject.asObservable();
-
-  login(credentials: LoginDto) {
-    <span class="text-purple-400">return</span> <span class="text-blue-400">this</span>.http.post(...)
-      .pipe(
-        tap(user => <span class="text-blue-400">this</span>.currentUserSubject.next(user))
-      );
-  }
-}</pre>
-            </div>
-        </div>
-    </div>
-
-    <!-- Slide 7: Feature Spotlight - Geo -->
-    <div class="slide" id="slide-7">
-        <div class="slide-content">
-            <div class="space-y-6">
-                <div class="flex items-center gap-4">
-                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wider">Feature Spotlight</span>
-                </div>
-                <h2 class="text-5xl font-bold text-primary">Ricerca Geospaziale</h2>
-                <p class="text-xl text-gray-600">Potenziata da PostGIS & Leaflet.</p>
-                
-                <div class="space-y-4 mt-6">
-                    <div class="bg-white p-4 rounded shadow-sm border-l-4 border-green-600">
-                        <h3 class="font-bold text-lg">Precisione Spaziale</h3>
-                        <p class="text-gray-600">Uso di <code class="text-red-500 font-mono">ST_DWithin</code> per query su raggio reale (geografia sferica) invece di calcoli euclidei approssimativi.</p>
+            <div class="tech-card bg-surface flex items-center justify-center">
+                <div class="grid grid-cols-2 gap-8 w-full max-w-md">
+                    <div class="bg-gray-800 p-6 rounded text-center border border-gray-600">
+                        <i class="fas fa-database text-4xl text-blue-400 mb-2"></i>
+                        <div class="font-bold">PostGIS</div>
                     </div>
-                    <div class="bg-white p-4 rounded shadow-sm border-l-4 border-blue-600">
-                        <h3 class="font-bold text-lg">Visualizzazione Interattiva</h3>
-                        <p class="text-gray-600">Mappa dinamica Leaflet.js con clustering dei risultati per UX ottimale.</p>
+                    <div class="bg-gray-800 p-6 rounded text-center border border-gray-600">
+                        <i class="fas fa-sun text-4xl text-yellow-400 mb-2"></i>
+                        <div class="font-bold">OpenMeteo</div>
                     </div>
-                </div>
-            </div>
-            <div class="card p-0 overflow-hidden relative">
-                <!-- Placeholder for Map UI -->
-                <div class="absolute inset-0 bg-blue-50 flex items-center justify-center">
-                    <div class="text-center">
-                        <i class="fas fa-map-marked-alt text-6xl text-blue-300 mb-4"></i>
-                        <p class="text-blue-900 font-bold">Interactive Map View</p>
-                        <div class="mt-4 bg-white p-2 rounded shadow text-xs font-mono text-left">
-                            SELECT * FROM properties <br>
-                            WHERE ST_DWithin(<br>
-                            &nbsp;&nbsp;location, <br>
-                            &nbsp;&nbsp;ST_MakePoint(14.2681, 40.8518), <br>
-                            &nbsp;&nbsp;5000<br>
-                            );
-                        </div>
+                    <div class="bg-gray-800 p-6 rounded text-center border border-gray-600 col-span-2">
+                        <i class="fas fa-paper-plane text-4xl text-green-400 mb-2"></i>
+                        <div class="font-bold">SMTP Service</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 8: Feature Spotlight - Appuntamenti -->
+    <!-- Slide 8: Persistenza -->
     <div class="slide" id="slide-8">
-        <div class="slide-content">
-            <div class="space-y-6">
-                <div class="flex items-center gap-4">
-                    <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wider">Feature Spotlight</span>
-                </div>
-                <h2 class="text-5xl font-bold text-primary">Gestione Appuntamenti</h2>
-                <p class="text-xl text-gray-600">Workflow intelligente e integrato.</p>
+        <div class="slide-grid">
+            <div>
+                <h2 class="text-5xl font-bold text-white mb-8">Persistenza dei Dati</h2>
+                <h3 class="text-2xl text-primary font-mono mb-6">Schema ER & ORM Strategy</h3>
+                
+                <div class="space-y-6">
+                    <p class="text-gray-300 leading-relaxed">
+                        Il layer di persistenza è gestito tramite <strong>Drizzle ORM</strong>, scelto per la sua natura "Type-safe" e "Zero-overhead" rispetto a soluzioni più pesanti come TypeORM o Prisma.
+                    </p>
+                    
+                    <ul class="list-disc list-inside text-gray-400 space-y-2 ml-2">
+                        <li>Definizione dello schema in TypeScript (Single Source of Truth).</li>
+                        <li>Migrazioni SQL automatiche.</li>
+                        <li>Integrità referenziale rigorosa (Foreign Keys).</li>
+                    </ul>
 
-                <div class="grid grid-cols-1 gap-6 mt-6">
-                    <div class="flex items-start gap-4">
-                        <div class="bg-blue-500 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-code-branch"></i></div>
-                        <div>
-                            <h3 class="font-bold text-lg">Workflow a Stati</h3>
-                            <p class="text-gray-500">Transizioni rigorose: <span class="bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded text-xs">Pending</span> &rarr; <span class="bg-green-100 text-green-800 px-2 py-0.5 rounded text-xs">Confirmed</span> / <span class="bg-red-100 text-red-800 px-2 py-0.5 rounded text-xs">Rejected</span>.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="bg-orange-500 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-cloud-sun"></i></div>
-                        <div>
-                            <h3 class="font-bold text-lg">Integrazione OpenMeteo</h3>
-                            <p class="text-gray-500">Supporto decisionale real-time: avvisi meteo automatici per le visite programmate all'aperto.</p>
-                        </div>
+                    <div class="mt-8 bg-surface p-4 rounded border-l-4 border-primary">
+                        <strong class="text-white block mb-1">Focus: Relazioni Critiche</strong>
+                        <p class="text-sm text-gray-400">
+                            La relazione <span class="font-mono text-white">Agency (1) &harr; (N) Agent</span> è centrale per il sistema RBAC, vincolando ogni operazione dell'agente al contesto della sua agenzia.
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="card bg-gray-50 flex flex-col items-center justify-center p-8">
-                <div class="w-full max-w-md bg-white rounded-xl shadow-lg overflow-hidden">
-                    <div class="bg-blue-600 p-4 text-white flex justify-between items-center">
-                        <span class="font-bold">Visita Villa Comunale</span>
-                        <span class="text-xs bg-blue-500 px-2 py-1 rounded">Pending</span>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-3 mb-4 text-gray-600">
-                            <i class="far fa-calendar"></i> 12 Maggio 2025
-                        </div>
-                        <div class="flex items-center gap-3 mb-6 text-gray-600">
-                            <i class="far fa-clock"></i> 10:00 - 11:00
-                        </div>
-                        <div class="bg-yellow-50 border border-yellow-200 rounded p-3 flex items-center gap-3">
-                            <i class="fas fa-sun text-yellow-500 text-xl"></i>
-                            <div>
-                                <p class="text-xs font-bold text-yellow-800">Previsione Meteo</p>
-                                <p class="text-xs text-yellow-700">Soleggiato, 24°C. Ottimo per visite.</p>
-                            </div>
-                        </div>
+            <div class="tech-card p-0">
+                <div class="placeholder-box w-full h-full">
+                    <div>
+                        <i class="fas fa-table text-5xl mb-4"></i>
+                        <p>[INSERIRE SCHEMA ER]</p>
+                        <p class="text-xs mt-2 text-gray-500">Entità: Users, Agencies, Properties, Appointments</p>
                     </div>
                 </div>
             </div>
@@ -489,352 +544,156 @@ app.post(<span class="text-green-400">'/register'</span>, (req, res) => {
 
     <!-- Slide 9: DevOps -->
     <div class="slide" id="slide-9">
-        <div class="slide-content">
-            <div class="space-y-6">
-                <h2 class="text-5xl font-bold text-primary">DevOps & Deployment</h2>
-                <p class="text-xl text-gray-600">Automazione e containerizzazione.</p>
+        <div class="slide-grid">
+            <div>
+                <h2 class="text-5xl font-bold text-white mb-8">Processo di Sviluppo & CI/CD</h2>
+                <p class="text-xl text-gray-400 mb-8">Automazione e Quality Assurance.</p>
                 
-                <div class="space-y-6 mt-8">
-                    <div class="group">
-                        <h3 class="text-2xl font-bold text-primary mb-2 flex items-center gap-3">
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white flex items-center gap-3">
                             <i class="fab fa-docker text-blue-500"></i> Docker Strategy
                         </h3>
-                        <p class="text-gray-600 pl-9">
-                            Uso di <strong>Multi-stage Builds</strong> (Builder vs Runner). Immagini finali basate su <code class="bg-gray-200 px-1 rounded">alpine</code> o <code class="bg-gray-200 px-1 rounded">distroless</code> per minimizzare la superficie d'attacco e la dimensione.
+                        <p class="text-gray-400 mt-2 ml-9">
+                            Implementazione di <strong>Multi-stage Builds</strong>.
+                            <br>
+                            <span class="text-sm text-gray-500">Stage 1 (Builder): Compilazione TS e installazione dipendenze dev.</span>
+                            <br>
+                            <span class="text-sm text-gray-500">Stage 2 (Runner): Immagine minimale (Alpine) contenente solo gli artefatti di produzione, rimuovendo il codice sorgente.</span>
                         </p>
                     </div>
-                    <div class="group">
-                        <h3 class="text-2xl font-bold text-primary mb-2 flex items-center gap-3">
-                            <i class="fab fa-github text-gray-700"></i> CI/CD Pipeline
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-white flex items-center gap-3">
+                            <i class="fab fa-github text-gray-100"></i> GitHub Actions
                         </h3>
-                        <div class="pl-9 flex items-center gap-2 text-sm font-mono mt-2">
-                            <span class="bg-gray-100 border px-3 py-1 rounded">Push</span>
-                            <i class="fas fa-arrow-right text-gray-400"></i>
-                            <span class="bg-blue-50 border border-blue-200 text-blue-700 px-3 py-1 rounded">Linting</span>
-                            <i class="fas fa-arrow-right text-gray-400"></i>
-                            <span class="bg-yellow-50 border border-yellow-200 text-yellow-700 px-3 py-1 rounded">Build</span>
-                            <i class="fas fa-arrow-right text-gray-400"></i>
-                            <span class="bg-green-50 border border-green-200 text-green-700 px-3 py-1 rounded">Tests</span>
-                        </div>
+                        <p class="text-gray-400 mt-2 ml-9">
+                            Pipeline automatizzata attivata su ogni Push/PR:
+                            <br>
+                            <span class="font-mono text-xs bg-gray-700 px-2 py-1 rounded text-green-400">Linting (ESLint)</span> &rarr; 
+                            <span class="font-mono text-xs bg-gray-700 px-2 py-1 rounded text-blue-400">Type Check</span> &rarr; 
+                            <span class="font-mono text-xs bg-gray-700 px-2 py-1 rounded text-purple-400">Unit Tests</span>
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-white flex items-center gap-3">
+                            <i class="fas fa-code-branch text-red-500"></i> SonarQube
+                        </h3>
+                        <p class="text-gray-400 mt-2 ml-9">
+                            Analisi statica continua per monitorare il debito tecnico, code smells e duplicazioni.
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="card bg-[#1e1e1e] text-gray-300 font-mono text-sm overflow-hidden relative">
-                <div class="absolute top-0 left-0 w-full bg-[#2d2d2d] px-4 py-2 text-xs text-gray-400">Dockerfile</div>
-                <pre class="p-6 pt-12 overflow-auto h-full">
-<span class="text-gray-500"># Stage 1: Build</span>
-FROM node:20-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build
+            <div class="tech-card p-0 bg-[#111827]">
+                <div class="code-block h-full border-none rounded-none overflow-auto">
+<span class="comment"># .github/workflows/ci.yml</span>
+name: CI Pipeline
 
-<span class="text-gray-500"># Stage 2: Run</span>
-FROM node:20-alpine AS runner
-WORKDIR /app
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/node_modules ./node_modules
-CMD [<span class="text-green-400">"node"</span>, <span class="text-green-400">"dist/main.js"</span>]</pre>
+on: [push, pull_request]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Install Dependencies
+        run: npm ci
+        
+      - name: Linting
+        run: npm run lint
+        
+      - name: Run Tests
+        run: npm run test:coverage
+        
+      - name: Build Docker Image
+        run: docker build . -t dietiestates:latest
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 10: Qualità del Codice -->
+    <!-- Slide 10: Verifica e Validazione -->
     <div class="slide" id="slide-10">
-        <div class="slide-content">
-            <div class="space-y-6">
-                <h2 class="text-5xl font-bold text-primary">Qualità del Codice</h2>
-                <p class="text-xl text-gray-600">Analisi statica continua con SonarQube.</p>
+        <div class="slide-grid">
+            <div>
+                <h2 class="text-5xl font-bold text-white mb-8">Strategia di Testing & Usabilità</h2>
                 
-                <div class="grid grid-cols-2 gap-6 mt-8">
-                    <div class="bg-green-50 border border-green-200 p-6 rounded-xl text-center">
-                        <div class="text-4xl font-bold text-green-600 mb-2">0</div>
-                        <div class="text-sm uppercase tracking-wider text-green-800 font-semibold">Bugs</div>
-                    </div>
-                    <div class="bg-green-50 border border-green-200 p-6 rounded-xl text-center">
-                        <div class="text-4xl font-bold text-green-600 mb-2">0</div>
-                        <div class="text-sm uppercase tracking-wider text-green-800 font-semibold">Vulnerabilities</div>
-                    </div>
-                    <div class="bg-blue-50 border border-blue-200 p-6 rounded-xl text-center">
-                        <div class="text-4xl font-bold text-blue-600 mb-2">A</div>
-                        <div class="text-sm uppercase tracking-wider text-blue-800 font-semibold">Maintainability</div>
-                    </div>
-                    <div class="bg-blue-50 border border-blue-200 p-6 rounded-xl text-center">
-                        <div class="text-4xl font-bold text-blue-600 mb-2">A</div>
-                        <div class="text-sm uppercase tracking-wider text-blue-800 font-semibold">Reliability</div>
-                    </div>
-                </div>
-                <p class="text-sm text-gray-500 mt-4 italic">
-                    * Aderenza rigorosa agli standard Clean Code e regole ESLint 'strict'.
-                </p>
-            </div>
-            <div class="card flex items-center justify-center p-8">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/SonarQube_Logo.svg/1200px-SonarQube_Logo.svg.png" alt="SonarQube" class="w-64 mb-8">
-                <div class="w-full bg-gray-200 rounded-full h-4 mb-2">
-                    <div class="bg-green-500 h-4 rounded-full" style="width: 95%"></div>
-                </div>
-                <div class="flex justify-between w-full text-xs text-gray-500">
-                    <span>Technical Debt: 2h</span>
-                    <span>Quality Gate: Passed</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Slide 11: Testing -->
-    <div class="slide" id="slide-11">
-        <div class="slide-content">
-            <div class="space-y-6">
-                <h2 class="text-5xl font-bold text-primary">Verifica Dinamica</h2>
-                <h3 class="text-2xl text-secondary font-light">Risk-Based Testing Strategy</h3>
-                
-                <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-red-500 mt-6">
-                    <h4 class="font-bold text-lg text-primary mb-2">Approccio Selettivo</h4>
-                    <p class="text-gray-600">
-                        Copertura focalizzata sui moduli <strong>Core Business critici</strong> (algoritmi di ricerca, sicurezza RBAC) tramite Jest.
+                <div class="mb-10">
+                    <h3 class="text-2xl font-bold text-primary mb-4">Risk-Based Testing</h3>
+                    <p class="text-gray-400 mb-4">
+                        Copertura non uniforme, ma focalizzata sui moduli <strong>Core Business critici</strong>.
                     </p>
+                    <ul class="list-disc list-inside text-gray-300 space-y-2">
+                        <li>Unit Testing con <strong>Jest</strong>.</li>
+                        <li>Mocking dei Repository per isolare la Business Logic.</li>
+                        <li>Focus su: Algoritmi di ricerca, Sicurezza RBAC, Metodi distruttivi (<span class="font-mono text-xs">deleteAppointment</span>).</li>
+                    </ul>
                 </div>
 
-                <ul class="space-y-4 mt-6">
-                    <li class="flex items-center gap-3">
-                        <i class="fas fa-check-circle text-green-500"></i>
-                        <span class="text-gray-700">Unit Testing isolato (Mockist approach)</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fas fa-check-circle text-green-500"></i>
-                        <span class="text-gray-700">Test dei Controller e Services</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fas fa-check-circle text-green-500"></i>
-                        <span class="text-gray-700">Verifica dei vincoli di integrità</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="card bg-[#1e1e1e] text-gray-300 font-mono text-sm overflow-hidden relative">
-                <div class="absolute top-0 left-0 w-full bg-[#2d2d2d] px-4 py-2 text-xs text-gray-400">search.service.spec.ts</div>
-                <pre class="p-6 pt-12 overflow-auto h-full">
-describe(<span class="text-green-400">'SearchService'</span>, () => {
-  it(<span class="text-green-400">'should filter properties by radius'</span>, () => {
-    <span class="text-gray-500">// Arrange</span>
-    <span class="text-purple-400">const</span> mockRepo = { find: jest.fn() };
-    <span class="text-purple-400">const</span> service = <span class="text-blue-400">new</span> SearchService(mockRepo);
-    
-    <span class="text-gray-500">// Act</span>
-    service.search({ lat: <span class="text-orange-400">40</span>, lng: <span class="text-orange-400">14</span>, radius: <span class="text-orange-400">5</span> });
-    
-    <span class="text-gray-500">// Assert</span>
-    expect(mockRepo.find).toHaveBeenCalledWith(
-      expect.objectContaining({ 
-        where: expect.any(SQL) 
-      })
-    );
-  });
-});</pre>
-            </div>
-        </div>
-    </div>
-
-    <!-- Slide 12: Usabilità Metodologia -->
-    <div class="slide" id="slide-12">
-        <div class="slide-content">
-            <div class="space-y-6">
-                <h2 class="text-5xl font-bold text-primary">Usabilità: Metodologia</h2>
-                <p class="text-xl text-gray-600">Processo di Design Iterativo User-Centered.</p>
-                
-                <div class="relative mt-12">
-                    <div class="absolute left-8 top-0 bottom-0 w-1 bg-gray-200"></div>
-                    
-                    <div class="relative flex items-center mb-12">
-                        <div class="w-16 h-16 rounded-full bg-blue-500 text-white flex items-center justify-center text-2xl font-bold z-10 shadow-lg">1</div>
-                        <div class="ml-8 bg-white p-4 rounded shadow-sm flex-1">
-                            <h3 class="font-bold text-lg">Prototipazione</h3>
-                            <p class="text-gray-500">Wireframing e High-Fidelity Mockups su <strong>Figma</strong>.</p>
+                <div>
+                    <h3 class="text-2xl font-bold text-success mb-4">Validazione Usabilità</h3>
+                    <p class="text-gray-400 mb-4">
+                        Valutazione tramite <strong>System Usability Scale (SUS)</strong> somministrata a un campione di 23 utenti eterogenei.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="bg-surface px-4 py-2 rounded border border-gray-600">
+                            <span class="text-2xl font-bold text-white">85/100</span>
+                            <span class="text-xs block text-gray-400">SUS Score Medio</span>
                         </div>
-                    </div>
-                    
-                    <div class="relative flex items-center mb-12">
-                        <div class="w-16 h-16 rounded-full bg-purple-500 text-white flex items-center justify-center text-2xl font-bold z-10 shadow-lg">2</div>
-                        <div class="ml-8 bg-white p-4 rounded shadow-sm flex-1">
-                            <h3 class="font-bold text-lg">Valutazione Euristica</h3>
-                            <p class="text-gray-500">Ispezione basata sulle euristiche di Nielsen/Shneiderman.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="relative flex items-center">
-                        <div class="w-16 h-16 rounded-full bg-green-500 text-white flex items-center justify-center text-2xl font-bold z-10 shadow-lg">3</div>
-                        <div class="ml-8 bg-white p-4 rounded shadow-sm flex-1">
-                            <h3 class="font-bold text-lg">User Testing</h3>
-                            <p class="text-gray-500">Test con utenti reali (23 partecipanti) su task specifici.</p>
+                        <div class="bg-surface px-4 py-2 rounded border border-gray-600">
+                            <span class="text-2xl font-bold text-white">A</span>
+                            <span class="text-xs block text-gray-400">Grade</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card flex items-center justify-center bg-gray-50">
-                <i class="fab fa-figma text-9xl text-purple-600 opacity-20"></i>
-                <div class="absolute text-center">
-                    <p class="text-2xl font-bold text-gray-400">Iterative Cycle</p>
-                    <p class="text-sm text-gray-400">Design &rarr; Test &rarr; Refine</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Slide 13: Usabilità Quantitativa -->
-    <div class="slide" id="slide-13">
-        <div class="slide-content">
-            <div class="space-y-6">
-                <h2 class="text-5xl font-bold text-primary">Risultati Quantitativi</h2>
-                <p class="text-xl text-gray-600">Metriche di successo dai test utente.</p>
-                
-                <div class="grid grid-cols-1 gap-6 mt-8">
-                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-8 border-green-500 flex items-center justify-between">
-                        <div>
-                            <h3 class="text-2xl font-bold text-primary">Task "Stato Richiesta"</h3>
-                            <p class="text-gray-500">Tasso di completamento</p>
-                        </div>
-                        <div class="text-5xl font-bold text-green-600">100%</div>
-                    </div>
-                    
-                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-8 border-blue-500 flex items-center justify-between">
-                        <div>
-                            <h3 class="text-2xl font-bold text-primary">Facilità "Ricerca"</h3>
-                            <p class="text-gray-500">Percezione utente (Easy/Very Easy)</p>
-                        </div>
-                        <div class="text-5xl font-bold text-blue-600">90%</div>
-                    </div>
-
-                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-8 border-purple-500 flex items-center justify-between">
-                        <div>
-                            <h3 class="text-2xl font-bold text-primary">Time on Task</h3>
-                            <p class="text-gray-500">Riduzione rispetto al benchmark</p>
-                        </div>
-                        <div class="text-5xl font-bold text-purple-600"><i class="fas fa-arrow-down text-3xl"></i> 15s</div>
-                    </div>
-                </div>
-            </div>
-            <div class="card flex items-center justify-center p-8">
-                <!-- Simple Bar Chart Representation -->
-                <div class="w-full h-64 flex items-end justify-around gap-4">
-                    <div class="w-24 bg-green-200 rounded-t-lg relative group h-full">
-                        <div class="absolute bottom-0 w-full bg-green-500 rounded-t-lg transition-all h-[100%]"></div>
-                        <span class="absolute -bottom-8 left-0 right-0 text-center text-sm font-bold">Success</span>
-                    </div>
-                    <div class="w-24 bg-blue-200 rounded-t-lg relative group h-full">
-                        <div class="absolute bottom-0 w-full bg-blue-500 rounded-t-lg transition-all h-[90%]"></div>
-                        <span class="absolute -bottom-8 left-0 right-0 text-center text-sm font-bold">Ease</span>
-                    </div>
-                    <div class="w-24 bg-purple-200 rounded-t-lg relative group h-full">
-                        <div class="absolute bottom-0 w-full bg-purple-500 rounded-t-lg transition-all h-[85%]"></div>
-                        <span class="absolute -bottom-8 left-0 right-0 text-center text-sm font-bold">Speed</span>
+            <div class="tech-card p-0">
+                <div class="placeholder-box w-full h-full">
+                    <div>
+                        <i class="fas fa-chart-bar text-5xl mb-4"></i>
+                        <p>[INSERIRE GRAFICO RISULTATI SUS]</p>
+                        <p class="text-xs mt-2 text-gray-500">Istogramma distribuzione punteggi</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 14: Usabilità Qualitativa -->
-    <div class="slide" id="slide-14">
-        <div class="slide-content">
-            <div class="space-y-6">
-                <h2 class="text-5xl font-bold text-primary">Risultati Qualitativi</h2>
-                <p class="text-xl text-gray-600">Feedback soggettivo e SUS Score.</p>
+    <!-- Slide 11: Conclusioni -->
+    <div class="slide" id="slide-11">
+        <div class="slide-grid single-col">
+            <div class="flex flex-col items-center justify-center h-full space-y-10">
+                <h2 class="text-6xl font-extrabold text-white">Conclusioni</h2>
+                <p class="text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                    DietiEstates25 rappresenta un sistema <span class="text-primary">moderno</span>, <span class="text-primary">type-safe</span> e <span class="text-primary">scalabile</span>, progettato seguendo rigorosi principi di Ingegneria del Software.
+                </p>
                 
-                <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 rounded-2xl shadow-lg mt-8 text-center">
-                    <p class="text-sm uppercase tracking-widest opacity-80 mb-2">System Usability Scale</p>
-                    <div class="text-7xl font-extrabold mb-2">85/100</div>
-                    <p class="font-medium">Eccellente (Grade A)</p>
-                </div>
-            </div>
-            <div class="card bg-gray-50 flex flex-col justify-center p-12 relative">
-                <i class="fas fa-quote-left text-6xl text-gray-200 absolute top-8 left-8"></i>
-                <blockquote class="text-2xl font-light text-gray-700 italic text-center z-10">
-                    "La mappa interattiva rende la ricerca delle case incredibilmente intuitiva. Capisco subito dove si trovano gli immobili rispetto all'università."
-                </blockquote>
-                <div class="mt-8 text-center">
-                    <div class="font-bold text-primary">Partecipante #14</div>
-                    <div class="text-sm text-gray-500">Studente Fuorisede</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Slide 15: Sviluppi Futuri -->
-    <div class="slide" id="slide-15">
-        <div class="slide-content">
-            <div class="space-y-6">
-                <h2 class="text-5xl font-bold text-primary">Sviluppi Futuri</h2>
-                <p class="text-xl text-gray-600">Roadmap per le prossime release.</p>
-                
-                <div class="grid grid-cols-1 gap-6 mt-8">
-                    <div class="flex items-center gap-6 p-6 bg-white rounded-xl shadow-sm border border-gray-100 transition hover:shadow-md">
-                        <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 text-2xl">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-primary">Real-time Chat</h3>
-                            <p class="text-gray-500">Comunicazione diretta Agente-Cliente via WebSockets (Socket.io).</p>
-                        </div>
+                <div class="grid grid-cols-3 gap-8 w-full max-w-4xl mt-8">
+                    <div class="bg-surface p-6 rounded-lg border border-gray-600">
+                        <i class="fas fa-cubes text-4xl text-primary mb-4"></i>
+                        <h3 class="text-xl font-bold text-white">Architettura Pulita</h3>
+                        <p class="text-sm text-gray-400 mt-2">Separazione delle responsabilità e pattern consolidati.</p>
                     </div>
-                    
-                    <div class="flex items-center gap-6 p-6 bg-white rounded-xl shadow-sm border border-gray-100 transition hover:shadow-md">
-                        <div class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 text-2xl">
-                            <i class="fas fa-vr-cardboard"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-primary">Tour Virtuali 3D</h3>
-                            <p class="text-gray-500">Integrazione viewer 360° per visite remote immersive.</p>
-                        </div>
+                    <div class="bg-surface p-6 rounded-lg border border-gray-600">
+                        <i class="fas fa-lock text-4xl text-success mb-4"></i>
+                        <h3 class="text-xl font-bold text-white">Security by Design</h3>
+                        <p class="text-sm text-gray-400 mt-2">RBAC, Validazione Zod e Protezione dati.</p>
                     </div>
-
-                    <div class="flex items-center gap-6 p-6 bg-white rounded-xl shadow-sm border border-gray-100 transition hover:shadow-md">
-                        <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-2xl">
-                            <i class="fas fa-calculator"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-primary">Calcolatrice Mutui</h3>
-                            <p class="text-gray-500">Tool finanziario integrato con API tassi attuali.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card flex items-center justify-center bg-gray-50">
-                <i class="fas fa-rocket text-9xl text-primary opacity-80"></i>
-            </div>
-        </div>
-    </div>
-
-    <!-- Slide 16: Conclusioni -->
-    <div class="slide" id="slide-16">
-        <div class="slide-content single-col">
-            <div class="flex flex-col items-center justify-center h-full space-y-8 text-center">
-                <h2 class="text-6xl font-extrabold text-primary mb-4">Grazie per l'attenzione</h2>
-                
-                <div class="flex gap-8 mb-12">
-                    <div class="flex flex-col items-center">
-                        <div class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center mb-2 text-2xl text-gray-600"><i class="fas fa-layer-group"></i></div>
-                        <span class="font-bold text-gray-700">Moderna</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center mb-2 text-2xl text-gray-600"><i class="fas fa-expand-arrows-alt"></i></div>
-                        <span class="font-bold text-gray-700">Scalabile</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center mb-2 text-2xl text-gray-600"><i class="fas fa-heart"></i></div>
-                        <span class="font-bold text-gray-700">User-Centric</span>
+                    <div class="bg-surface p-6 rounded-lg border border-gray-600">
+                        <i class="fas fa-user-check text-4xl text-purple-400 mb-4"></i>
+                        <h3 class="text-xl font-bold text-white">UX Curata</h3>
+                        <p class="text-sm text-gray-400 mt-2">Validata empiricamente con utenti reali.</p>
                     </div>
                 </div>
 
-                <div class="bg-white px-8 py-4 rounded-full shadow-lg border border-gray-200 flex items-center gap-4">
-                    <i class="fab fa-github text-3xl text-primary"></i>
-                    <div class="text-left">
-                        <p class="text-xs text-gray-500 uppercase font-bold">Source Code</p>
-                        <p class="text-lg font-mono text-blue-600">github.com/DietiEstates25/repo</p>
+                <div class="mt-12 pt-8 border-t border-gray-700 w-full max-w-2xl">
+                    <div class="flex items-center justify-center gap-4 text-gray-400">
+                        <i class="fab fa-github text-2xl"></i>
+                        <span class="font-mono">github.com/DietiEstates25/repo</span>
                     </div>
-                </div>
-                
-                <div class="mt-12 text-gray-400 text-sm">
-                    <p>Q&A Session</p>
                 </div>
             </div>
         </div>
@@ -845,29 +704,25 @@ describe(<span class="text-green-400">'SearchService'</span>, () => {
 <!-- Navigation Controls -->
 <button class="nav-btn prev-btn" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
 <button class="nav-btn next-btn" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
-<div class="slide-number" id="slideNumber">1 / 16</div>
+<div class="slide-number" id="slideNumber">1 / 11</div>
 
 <script>
     let currentSlide = 1;
-    const totalSlides = 16;
+    const totalSlides = 11;
 
     function showSlide(n) {
-        // Remove active class from all slides
         document.querySelectorAll('.slide').forEach(s => {
             s.classList.remove('active');
         });
         
-        // Handle bounds
         if (n > totalSlides) currentSlide = 1;
         if (n < 1) currentSlide = totalSlides;
         
-        // Add active class to current slide
         const slide = document.getElementById(`slide-${currentSlide}`);
         if (slide) {
             slide.classList.add('active');
         }
         
-        // Update number
         document.getElementById('slideNumber').innerText = `${currentSlide} / ${totalSlides}`;
     }
 
@@ -883,7 +738,6 @@ describe(<span class="text-green-400">'SearchService'</span>, () => {
         showSlide(currentSlide);
     }
 
-    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight' || e.key === 'Space') {
             nextSlide();
@@ -892,7 +746,6 @@ describe(<span class="text-green-400">'SearchService'</span>, () => {
         }
     });
 
-    // Initialize
     showSlide(currentSlide);
 </script>
 
