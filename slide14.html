@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DietiEstates25 - Risultati</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .font-heading {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-unina-blue { color: #003366; }
+        .bg-unina-blue { background-color: #003366; }
+        .bg-unina-blue-light { background-color: rgba(0, 51, 102, 0.05); }
+        .text-unina-red { color: #b5121b; }
+        .bg-unina-red { background-color: #b5121b; }
+        .border-unina-blue { border-color: #003366; }
+        .border-unina-red { border-color: #b5121b; }
+        
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+</head>
+<body>
+<div class="flex flex-col w-[1280px] h-[720px] bg-white relative overflow-hidden shadow-2xl">
+<!-- Decorative Background -->
+<div class="absolute top-0 right-0 w-[600px] h-[600px] bg-gray-50 rounded-full translate-x-1/3 -translate-y-1/3 z-0"></div>
+<div class="absolute bottom-0 left-0 w-[200px] h-[200px] bg-blue-50 rounded-full -translate-x-1/3 translate-y-1/3 z-0"></div>
+<!-- Header -->
+<div class="flex items-center px-16 pt-10 pb-4 z-10">
+<div class="w-2 h-10 bg-unina-red mr-6 rounded-sm"></div>
+<div>
+<p class="font-heading text-unina-blue text-4xl font-bold tracking-tight">Risultati del Progetto</p>
+<p class="font-heading text-gray-500 text-lg font-light tracking-wide mt-1">Sintesi dei traguardi raggiunti e valore consegnato</p>
+</div>
+</div>
+<!-- Main Content -->
+<div class="flex-1 px-16 py-6 z-10">
+<div class="grid grid-cols-2 grid-rows-2 gap-6 h-full pb-4">
+<!-- Card 1: Funzionalità Core -->
+<div class="bg-white rounded-xl p-6 relative group overflow-hidden border border-gray-100 card-shadow">
+<div class="absolute top-0 left-0 w-full h-1.5 bg-unina-blue"></div>
+<div class="flex items-center gap-4 mb-5">
+<div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-unina-blue text-xl">
+<i class="fas fa-layer-group"></i>
+</div>
+<p class="font-heading font-bold text-2xl text-gray-800">Funzionalità Core</p>
+</div>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="fas fa-check-circle text-unina-blue mt-1"></i>
+<div>
+<p class="font-bold text-gray-700">Gestione Annunci Completa</p>
+<p class="text-sm text-gray-500">Pubblicazione, modifica e categorizzazione vendita/affitto.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<i class="fas fa-check-circle text-unina-blue mt-1"></i>
+<div>
+<p class="font-bold text-gray-700">Ricerca Geospaziale</p>
+<p class="text-sm text-gray-500">Filtraggio avanzato e visualizzazione su mappa interattiva.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<i class="fas fa-check-circle text-unina-blue mt-1"></i>
+<div>
+<p class="font-bold text-gray-700">Prenotazioni &amp; Meteo</p>
+<p class="text-sm text-gray-500">Booking visite integrato con previsioni Open-Meteo.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Card 2: Aspetti Tecnici -->
+<div class="bg-white rounded-xl p-6 relative group overflow-hidden border border-gray-100 card-shadow">
+<div class="absolute top-0 left-0 w-full h-1.5 bg-slate-600"></div>
+<div class="flex items-center gap-4 mb-5">
+<div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 text-xl">
+<i class="fas fa-microchip"></i>
+</div>
+<p class="font-heading font-bold text-2xl text-gray-800">Eccellenza Tecnica</p>
+</div>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="fas fa-cubes text-slate-600 mt-1"></i>
+<div>
+<p class="font-bold text-gray-700">Architettura Modulare</p>
+<p class="text-sm text-gray-500">Pattern 3-tier con separazione netta delle responsabilità.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<i class="fas fa-shield-alt text-slate-600 mt-1"></i>
+<div>
+<p class="font-bold text-gray-700">Sicurezza Avanzata</p>
+<p class="text-sm text-gray-500">Autenticazione JWT, validazione Zod rigorosa e hashing.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<i class="fas fa-plug text-slate-600 mt-1"></i>
+<div>
+<p class="font-bold text-gray-700">Integrazioni Stabili</p>
+<p class="text-sm text-gray-500">Google OAuth, AWS S3 e servizi esterni robusti.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Card 3: UX & Performance -->
+<div class="bg-white rounded-xl p-6 relative group overflow-hidden border border-gray-100 card-shadow">
+<div class="absolute top-0 left-0 w-full h-1.5 bg-green-600"></div>
+<div class="flex items-center gap-4 mb-5">
+<div class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center text-green-600 text-xl">
+<i class="fas fa-bolt"></i>
+</div>
+<p class="font-heading font-bold text-2xl text-gray-800">User Experience (UX)</p>
+</div>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="fas fa-mouse-pointer text-green-600 mt-1"></i>
+<div>
+<p class="font-bold text-gray-700">Interazione Fluida</p>
+<p class="text-sm text-gray-500">Mappa reattiva e navigazione intuitiva senza ricaricamenti.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<i class="fas fa-stopwatch text-green-600 mt-1"></i>
+<div>
+<p class="font-bold text-gray-700">Performance Elevate</p>
+<p class="text-sm text-gray-500">Target risposta &lt; 2s raggiunto nel 99% delle richieste.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<i class="fas fa-comment-dots text-green-600 mt-1"></i>
+<div>
+<p class="font-bold text-gray-700">Feedback Immediato</p>
+<p class="text-sm text-gray-500">Sistema di notifiche toast per ogni azione utente.</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Card 4: Qualità & DevOps -->
+<div class="bg-white rounded-xl p-6 relative group overflow-hidden border border-gray-100 card-shadow">
+<div class="absolute top-0 left-0 w-full h-1.5 bg-unina-red"></div>
+<div class="flex items-center gap-4 mb-5">
+<div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center text-unina-red text-xl">
+<i class="fas fa-vial"></i>
+</div>
+<p class="font-heading font-bold text-2xl text-gray-800">Qualità del Codice</p>
+</div>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="fas fa-rocket text-unina-red mt-1"></i>
+<div>
+<p class="font-bold text-gray-700">Pipeline CI/CD</p>
+<p class="text-sm text-gray-500">Automazione completa di build e test con GitHub Actions.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<i class="fas fa-search-plus text-unina-red mt-1"></i>
+<div>
+<p class="font-bold text-gray-700">Analisi Statica</p>
+<p class="text-sm text-gray-500">Monitoraggio qualità con SonarCloud e ESLint.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<i class="fas fa-chart-line text-unina-red mt-1"></i>
+<div>
+<p class="font-bold text-gray-700">Miglioramento Continuo</p>
+<p class="text-sm text-gray-500">Processo iterativo basato su metriche oggettive.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="h-12 border-t border-gray-200 mx-16 flex items-center justify-between z-10">
+<p class="font-heading text-xs text-gray-400 uppercase tracking-widest">DietiEstates25</p>
+<p class="font-heading text-xs text-gray-400">Pagina 15</p>
+</div>
+</div>
+</body>
+</html>

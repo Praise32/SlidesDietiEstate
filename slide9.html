@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DietiEstates25 - Stack Tecnologico</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .font-heading {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-unina-blue { color: #003366; }
+        .bg-unina-blue { background-color: #003366; }
+        .text-unina-red { color: #b5121b; }
+        .bg-unina-red { background-color: #b5121b; }
+        
+        .tech-card {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #f1f5f9;
+        }
+
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .icon-box {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        /* Category Header Strips */
+        .header-strip-frontend { background-color: #dd0031; } /* Angular Red */
+        .header-strip-backend { background-color: #3c873a; } /* Node Green */
+        .header-strip-db { background-color: #336791; } /* Postgres Blue */
+        .header-strip-devops { background-color: #24292e; } /* GitHub/DevOps Dark */
+
+        /* Category Text Colors */
+        .text-frontend { color: #dd0031; }
+        .text-backend { color: #3c873a; }
+        .text-db { color: #336791; }
+        .text-devops { color: #4a5568; }
+
+        /* Background Accents */
+        .bg-frontend-light { background-color: #fff5f5; }
+        .bg-backend-light { background-color: #f0fdf4; }
+        .bg-db-light { background-color: #eff6ff; }
+        .bg-devops-light { background-color: #f7fafc; }
+    </style>
+</head>
+<body>
+<div class="flex flex-col w-[1280px] h-[720px] bg-white relative overflow-hidden shadow-2xl">
+<!-- Decorative Background -->
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-gray-50 rounded-bl-full z-0 opacity-50"></div>
+<div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-50 rounded-tr-full z-0 opacity-40"></div>
+<!-- Header -->
+<div class="flex items-center px-16 pt-10 pb-6 z-10">
+<div class="w-2 h-10 bg-unina-red mr-6 rounded-sm"></div>
+<div>
+<p class="font-heading text-unina-blue text-4xl font-bold tracking-tight">Stack Tecnologico</p>
+<p class="font-heading text-gray-500 text-lg font-light tracking-wide mt-1">Strumenti e librerie selezionati per lo sviluppo</p>
+</div>
+</div>
+<!-- Main Grid Content -->
+<div class="flex-1 px-16 pb-12 z-10">
+<div class="grid grid-cols-2 gap-6 h-full">
+<!-- FRONTEND CARD -->
+<div class="tech-card border-t-[6px] border-t-[#dd0031]">
+<div class="p-4 border-b border-gray-100 bg-frontend-light flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="icon-box bg-white text-[#dd0031] shadow-sm">
+<i class="fab fa-angular"></i>
+</div>
+<h3 class="font-heading font-bold text-xl text-gray-800">Frontend</h3>
+</div>
+<span class="text-xs font-bold uppercase tracking-wider text-[#dd0031] bg-white px-2 py-1 rounded border border-[#dd0031] border-opacity-20">Client SPA</span>
+</div>
+<div class="p-5 grid grid-cols-2 gap-3 content-start flex-1 overflow-visible">
+<div class="tech-item">
+<i class="fab fa-angular text-[#dd0031] text-xl"></i>
+<div>
+<p class="font-bold text-gray-700 text-sm">Angular 20</p>
+<p class="text-[10px] text-gray-500">Core Framework</p>
+</div>
+</div>
+<div class="tech-item">
+<i class="fab fa-js-square text-[#3178c6] text-xl"></i>
+<div>
+<p class="font-bold text-gray-700 text-sm">TypeScript</p>
+<p class="text-[10px] text-gray-500">Language</p>
+</div>
+</div>
+<div class="tech-item">
+<i class="fab fa-sass text-[#c69] text-xl"></i>
+<div>
+<p class="font-bold text-gray-700 text-sm">SCSS</p>
+<p class="text-[10px] text-gray-500">Styling</p>
+</div>
+</div>
+<div class="tech-item">
+<i class="fas fa-bolt text-[#b7178c] text-xl"></i>
+<div>
+<p class="font-bold text-gray-700 text-sm">RxJS</p>
+<p class="text-[10px] text-gray-500">Reactive State</p>
+</div>
+</div>
+<div class="tech-item">
+<i class="fas fa-map-marked-alt text-[#199900] text-xl"></i>
+<div>
+<p class="font-bold text-gray-700 text-sm">Leaflet</p>
+<p class="text-[10px] text-gray-500">Interactive Maps</p>
+</div>
+</div>
+<div class="tech-item">
+<i class="fas fa-calendar-alt text-[#3788d8] text-xl"></i>
+<div>
+<p class="font-bold text-gray-700 text-sm">FullCalendar</p>
+<p class="text-[10px] text-gray-500">Scheduling</p>
+</div>
+</div>
+<div class="tech-item col-span-2">
+<i class="fas fa-bell text-[#f39c12] text-xl"></i>
+<div>
+<p class="font-bold text-gray-700 text-sm">ngx-toastr</p>
+<p class="text-[10px] text-gray-500">Notifications</p>
+</div>
+</div>
+</div>
+</div>
+<!-- BACKEND CARD -->
+<div class="tech-card border-t-[6px] border-t-[#3c873a]">
+<div class="p-4 border-b border-gray-100 bg-backend-light flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="icon-box bg-white text-[#3c873a] shadow-sm">
+<i class="fab fa-node-js"></i>
+</div>
+<h3 class="font-heading font-bold text-xl text-gray-800">Backend</h3>
+</div>
+<span class="text-xs font-bold uppercase tracking-wider text-[#3c873a] bg-white px-2 py-1 rounded border border-[#3c873a] border-opacity-20">Server API</span>
+</div>
+<div class="p-5 grid grid-cols-2 gap-3 content-start flex-1">
+<div class="tech-item">
+<i class="fab fa-node text-[#3c873a] text-xl"></i>
+<div>
+<p class="font-bold text-gray-700 text-sm">Node.js 20</p>
+<p class="text-[10px] text-gray-500">Runtime</p>
+</div>
+</div>
+<div class="tech-item">
+<i class="fas fa-server text-gray-600 text-xl"></i>
+<div>
+<p class="font-bold text-gray-700 text-sm">Express 5</p>
+<p class="text-[10px] text-gray-500">Web Framework</p>
+</div>
+</div>
+<div class="tech-item">
+<i class="fas fa-database text-[#c5f467] text-xl" style="color: #8cba34;"></i>
+<div>
+<p class="font-bold text-gray-700 text-sm">Drizzle ORM</p>
+<p class="text-[10px] text-gray-500">Data Access</p>
+</div>
+</div>
+<div class="tech-item">
+<i class="fas fa-check-double text-[#3068b2] text-xl"></i>
+<div>
+<p class="font-bold text-gray-700 text-sm">Zod</p>
+<p class="text-[10px] text-gray-500">Validation</p>
+</div>
+</div>
+<div class="tech-item">
+<i class="fas fa-id-card text-[#2c3e50] text-xl"></i>
+<div>
+<p class="font-bold text-gray-700 text-sm">Passport</p>
+<p class="text-[10px] text-gray-500">Auth Strategy</p>
+</div>
+</div>
+<div class="tech-item">
+<i class="fab fa-aws text-[#ff9900] text-xl"></i>
+<div>
+<p class="font-bold text-gray-700 text-sm">AWS SDK</p>
+<p class="text-[10px] text-gray-500">S3 Storage</p>
+</div>
+</div>
+<div class="tech-item col-span-2">
+<i class="fas fa-lock text-[#4a5568] text-xl"></i>
+<div>
+<p class="font-bold text-gray-700 text-sm">bcrypt &amp; JWT</p>
+<p class="text-[10px] text-gray-500">Security &amp; Hashing</p>
+</div>
+</div>
+</div>
+</div>
+<!-- DATABASE CARD -->
+<div class="tech-card border-t-[6px] border-t-[#336791]">
+<div class="p-4 border-b border-gray-100 bg-db-light flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="icon-box bg-white text-[#336791] shadow-sm">
+<i class="fas fa-database"></i>
+</div>
+<h3 class="font-heading font-bold text-xl text-gray-800">Database</h3>
+</div>
+<span class="text-xs font-bold uppercase tracking-wider text-[#336791] bg-white px-2 py-1 rounded border border-[#336791] border-opacity-20">Persistence</span>
+</div>
+<div class="p-5 flex flex-col gap-3 justify-center h-full">
+<div class="tech-item bg-blue-50 border-blue-100">
+<i class="fas fa-server text-[#336791] text-2xl"></i>
+<div class="flex-1">
+<p class="font-bold text-gray-800 text-base">PostgreSQL 16</p>
+<p class="text-xs text-gray-500">Relational Database Management System</p>
+</div>
+</div>
+<div class="flex items-center justify-center py-2">
+<i class="fas fa-plus text-gray-300"></i>
+</div>
+<div class="tech-item bg-green-50 border-green-100">
+<i class="fas fa-globe-americas text-[#336791] text-2xl"></i>
+<div class="flex-1">
+<p class="font-bold text-gray-800 text-base">PostGIS</p>
+<p class="text-xs text-gray-500">Spatial and Geographic Objects for PostgreSQL</p>
+</div>
+</div>
+</div>
+</div>
+<!-- DEVOPS & QUALITY CARD -->
+<div class="tech-card border-t-[6px] border-t-[#24292e]">
+<div class="p-4 border-b border-gray-100 bg-devops-light flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="icon-box bg-white text-[#24292e] shadow-sm">
+<i class="fas fa-tools"></i>
+</div>
+<h3 class="font-heading font-bold text-xl text-gray-800">DevOps &amp; QA</h3>
+</div>
+<span class="text-xs font-bold uppercase tracking-wider text-[#24292e] bg-white px-2 py-1 rounded border border-[#24292e] border-opacity-20">Tools</span>
+</div>
+<div class="p-5 grid grid-cols-2 gap-3 content-start flex-1">
+<div class="tech-item">
+<i class="fab fa-docker text-[#0db7ed] text-xl"></i>
+<div>
+<p class="font-bold text-gray-700 text-sm">Docker</p>
+<p class="text-[10px] text-gray-500">Containerization</p>
+</div>
+</div>
+<div class="tech-item">
+<i class="fab fa-github text-[#24292e] text-xl"></i>
+<div>
+<p class="font-bold text-gray-700 text-sm">GitHub Actions</p>
+<p class="text-[10px] text-gray-500">CI/CD Pipeline</p>
+</div>
+</div>
+<div class="tech-item">
+<i class="fas fa-check-circle text-[#4b32c3] text-xl"></i>
+<div>
+<p class="font-bold text-gray-700 text-sm">ESLint</p>
+<p class="text-[10px] text-gray-500">Linting</p>
+</div>
+</div>
+<div class="tech-item">
+<i class="fas fa-cloud text-[#f3702a] text-xl"></i>
+<div>
+<p class="font-bold text-gray-700 text-sm">SonarCloud</p>
+<p class="text-[10px] text-gray-500">Code Quality</p>
+</div>
+</div>
+<div class="tech-item col-span-2">
+<i class="fas fa-vial text-[#99424f] text-xl"></i>
+<div>
+<p class="font-bold text-gray-700 text-sm">Jest &amp; Supertest</p>
+<p class="text-[10px] text-gray-500">Unit &amp; Integration Testing</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="h-12 border-t border-gray-200 mx-16 flex items-center justify-between z-10">
+<p class="font-heading text-xs text-gray-400 uppercase tracking-widest">DietiEstates25</p>
+<p class="font-heading text-xs text-gray-400">Pagina 10</p>
+</div>
+</div>
+</body>
+</html>

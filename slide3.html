@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DietiEstates25 - Introduzione e Obiettivi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            900: '#0F172A', /* Deep Navy Blue */
+                            800: '#1E293B',
+                        },
+                        brand: {
+                            teal: '#14B8A6', /* Teal/Smeraldo */
+                            light: '#CCFBF1',
+                        },
+                        ice: '#F8FAFC', /* Sfondo Grigio Ghiaccio */
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            background-color: #F8FAFC; /* Ice Gray */
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            color: #334155; /* Slate 700 for body text */
+        }
+
+        /* Bento Box Style */
+        .bento-card {
+            background: #ffffff;
+            border: 1px solid #E2E8F0;
+            border-radius: 1.5rem; /* 24px rounded corners */
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.02), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+        }
+
+        /* Minimal Gradient Text */
+        .text-gradient {
+            background: linear-gradient(135deg, #0F172A 0%, #334155 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-ice relative">
+
+    <div class="absolute top-[-100px] right-[-100px] w-[500px] h-[500px] bg-brand-teal opacity-[0.03] rounded-full blur-3xl z-0"></div>
+    <div class="absolute bottom-[-50px] left-[-50px] w-[300px] h-[300px] bg-navy-900 opacity-[0.02] rounded-full blur-3xl z-0"></div>
+
+    <div class="flex flex-col w-full h-full relative z-10 p-12">
+        
+        <div class="flex justify-between items-end mb-8 px-2">
+            <div>
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="px-3 py-1 bg-brand-light text-brand-teal text-xs font-bold uppercase tracking-widest rounded-full">Progetto Software</span>
+                </div>
+                <h1 class="text-4xl font-extrabold tracking-tight text-navy-900">DietiEstates25</h1>
+                <p class="text-slate-500 font-medium text-lg mt-1">Piattaforma Immobiliare Next-Gen</p>
+            </div>
+            <div class="text-right">
+                <p class="text-sm font-semibold text-slate-400">INTRODUZIONE</p>
+            </div>
+        </div>
+
+        <div class="flex-1 grid grid-cols-12 grid-rows-6 gap-6">
+
+            <div class="bento-card col-span-4 row-span-3 p-8 flex flex-col justify-center relative overflow-hidden group">
+                <i class="ph ph-buildings absolute -right-4 -bottom-4 text-9xl text-slate-50 opacity-50 rotate-12 transition-transform group-hover:rotate-0"></i>
+                
+                <div class="w-10 h-10 rounded-xl bg-navy-900 flex items-center justify-center text-white mb-6 shadow-md shadow-navy-900/20">
+                    <i class="ph ph-globe-hemisphere-west text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-navy-900 mb-3">Il Contesto</h3>
+                <p class="text-sm leading-relaxed text-slate-600">
+                    DietiEstates25 ridefinisce la gestione immobiliare connettendo agenzie e clienti in un ecosistema digitale fluido. Gestione inserzioni, matching geolocalizzato e booking in tempo reale.
+                </p>
+            </div>
+
+            <div class="bento-card col-span-4 row-span-3 p-8 bg-slate-900 border-none relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-white/5 to-transparent"></div>
+                
+                <h3 class="text-xl font-bold text-white mb-6 relative z-10 flex items-center gap-2">
+                    <i class="ph ph-lightning text-brand-teal"></i> Core Values
+                </h3>
+                
+                <ul class="space-y-5 relative z-10">
+                    <li class="flex items-start gap-4">
+                        <i class="ph-fill ph-check-circle text-brand-teal text-xl mt-0.5"></i>
+                        <div>
+                            <p class="font-semibold text-white text-sm">UX Frictionless</p>
+                            <p class="text-slate-400 text-xs mt-1">Interfaccia immediata.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <i class="ph-fill ph-check-circle text-brand-teal text-xl mt-0.5"></i>
+                        <div>
+                            <p class="font-semibold text-white text-sm">Cloud Native</p>
+                            <p class="text-slate-400 text-xs mt-1">Docker & Scalabilità.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <i class="ph-fill ph-check-circle text-brand-teal text-xl mt-0.5"></i>
+                        <div>
+                            <p class="font-semibold text-white text-sm">Ecosistema API</p>
+                            <p class="text-slate-400 text-xs mt-1">Google, Maps & Meteo.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bento-card col-span-4 row-span-3 p-6 hover:border-brand-teal/30 transition-colors">
+                <div class="w-10 h-10 rounded-lg bg-brand-light text-brand-teal flex items-center justify-center mb-4">
+                    <i class="ph ph-pencil-simple-line text-xl"></i>
+                </div>
+                <h4 class="font-bold text-navy-900 mb-2">Gestione Semplificata</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                    Workflow ottimizzato per creazione e pubblicazione inserzioni. Gestione categorie (vendita/affitto) e media senza frizioni.
+                </p>
+            </div>
+
+            <div class="bento-card col-span-4 row-span-3 p-6 hover:border-brand-teal/30 transition-colors">
+                <div class="w-10 h-10 rounded-lg bg-brand-light text-brand-teal flex items-center justify-center mb-4">
+                    <i class="ph ph-map-trifold text-xl"></i>
+                </div>
+                <h4 class="font-bold text-navy-900 mb-2">Geo-Discovery</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                    Esperienza di ricerca potenziata da filtri granulari e mappa interattiva geospaziale per una localizzazione precisa.
+                </p>
+            </div>
+
+            <div class="bento-card col-span-4 row-span-3 p-6 hover:border-brand-teal/30 transition-colors">
+                <div class="w-10 h-10 rounded-lg bg-brand-light text-brand-teal flex items-center justify-center mb-4">
+                    <i class="ph ph-calendar-check text-xl"></i>
+                </div>
+                <h4 class="font-bold text-navy-900 mb-2">Smart Booking</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                    Sistema di prenotazione visite diretto con notifiche real-time agli agenti e integrazione meteo previsionale.
+                </p>
+            </div>
+
+            <div class="bento-card col-span-4 row-span-3 p-6 hover:border-brand-teal/30 transition-colors">
+                <div class="w-10 h-10 rounded-lg bg-brand-light text-brand-teal flex items-center justify-center mb-4">
+                    <i class="ph ph-shield-check text-xl"></i>
+                </div>
+                <h4 class="font-bold text-navy-900 mb-2">Security & Speed</h4>
+                <p class="text-xs text-slate-500 leading-relaxed">
+                    Protezione dati enterprise-grade, auth JWT/OAuth sicura e latenza ridotta (&lt; 2s) per massime performance.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="mt-6 flex justify-between items-center text-xs font-medium text-slate-400 px-2">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-brand-teal"></div>
+                <span>INGSW2425_041</span>
+            </div>
+            <span>03 / 14</span>
+        </div>
+    </div>
+</body>
+</html>
