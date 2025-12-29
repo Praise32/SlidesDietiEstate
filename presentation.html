@@ -307,8 +307,8 @@
                     <div class="flex items-start gap-6">
                         <div class="w-12 h-12 rounded-full bg-gray-700 border border-gray-500 flex items-center justify-center text-xl font-bold text-white z-10">3</div>
                         <div>
-                            <h4 class="text-xl font-bold text-white">Data Layer</h4>
-                            <p class="text-gray-400 mt-1">PostgreSQL (Relazionale) + AWS S3 (Object Storage).</p>
+                            <h4 class="text-xl font-bold text-white">Data Layer (Hybrid-Cloud)</h4>
+                            <p class="text-gray-400 mt-1">PaaS NeonDB (Serverless Postgres) + AWS S3.</p>
                             <p class="text-sm text-gray-500 mt-1 font-mono">ACID Compliance + Scalable Blob Storage.</p>
                         </div>
                     </div>
@@ -461,43 +461,54 @@
                 <h2 class="text-5xl font-bold text-white mb-8">Servizi Esterni & Integrazioni</h2>
                 <p class="text-xl text-gray-400 mb-8">Orchestrazione di servizi specializzati per funzionalità avanzate.</p>
                 
-                <ul class="tech-list space-y-8">
+                <ul class="tech-list space-y-5">
                     <li>
                         <i class="fas fa-globe-americas text-2xl"></i>
                         <div>
                             <strong class="text-white text-xl">PostGIS (Database Extension)</strong>
-                            <p class="text-gray-400 mt-2">Motore geospaziale nativo. Utilizzo della funzione <span class="font-mono text-primary text-sm">ST_DWithin</span> per query di prossimità su coordinate sferiche (WGS 84), superiore ai calcoli euclidei approssimativi.</p>
+                            <p class="text-gray-400 mt-1">Motore geospaziale nativo. Utilizzo della funzione <span class="font-mono text-primary text-sm">ST_DWithin</span> per query di prossimità su coordinate sferiche (WGS 84).</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marked-alt text-2xl"></i>
+                        <div>
+                            <strong class="text-white text-xl">Leaflet & OpenStreetMap</strong>
+                            <p class="text-gray-400 mt-1">Libreria client-side per mappe interattive. Rendering dei marker immobiliari e gestione eventi geospaziali su tile server OSM.</p>
                         </div>
                     </li>
                     <li>
                         <i class="fas fa-cloud-sun text-2xl"></i>
                         <div>
                             <strong class="text-white text-xl">OpenMeteo API</strong>
-                            <p class="text-gray-400 mt-2">Integrazione REST per dati meteorologici real-time. Arricchisce l'UX in fase di prenotazione visita, fornendo supporto decisionale all'utente.</p>
+                            <p class="text-gray-400 mt-1">Integrazione REST per dati meteorologici real-time. Arricchisce l'UX in fase di prenotazione visita.</p>
                         </div>
                     </li>
                     <li>
                         <i class="fas fa-envelope text-2xl"></i>
                         <div>
                             <strong class="text-white text-xl">Nodemailer (SMTP)</strong>
-                            <p class="text-gray-400 mt-2">Gestione asincrona delle notifiche transazionali (Conferma registrazione, Update appuntamenti) per non bloccare il thread principale di Node.js.</p>
+                            <p class="text-gray-400 mt-1">Gestione asincrona delle notifiche transazionali (Conferma registrazione, Update appuntamenti).</p>
                         </div>
                     </li>
                 </ul>
             </div>
             <div class="tech-card bg-surface flex items-center justify-center">
-                <div class="grid grid-cols-2 gap-8 w-full max-w-md">
-                    <div class="bg-gray-800 p-6 rounded text-center border border-gray-600">
-                        <i class="fas fa-database text-4xl text-blue-400 mb-2"></i>
-                        <div class="font-bold">PostGIS</div>
+                <div class="grid grid-cols-2 gap-6 w-full max-w-md">
+                    <div class="bg-gray-800 p-5 rounded text-center border border-gray-600">
+                        <i class="fas fa-database text-3xl text-blue-400 mb-2"></i>
+                        <div class="font-bold text-sm">PostGIS</div>
                     </div>
-                    <div class="bg-gray-800 p-6 rounded text-center border border-gray-600">
-                        <i class="fas fa-sun text-4xl text-yellow-400 mb-2"></i>
-                        <div class="font-bold">OpenMeteo</div>
+                    <div class="bg-gray-800 p-5 rounded text-center border border-gray-600">
+                        <i class="fas fa-map-marked-alt text-3xl text-purple-400 mb-2"></i>
+                        <div class="font-bold text-sm">Leaflet</div>
                     </div>
-                    <div class="bg-gray-800 p-6 rounded text-center border border-gray-600 col-span-2">
-                        <i class="fas fa-paper-plane text-4xl text-green-400 mb-2"></i>
-                        <div class="font-bold">SMTP Service</div>
+                    <div class="bg-gray-800 p-5 rounded text-center border border-gray-600">
+                        <i class="fas fa-sun text-3xl text-yellow-400 mb-2"></i>
+                        <div class="font-bold text-sm">OpenMeteo</div>
+                    </div>
+                    <div class="bg-gray-800 p-5 rounded text-center border border-gray-600">
+                        <i class="fas fa-paper-plane text-3xl text-green-400 mb-2"></i>
+                        <div class="font-bold text-sm">SMTP</div>
                     </div>
                 </div>
             </div>
@@ -559,7 +570,7 @@
                             <br>
                             <span class="text-sm text-gray-500">Stage 1 (Builder): Compilazione TS e installazione dipendenze dev.</span>
                             <br>
-                            <span class="text-sm text-gray-500">Stage 2 (Runner): Immagine minimale (Alpine) contenente solo gli artefatti di produzione, rimuovendo il codice sorgente.</span>
+                            <span class="text-sm text-gray-500">Stage 2 (Runner): Immagine minimale (Distroless) contenente solo gli artefatti di produzione, rimuovendo il codice sorgente.</span>
                         </p>
                     </div>
 
@@ -636,16 +647,20 @@ jobs:
                 <div>
                     <h3 class="text-2xl font-bold text-success mb-4">Validazione Usabilità</h3>
                     <p class="text-gray-400 mb-4">
-                        Valutazione tramite <strong>System Usability Scale (SUS)</strong> somministrata a un campione di 23 utenti eterogenei.
+                        Valutazione tramite <strong>System Usability Scale (SUS)</strong> e misurazione Time-on-Task.
                     </p>
                     <div class="flex items-center gap-4">
                         <div class="bg-surface px-4 py-2 rounded border border-gray-600">
-                            <span class="text-2xl font-bold text-white">85/100</span>
-                            <span class="text-xs block text-gray-400">SUS Score Medio</span>
+                            <span class="text-2xl font-bold text-white">88.9</span>
+                            <span class="text-xs block text-gray-400">SUS Score</span>
                         </div>
                         <div class="bg-surface px-4 py-2 rounded border border-gray-600">
                             <span class="text-2xl font-bold text-white">A</span>
                             <span class="text-xs block text-gray-400">Grade</span>
+                        </div>
+                        <div class="bg-surface px-4 py-2 rounded border border-gray-600">
+                            <span class="text-2xl font-bold text-white">35s</span>
+                            <span class="text-xs block text-gray-400">Booking Task</span>
                         </div>
                     </div>
                 </div>
