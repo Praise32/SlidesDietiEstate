@@ -152,6 +152,22 @@
             text-align: center;
             padding: 2rem;
         }
+        
+        /* Custom Scrollbar */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1F2937; 
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #4B5563; 
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #6B7280; 
+        }
     </style>
 </head>
 <body>
@@ -388,12 +404,13 @@
                     </div>
                 </div>
             </div>
-            <div class="tech-card p-0 flex items-center justify-center">
-                <div class="placeholder-box w-full" style="height: 450px;">
-                    <div>
-                        <i class="fas fa-project-diagram text-3xl mb-2"></i>
-                        <p class="text-sm">[INSERIRE DIAGRAMMA UML USE CASE]</p>
-                        <p class="text-[10px] mt-1 text-gray-500">Focus: Relazione Generalizzazione User -> Staff</p>
+            <div class="tech-card p-0 flex items-center justify-center overflow-hidden">
+                <div class="flex flex-col h-full w-full p-4 gap-4">
+                    <div class="flex-1 bg-white rounded-lg p-2 flex items-center justify-center min-h-0">
+                        <img src="UseCaseUtentiNonRegistrati.png" alt="Use Case Utenti Non Registrati" class="max-w-full max-h-full object-contain">
+                    </div>
+                    <div class="flex-1 bg-white rounded-lg p-2 flex items-center justify-center min-h-0">
+                        <img src="UseCaseUtentiRegistrati.drawio.jpg" alt="Use Case Utenti Registrati" class="max-w-full max-h-full object-contain">
                     </div>
                 </div>
             </div>
@@ -865,13 +882,9 @@
                     </div>
                 </div>
             </div>
-            <div class="tech-card p-0">
-                <div class="placeholder-box w-full h-full">
-                    <div>
-                        <i class="fas fa-table text-5xl mb-4"></i>
-                        <p>[INSERIRE SCHEMA ER]</p>
-                        <p class="text-xs mt-2 text-gray-500">Entità: Users, Agencies, Properties, Appointments</p>
-                    </div>
+            <div class="tech-card p-0 flex items-center justify-center overflow-hidden">
+                <div class="w-full h-full bg-white p-2 flex items-center justify-center">
+                    <img src="ErUML.png" alt="ER Schema" class="max-w-full max-h-full object-contain">
                 </div>
             </div>
         </div>
