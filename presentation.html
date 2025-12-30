@@ -641,51 +641,176 @@
 
     <!-- Slide 6: Frontend Engineering -->
     <div class="slide" id="slide-6">
-        <div class="slide-grid">
-            <div>
-                <h2 class="text-5xl font-bold text-white mb-8">Frontend Engineering</h2>
-                <p class="text-xl text-gray-400 mb-8">Architettura Client Angular 20 & State Management.</p>
-                
-                <div class="grid grid-cols-1 gap-6">
-                    <div class="bg-surface p-5 rounded border border-gray-600">
-                        <h3 class="text-lg font-bold text-white mb-2">Component-Based Architecture</h3>
-                        <p class="text-gray-400 text-sm">Adozione completa di <strong>Standalone Components</strong>. Eliminazione di NgModules per ridurre boilerplate e migliorare il Tree-shaking.</p>
-                    </div>
+        <div class="slide-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <!-- Left Column: Frontend Structure -->
+            <div class="space-y-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-2">Struttura del Client (Front-end)</h2>
+                    <p class="text-sm text-gray-400 mb-4">L'architettura del client è suddivisa seguendo il pattern Component-Based Architecture con separazione delle responsabilità:</p>
+                </div>
 
-                    <div class="bg-surface p-5 rounded border border-gray-600">
-                        <h3 class="text-lg font-bold text-white mb-2">Reactive Programming (RxJS)</h3>
-                        <p class="text-gray-400 text-sm">Gestione asincrona tramite <strong>Observer Pattern</strong>. Uso di Pipeable Operators per trasformazione flussi dati.</p>
-                    </div>
+                <!-- Component-Based Architecture -->
+                <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-primary">
+                    <h3 class="text-base font-bold text-white mb-3 flex items-center gap-2">
+                        <i class="fas fa-cubes text-primary"></i>
+                        Component-Based Architecture
+                    </h3>
+                    <div class="space-y-3 text-xs">
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600">
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-[10px] font-bold">M</span>
+                                <strong class="text-white text-sm">Model (Service Layer)</strong>
+                            </div>
+                            <p class="text-gray-300 leading-relaxed">
+                                I <strong>Servizi Angular</strong> gestiscono i dati e la logica di business. Comunicano con il backend tramite HTTP e gestiscono lo stato applicativo locale.
+                            </p>
+                        </div>
 
-                    <div class="bg-surface p-5 rounded border border-gray-600">
-                        <h3 class="text-lg font-bold text-white mb-2">Service-based State Management</h3>
-                        <p class="text-gray-400 text-sm">Uso di <span class="font-mono text-primary">BehaviorSubject</span> come "Single Source of Truth" per lo stato utente, evitando la complessità accidentale di Redux/NgRx per questo scope.</p>
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600">
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center text-[10px] font-bold">V</span>
+                                <strong class="text-white text-sm">View (Template HTML + CSS)</strong>
+                            </div>
+                            <p class="text-gray-300 leading-relaxed">
+                                Il <strong>template HTML</strong> definisce la struttura e il <strong>CSS</strong> lo stile, privi di logica complessa. Utilizzano direttive Angular per il binding reattivo.
+                            </p>
+                        </div>
+
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600">
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="w-6 h-6 rounded-full bg-purple-500 flex items-center justify-center text-[10px] font-bold">VM</span>
+                                <strong class="text-white text-sm">ViewModel (Component Class)</strong>
+                            </div>
+                            <p class="text-gray-300 leading-relaxed">
+                                La <strong>classe TypeScript</strong> del componente espone proprietà e metodi alla View tramite <strong>Data Binding</strong>. Gestisce eventi e interazioni utente.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="tech-card p-0 bg-[#111827]">
-                <div class="code-block h-full border-none rounded-none overflow-auto">
-<span class="comment">// auth.service.ts - State Management</span>
-@Injectable({ providedIn: <span class="string">'root'</span> })
-<span class="keyword">export class</span> AuthService {
-  <span class="comment">// Private source of truth</span>
-  <span class="keyword">private</span> _user = <span class="keyword">new</span> <span class="function">BehaviorSubject</span>&lt;User | null&gt;(<span class="keyword">null</span>);
-  
-  <span class="comment">// Public read-only stream</span>
-  user$ = <span class="keyword">this</span>._user.<span class="function">asObservable</span>();
 
-  <span class="function">login</span>(credentials: LoginDto) {
-    <span class="keyword">return this</span>.http.<span class="function">post</span>(<span class="string">'/api/auth'</span>, credentials)
-      .<span class="function">pipe</span>(
-        <span class="function">tap</span>(user => <span class="keyword">this</span>._user.<span class="function">next</span>(user))
-      );
-  }
-}
+                <!-- Design Patterns -->
+                <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-red-500">
+                    <h3 class="text-base font-bold text-white mb-3 flex items-center gap-2">
+                        <i class="fas fa-puzzle-piece text-red-400"></i>
+                        Pattern Architetturali Frontend
+                    </h3>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li class="flex items-start gap-2">
+                            <span class="text-primary font-bold mt-0.5">•</span>
+                            <div>
+                                <strong class="text-white">Observer Pattern (RxJS):</strong> Gestione eventi asincroni tramite Observable. Componenti si iscrivono ai flussi dati, garantendo basso accoppiamento.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-success font-bold mt-0.5">•</span>
+                            <div>
+                                <strong class="text-white">Dependency Injection (IoC):</strong> Angular inietta automaticamente le dipendenze nei costruttori, migliorando modularità e testabilità.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purple-400 font-bold mt-0.5">•</span>
+                            <div>
+                                <strong class="text-white">Facade Pattern:</strong> Servizi HTTP semplificano la comunicazione con il backend, incapsulando la complessità delle chiamate REST.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Column: Frontend Technologies -->
+            <div class="space-y-3 overflow-y-auto pr-2 custom-scrollbar" style="max-height: 85vh;">
+                <h2 class="text-3xl font-bold text-white mb-2 sticky top-0 bg-bg pb-2">Servizi e Tecnologie Front-end</h2>
+
+                <!-- Angular -->
+                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-red-500">
+                    <div class="flex items-center gap-2 mb-1.5">
+                        <i class="fab fa-angular text-red-500 text-xl"></i>
+                        <h3 class="text-sm font-bold text-white">Angular 20</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300 leading-relaxed">
+                        <strong>Angular</strong> è un framework TypeScript-based per la costruzione di Single Page Applications (SPA). Abbiamo scelto Angular per sviluppare un'applicazione web performante ed efficiente, preferendolo ad altri framework per la sua struttura opinionated e il supporto enterprise. Angular offre un approccio moderno allo sviluppo con <strong>Standalone Components</strong>, eliminando la necessità di NgModules e riducendo il boilerplate. Include sistema di routing, gestione form reattivi e HTTP client integrato.
+                    </p>
+                </div>
+
+                <!-- TypeScript -->
+                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-blue-500">
+                    <div class="flex items-center gap-2 mb-1.5">
+                        <i class="fab fa-js-square text-blue-400 text-xl"></i>
+                        <h3 class="text-sm font-bold text-white">TypeScript</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300 leading-relaxed">
+                        Superset di JavaScript con tipizzazione statica. TypeScript è il linguaggio principale di Angular, fornendo <strong>type-safety</strong> a compile-time, autocompletamento IDE avanzato e refactoring sicuro. Previene errori comuni e migliora drasticamente la manutenibilità del codice grazie al controllo dei tipi. Supporta decoratori e metadata reflection utilizzati estensivamente da Angular.
+                    </p>
+                </div>
+
+                <!-- RxJS -->
+                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-purple-500">
+                    <div class="flex items-center gap-2 mb-1.5">
+                        <i class="fas fa-stream text-purple-400 text-xl"></i>
+                        <h3 class="text-sm font-bold text-white">RxJS (Reactive Extensions)</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300 leading-relaxed">
+                        Libreria per <strong>programmazione reattiva</strong> basata su Observable. RxJS implementa l'Observer Pattern permettendo la gestione elegante di flussi asincroni (HTTP, eventi, timer). I servizi espongono Observable ai quali i componenti si iscrivono tramite <span class="font-mono bg-gray-900 px-0.5">subscribe()</span>. Operatori pipeable (<span class="font-mono bg-gray-900 px-0.5">map, filter, switchMap</span>) trasformano i flussi dati in modo dichiarativo.
+                    </p>
+                </div>
+
+                <!-- Tailwind CSS -->
+                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-cyan-500">
+                    <div class="flex items-center gap-2 mb-1.5">
+                        <i class="fas fa-palette text-cyan-400 text-xl"></i>
+                        <h3 class="text-sm font-bold text-white">Tailwind CSS</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300 leading-relaxed">
+                        Framework CSS <strong>utility-first</strong> per la costruzione rapida di interfacce custom. Tailwind fornisce classi atomiche per ogni proprietà CSS, evitando la scrittura di CSS personalizzato. Supporta responsive design, dark mode e customizzazione tramite configurazione. Build-time purging rimuove CSS inutilizzato, ottimizzando le dimensioni del bundle finale.
+                    </p>
+                </div>
+
+                <!-- Figma -->
+                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-pink-500">
+                    <div class="flex items-center gap-2 mb-1.5">
+                        <i class="fas fa-pencil-ruler text-pink-400 text-xl"></i>
+                        <h3 class="text-sm font-bold text-white">Figma</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300 leading-relaxed">
+                        <strong>Figma</strong> è un potente tool di progettazione UI/UX basato su cloud, ideale per creare mockup e prototipi interattivi. Permette la <strong>collaborazione in tempo reale</strong> tra designer e sviluppatori, facilitando la condivisione e la revisione dei progetti. Offre un'interfaccia intuitiva e strumenti avanzati per il design vettoriale, rendendolo perfetto per la creazione di interfacce utente moderne. Abbiamo utilizzato Figma per progettare l'intera UI prima dell'implementazione.
+                    </p>
+                </div>
+
+                <!-- Leaflet -->
+                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-green-500">
+                    <div class="flex items-center gap-2 mb-1.5">
+                        <i class="fas fa-map-marked-alt text-green-400 text-xl"></i>
+                        <h3 class="text-sm font-bold text-white">Leaflet.js</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300 leading-relaxed">
+                        Libreria JavaScript open-source per <strong>mappe interattive</strong>. Leaflet è leggera (solo 42KB) e altamente estensibile tramite plugin. Integrata in Angular per visualizzare proprietà immobiliari su mappa, gestire marker personalizzati e eventi geospaziali. Utilizza tile server OpenStreetMap per i dati cartografici. Supporta touch events per dispositivi mobili e clustering di marker per performance ottimali.
+                    </p>
+                </div>
+
+                <!-- Angular Router -->
+                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-orange-500">
+                    <div class="flex items-center gap-2 mb-1.5">
+                        <i class="fas fa-route text-orange-400 text-xl"></i>
+                        <h3 class="text-sm font-bold text-white">Angular Router</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300 leading-relaxed">
+                        Sistema di routing integrato per la navigazione tra viste in una SPA. Supporta <strong>lazy loading</strong> dei moduli per ridurre il bundle iniziale, guards per proteggere route (autenticazione/autorizzazione) e route parametriche. Il router gestisce lo stato della navigazione tramite URL, permettendo bookmark e condivisione di link. Implementa strategie di preloading per ottimizzare le performance.
+                    </p>
+                </div>
+
+                <!-- Angular Forms -->
+                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-yellow-500">
+                    <div class="flex items-center gap-2 mb-1.5">
+                        <i class="fas fa-wpforms text-yellow-400 text-xl"></i>
+                        <h3 class="text-sm font-bold text-white">Angular Reactive Forms</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300 leading-relaxed">
+                        Sistema di gestione form reattivi basato su Observable. I <strong>FormControl</strong> e <strong>FormGroup</strong> permettono validazione sincrona/asincrona, gestione errori e trasformazione dati. Approccio model-driven dove la struttura del form è definita nel componente TypeScript, facilitando testing e riutilizzo. Supporta validatori custom e validazione cross-field.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-
     <!-- Slide 7: Servizi Esterni -->
     <div class="slide" id="slide-7">
         <div class="slide-grid">
