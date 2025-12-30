@@ -456,9 +456,26 @@
                     </div>
                 </div>
                 
-                <div class="mt-8 p-4 bg-blue-900/20 border border-blue-900/50 rounded text-sm text-blue-200">
-                    <i class="fas fa-info-circle mr-2"></i>
-                    <strong>Motivazione:</strong> Il disaccoppiamento totale tra Frontend e Backend permette cicli di rilascio indipendenti e scalabilità mirata dei container API.
+                <div class="mt-6 space-y-4">
+                    <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-blue-500">
+                        <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                            <i class="fab fa-js-square text-blue-400"></i>
+                            Stack Unificato: TypeScript
+                        </h3>
+                        <p class="text-sm text-gray-300 mb-2">
+                            Scelto come linguaggio unificante per Frontend (Angular) e Backend (Node.js), garantendo:
+                        </p>
+                        <ul class="list-disc list-inside text-xs text-gray-400 space-y-1">
+                            <li><strong>Type-Safety End-to-End:</strong> Prevenzione errori a compile-time.</li>
+                            <li><strong>Condivisione Codice:</strong> Interfacce e DTO condivisi tra client e server.</li>
+                            <li><strong>Ecosistema Coerente:</strong> Stessi strumenti di linting e testing.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="p-3 bg-blue-900/20 border border-blue-900/50 rounded text-xs text-blue-200">
+                        <i class="fas fa-link mr-2"></i>
+                        <strong>Integrazione:</strong> Comunicazione via REST API Stateless con JWT per autenticazione condivisa.
+                    </div>
                 </div>
             </div>
             <div class="tech-card bg-[#111827] border-gray-700">
@@ -547,19 +564,25 @@
                         <li class="flex items-start gap-2">
                             <span class="text-primary font-bold mt-0.5">•</span>
                             <div>
-                                <strong class="text-white">Repository Pattern:</strong> Separazione tra logica business e accesso dati, facilitando testing e manutenibilità.
+                                <strong class="text-white">Repository Pattern (DAO):</strong> Incapsula le query Drizzle, fornendo un'interfaccia astratta per l'accesso ai dati.
                             </div>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-success font-bold mt-0.5">•</span>
                             <div>
-                                <strong class="text-white">Strategy Pattern:</strong> Gestione modulare autenticazione tramite Passport.js (Local, OAuth, JWT).
+                                <strong class="text-white">Strategy Pattern:</strong> Implementato via Passport.js per gestire strategie di autenticazione multiple (Local, Google OAuth, JWT).
                             </div>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-purple-400 font-bold mt-0.5">•</span>
                             <div>
-                                <strong class="text-white">Chain of Responsibility:</strong> Pipeline middleware Express per logging, auth e validazione.
+                                <strong class="text-white">Chain of Responsibility:</strong> Pipeline sequenziale di middleware Express per logging, autenticazione e validazione.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-yellow-400 font-bold mt-0.5">•</span>
+                            <div>
+                                <strong class="text-white">Singleton Pattern:</strong> Gestione di un'unica istanza condivisa per la connessione al database (Drizzle Client).
                             </div>
                         </li>
                     </ul>
@@ -592,6 +615,17 @@
                     </p>
                 </div>
 
+                <!-- Zod -->
+                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-yellow-500">
+                    <div class="flex items-center gap-2 mb-1.5">
+                        <i class="fas fa-check-double text-yellow-400 text-xl"></i>
+                        <h3 class="text-sm font-bold text-white">Zod & express-zod-safe</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300 leading-relaxed">
+                        Libreria per la validazione rigorosa degli input a runtime. Zod permette di definire schemi che agiscono anche come definizioni di tipo TypeScript, garantendo che i dati in ingresso rispettino il formato atteso prima di raggiungere la logica di business.
+                    </p>
+                </div>
+
                 <!-- PostgreSQL + PostGIS -->
                 <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-cyan-500">
                     <div class="flex items-center gap-2 mb-1.5">
@@ -603,14 +637,14 @@
                     </p>
                 </div>
 
-                <!-- Docker -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-purple-500">
+                <!-- Drizzle ORM -->
+                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-pink-500">
                     <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fab fa-docker text-cyan-400 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">Docker & Docker Compose</h3>
+                        <i class="fas fa-code text-pink-400 text-xl"></i>
+                        <h3 class="text-sm font-bold text-white">Drizzle ORM</h3>
                     </div>
                     <p class="text-[10px] text-gray-300 leading-relaxed">
-                        <strong>Docker</strong> utilizza virtualizzazione a livello OS per container isolati e portabili. I container includono tutto il necessario per l'esecuzione. <strong>Docker Compose</strong> gestisce applicazioni multi-container orchestrando API backend e database via configurazione YAML.
+                        ORM moderno "TypeScript-first". La gestione delle migrazioni avviene in modalità "Code-First" tramite <strong>Drizzle Kit</strong>.
                     </p>
                 </div>
 
@@ -633,6 +667,17 @@
                     </div>
                     <p class="text-[10px] text-gray-300 leading-relaxed">
                         <strong>Passport.js</strong> è middleware autenticazione modulare per Express. Supporta 500+ strategie (Local, OAuth, JWT). Integrato con <strong>bcrypt.js</strong> per hashing password con salting automatico. <strong>JWT</strong> gestisce sessioni stateless per scalabilità orizzontale. Sistema RBAC per controllo accessi granulare.
+                    </p>
+                </div>
+
+                <!-- Nodemailer -->
+                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-green-500">
+                    <div class="flex items-center gap-2 mb-1.5">
+                        <i class="fas fa-envelope text-green-400 text-xl"></i>
+                        <h3 class="text-sm font-bold text-white">Nodemailer</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300 leading-relaxed">
+                        Libreria per l'invio di email transazionali asincrone (es. conferme appuntamenti, inviti).
                     </p>
                 </div>
             </div>
@@ -698,19 +743,25 @@
                         <li class="flex items-start gap-2">
                             <span class="text-primary font-bold mt-0.5">•</span>
                             <div>
-                                <strong class="text-white">Observer Pattern (RxJS):</strong> Gestione eventi asincroni tramite Observable. Componenti si iscrivono ai flussi dati, garantendo basso accoppiamento.
+                                <strong class="text-white">Component-Based Architecture:</strong> L'interfaccia è suddivisa in componenti indipendenti e riutilizzabili (es. Navbar, PropertyCard).
                             </div>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-success font-bold mt-0.5">•</span>
                             <div>
-                                <strong class="text-white">Dependency Injection (IoC):</strong> Angular inietta automaticamente le dipendenze nei costruttori, migliorando modularità e testabilità.
+                                <strong class="text-white">Observer Pattern:</strong> Utilizzato tramite RxJS per sottoscrivere e reagire ai cambiamenti di stato (es. aggiornamento lista immobili).
                             </div>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-purple-400 font-bold mt-0.5">•</span>
                             <div>
-                                <strong class="text-white">Facade Pattern:</strong> Servizi HTTP semplificano la comunicazione con il backend, incapsulando la complessità delle chiamate REST.
+                                <strong class="text-white">Inversion of Control (IoC) & DI:</strong> Angular gestisce la creazione e l'iniezione delle dipendenze (es. servizi API) nei componenti.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-yellow-400 font-bold mt-0.5">•</span>
+                            <div>
+                                <strong class="text-white">Wrapper Pattern:</strong> Utilizzato per incapsulare librerie esterne (es. Leaflet) in componenti Angular per facilitarne l'uso e il testing.
                             </div>
                         </li>
                     </ul>
@@ -728,38 +779,7 @@
                         <h3 class="text-sm font-bold text-white">Angular 20</h3>
                     </div>
                     <p class="text-[10px] text-gray-300 leading-relaxed mb-1.5">
-                        <strong>Angular</strong> è un framework TypeScript-based per la costruzione di Single Page Applications (SPA). Abbiamo scelto Angular per sviluppare un'applicazione web performante ed efficiente, preferendolo ad altri framework per la sua struttura opinionated e il supporto enterprise. Angular offre un approccio moderno allo sviluppo con <strong>Standalone Components</strong>, eliminando la necessità di NgModules e riducendo il boilerplate.
-                    </p>
-                    <div class="space-y-1">
-                        <div class="bg-gray-800/50 p-1.5 rounded border border-gray-700">
-                            <div class="flex items-center gap-1 mb-0.5">
-                                <i class="fas fa-route text-orange-400 text-[9px]"></i>
-                                <strong class="text-white text-[9px]">Angular Router:</strong>
-                            </div>
-                            <p class="text-[9px] text-gray-400 leading-tight">
-                                Sistema di routing integrato per navigazione tra viste. Supporta <strong>lazy loading</strong> moduli, guards per autenticazione/autorizzazione e route parametriche. Gestisce stato via URL con strategie di preloading.
-                            </p>
-                        </div>
-                        <div class="bg-gray-800/50 p-1.5 rounded border border-gray-700">
-                            <div class="flex items-center gap-1 mb-0.5">
-                                <i class="fas fa-wpforms text-yellow-400 text-[9px]"></i>
-                                <strong class="text-white text-[9px]">Reactive Forms:</strong>
-                            </div>
-                            <p class="text-[9px] text-gray-400 leading-tight">
-                                Gestione form reattivi basata su Observable. <strong>FormControl</strong> e <strong>FormGroup</strong> permettono validazione sincrona/asincrona. Approccio model-driven con validatori custom e validazione cross-field.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- TypeScript -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-blue-500">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fab fa-js-square text-blue-400 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">TypeScript</h3>
-                    </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed">
-                        Superset di JavaScript con tipizzazione statica. TypeScript è il linguaggio principale di Angular, fornendo <strong>type-safety</strong> a compile-time, autocompletamento IDE avanzato e refactoring sicuro. Previene errori comuni e migliora drasticamente la manutenibilità del codice grazie al controllo dei tipi. Supporta decoratori e metadata reflection utilizzati estensivamente da Angular.
+                        Framework per Single Page Application (SPA). Utilizza TypeScript, componenti riutilizzabili e dependency injection.
                     </p>
                 </div>
 
@@ -767,10 +787,10 @@
                 <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-purple-500">
                     <div class="flex items-center gap-2 mb-1.5">
                         <i class="fas fa-stream text-purple-400 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">RxJS (Reactive Extensions)</h3>
+                        <h3 class="text-sm font-bold text-white">RxJS</h3>
                     </div>
                     <p class="text-[10px] text-gray-300 leading-relaxed">
-                        Libreria per <strong>programmazione reattiva</strong> basata su Observable. RxJS implementa l'Observer Pattern permettendo la gestione elegante di flussi asincroni (HTTP, eventi, timer). I servizi espongono Observable ai quali i componenti si iscrivono tramite <span class="font-mono bg-gray-900 px-0.5">subscribe()</span>. Operatori pipeable (<span class="font-mono bg-gray-900 px-0.5">map, filter, switchMap</span>) trasformano i flussi dati in modo dichiarativo.
+                        Libreria per la programmazione reattiva basata su flussi di eventi (Observable). Gestisce chiamate HTTP asincrone e stato dell'applicazione.
                     </p>
                 </div>
 
@@ -781,7 +801,51 @@
                         <h3 class="text-sm font-bold text-white">Tailwind CSS</h3>
                     </div>
                     <p class="text-[10px] text-gray-300 leading-relaxed">
-                        Framework CSS <strong>utility-first</strong> per la costruzione rapida di interfacce custom. Tailwind fornisce classi atomiche per ogni proprietà CSS, evitando la scrittura di CSS personalizzato. Supporta responsive design, dark mode e customizzazione tramite configurazione. Build-time purging rimuove CSS inutilizzato, ottimizzando le dimensioni del bundle finale.
+                        Framework CSS utility-first per styling rapido e responsivo direttamente nel markup HTML.
+                    </p>
+                </div>
+
+                <!-- FullCalendar -->
+                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-blue-400">
+                    <div class="flex items-center gap-2 mb-1.5">
+                        <i class="fas fa-calendar-alt text-blue-300 text-xl"></i>
+                        <h3 class="text-sm font-bold text-white">FullCalendar</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300 leading-relaxed">
+                        Libreria per la gestione visuale degli appuntamenti su griglia temporale. Migliora l'operatività degli agenti rispetto a liste tabellari.
+                    </p>
+                </div>
+
+                <!-- Quill Editor -->
+                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-gray-400">
+                    <div class="flex items-center gap-2 mb-1.5">
+                        <i class="fas fa-edit text-gray-300 text-xl"></i>
+                        <h3 class="text-sm font-bold text-white">Quill (WYSIWYG)</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300 leading-relaxed">
+                        Editor di testo arricchito per la formattazione delle descrizioni immobili. Integrato con <strong>ngx-markdown</strong> per rendering sicuro e sanitizzato.
+                    </p>
+                </div>
+
+                <!-- Lucide Icons -->
+                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-orange-400">
+                    <div class="flex items-center gap-2 mb-1.5">
+                        <i class="fas fa-icons text-orange-300 text-xl"></i>
+                        <h3 class="text-sm font-bold text-white">Lucide Angular</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300 leading-relaxed">
+                        Set di icone vettoriali (SVG) ottimizzate per il tree-shaking, garantendo leggerezza e coerenza visiva.
+                    </p>
+                </div>
+
+                <!-- Toastr -->
+                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-green-400">
+                    <div class="flex items-center gap-2 mb-1.5">
+                        <i class="fas fa-bell text-green-300 text-xl"></i>
+                        <h3 class="text-sm font-bold text-white">ngx-toastr</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300 leading-relaxed">
+                        Sistema di notifiche "Toast" per feedback immediato e non intrusivo (es. conferme salvataggio, errori), migliorando la visibilità dello stato del sistema.
                     </p>
                 </div>
 
@@ -792,7 +856,7 @@
                         <h3 class="text-sm font-bold text-white">Figma</h3>
                     </div>
                     <p class="text-[10px] text-gray-300 leading-relaxed">
-                        <strong>Figma</strong> è un potente tool di progettazione UI/UX basato su cloud, ideale per creare mockup e prototipi interattivi. Permette la <strong>collaborazione in tempo reale</strong> tra designer e sviluppatori, facilitando la condivisione e la revisione dei progetti. Offre un'interfaccia intuitiva e strumenti avanzati per il design vettoriale, rendendolo perfetto per la creazione di interfacce utente moderne. Abbiamo utilizzato Figma per progettare l'intera UI prima dell'implementazione.
+                        Strumento di design collaborativo per la prototipazione dell'interfaccia utente (UI) e dell'esperienza utente (UX).
                     </p>
                 </div>
             </div>
@@ -810,29 +874,22 @@
                     <li>
                         <i class="fas fa-globe-americas text-2xl"></i>
                         <div>
-                            <strong class="text-white text-xl">PostGIS (Database Extension)</strong>
-                            <p class="text-gray-400 mt-1">Motore geospaziale nativo. Utilizzo della funzione <span class="font-mono text-primary text-sm">ST_DWithin</span> per query di prossimità su coordinate sferiche (WGS 84).</p>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-map-marked-alt text-2xl"></i>
-                        <div>
-                            <strong class="text-white text-xl">Leaflet & OpenStreetMap</strong>
-                            <p class="text-gray-400 mt-1">Libreria client-side per mappe interattive. Rendering dei marker immobiliari e gestione eventi geospaziali su tile server OSM.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-cloud-sun text-2xl"></i>
-                        <div>
-                            <strong class="text-white text-xl">OpenMeteo API</strong>
-                            <p class="text-gray-400 mt-1">Integrazione REST per dati meteorologici real-time. Arricchisce l'UX in fase di prenotazione visita.</p>
+                            <strong class="text-white text-xl">PostGIS & Leaflet</strong>
+                            <p class="text-gray-400 mt-1">PostGIS estende PostgreSQL per dati geospaziali. Leaflet è una libreria JS open-source per mappe interattive mobile-friendly.</p>
                         </div>
                     </li>
                     <li>
                         <i class="fas fa-envelope text-2xl"></i>
                         <div>
-                            <strong class="text-white text-xl">Nodemailer (SMTP)</strong>
-                            <p class="text-gray-400 mt-1">Gestione asincrona delle notifiche transazionali (Conferma registrazione, Update appuntamenti).</p>
+                            <strong class="text-white text-xl">Nodemailer</strong>
+                            <p class="text-gray-400 mt-1">Modulo per applicazioni Node.js per l'invio di email. Supporta SMTP e vari servizi di trasporto.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-cloud-sun text-2xl"></i>
+                        <div>
+                            <strong class="text-white text-xl">OpenMeteo</strong>
+                            <p class="text-gray-400 mt-1">API meteorologica open-source per dati meteo storici e previsioni. Non richiede chiavi API per uso non commerciale.</p>
                         </div>
                     </li>
                 </ul>
@@ -853,7 +910,7 @@
                     </div>
                     <div class="bg-gray-800 p-5 rounded text-center border border-gray-600">
                         <i class="fas fa-paper-plane text-3xl text-green-400 mb-2"></i>
-                        <div class="font-bold text-sm">SMTP</div>
+                        <div class="font-bold text-sm">Nodemailer</div>
                     </div>
                 </div>
             </div>
@@ -1159,49 +1216,142 @@
 
     <!-- Slide 10: Verifica e Validazione -->
     <div class="slide" id="slide-10">
-        <div class="slide-grid">
-            <div>
-                <h2 class="text-5xl font-bold text-white mb-8">Strategia di Testing & Usabilità</h2>
+        <div class="slide-grid" style="grid-template-columns: 1fr 1fr; gap: 3rem;">
+            <!-- Left Column: Verification (Static & Dynamic) -->
+            <div class="space-y-6">
+                <h2 class="text-4xl font-bold text-white mb-6">Strategia di Verifica</h2>
                 
-                <div class="mb-10">
-                    <h3 class="text-2xl font-bold text-primary mb-4">Risk-Based Testing</h3>
-                    <p class="text-gray-400 mb-4">
-                        Copertura non uniforme, ma focalizzata sui moduli <strong>Core Business critici</strong>.
+                <!-- Static Analysis -->
+                <div class="bg-surface p-5 rounded-lg border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                        <i class="fas fa-code text-blue-400"></i>
+                        Verifica Statica (Code Analysis)
+                    </h3>
+                    <p class="text-sm text-gray-300 mb-3">
+                        Analisi continua per garantire manutenibilità e prevenire difetti (Fault Avoidance).
                     </p>
-                    <ul class="list-disc list-inside text-gray-300 space-y-2">
-                        <li>Unit Testing con <strong>Jest</strong>.</li>
-                        <li>Mocking dei Repository per isolare la Business Logic.</li>
-                        <li>Focus su: Algoritmi di ricerca, Sicurezza RBAC, Metodi distruttivi (<span class="font-mono text-xs">deleteAppointment</span>).</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="text-2xl font-bold text-success mb-4">Validazione Usabilità</h3>
-                    <p class="text-gray-400 mb-4">
-                        Valutazione tramite <strong>System Usability Scale (SUS)</strong> e misurazione Time-on-Task.
-                    </p>
-                    <div class="flex items-center gap-4">
-                        <div class="bg-surface px-4 py-2 rounded border border-gray-600">
-                            <span class="text-2xl font-bold text-white">88.9</span>
-                            <span class="text-xs block text-gray-400">SUS Score</span>
+                    <div class="grid grid-cols-2 gap-3 text-xs">
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600">
+                            <strong class="text-white block">ESLint 9.x</strong>
+                            <span class="text-gray-400">@antfu/eslint-config</span>
                         </div>
-                        <div class="bg-surface px-4 py-2 rounded border border-gray-600">
-                            <span class="text-2xl font-bold text-white">A</span>
-                            <span class="text-xs block text-gray-400">Grade</span>
-                        </div>
-                        <div class="bg-surface px-4 py-2 rounded border border-gray-600">
-                            <span class="text-2xl font-bold text-white">35s</span>
-                            <span class="text-xs block text-gray-400">Booking Task</span>
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600">
+                            <strong class="text-white block">Regole Rigorose</strong>
+                            <span class="text-gray-400">kebab-case, no-console</span>
                         </div>
                     </div>
                 </div>
+
+                <!-- Dynamic Analysis -->
+                <div class="bg-surface p-5 rounded-lg border-l-4 border-purple-500">
+                    <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                        <i class="fas fa-vial text-purple-400"></i>
+                        Verifica Dinamica (Unit Testing)
+                    </h3>
+                    <p class="text-sm text-gray-300 mb-3">
+                        Approccio <strong>Risk-Based Testing</strong> focalizzato sui moduli Core Business critici.
+                    </p>
+                    
+                    <ul class="space-y-2 text-xs text-gray-300 mb-4">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-400 mt-1"></i>
+                            <div>
+                                <strong>Black-Box Testing:</strong> Partizione in Classi di Equivalenza.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-400 mt-1"></i>
+                            <div>
+                                <strong>Test in Isolation:</strong> Mocking di DB e servizi esterni con Jest.
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="bg-gray-800 p-3 rounded border border-gray-600 text-xs">
+                        <strong class="text-white block mb-1">Metodi Critici Testati:</strong>
+                        <ul class="list-disc list-inside text-gray-400 space-y-1">
+                            <li><span class="font-mono text-blue-300">deleteAppointment</span> (Sicurezza RBAC)</li>
+                            <li><span class="font-mono text-blue-300">getPostsNearby</span> (Logica Geospaziale)</li>
+                            <li><span class="font-mono text-blue-300">getAllAppointmentsForCalendar</span> (Query Dinamiche)</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="tech-card p-0">
-                <div class="placeholder-box w-full h-full">
-                    <div>
-                        <i class="fas fa-chart-bar text-5xl mb-4"></i>
-                        <p>[INSERIRE GRAFICO RISULTATI SUS]</p>
-                        <p class="text-xs mt-2 text-gray-500">Istogramma distribuzione punteggi</p>
+
+            <!-- Right Column: Validation & Usability -->
+            <div class="space-y-6">
+                <h2 class="text-4xl font-bold text-white mb-6">Validazione & Usabilità</h2>
+
+                <!-- Methodology -->
+                <div class="bg-surface p-5 rounded-lg border-l-4 border-green-500">
+                    <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                        <i class="fas fa-users text-green-400"></i>
+                        Validazione Sperimentale
+                    </h3>
+                    <p class="text-sm text-gray-300 mb-3">
+                        Test condotto su un campione eterogeneo di <strong>23 utenti</strong> (Desktop, Mobile, Tablet).
+                    </p>
+                    
+                    <div class="grid grid-cols-3 gap-3 mb-4">
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600 text-center">
+                            <div class="text-2xl font-bold text-white">90%</div>
+                            <div class="text-[10px] text-gray-400">Facilità Ricerca</div>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600 text-center">
+                            <div class="text-2xl font-bold text-white">100%</div>
+                            <div class="text-[10px] text-gray-400">Chiarezza Booking</div>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600 text-center">
+                            <div class="text-2xl font-bold text-white">80%</div>
+                            <div class="text-[10px] text-gray-400">Mappa Interattiva</div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center text-xs text-gray-300 border-b border-gray-700 pb-1">
+                            <span>Registrazione Account</span>
+                            <span class="font-mono text-green-400">45s (Target < 60s)</span>
+                        </div>
+                        <div class="flex justify-between items-center text-xs text-gray-300 border-b border-gray-700 pb-1">
+                            <span>Ricerca Immobile</span>
+                            <span class="font-mono text-green-400">25s (Target < 40s)</span>
+                        </div>
+                        <div class="flex justify-between items-center text-xs text-gray-300">
+                            <span>Prenotazione Visita</span>
+                            <span class="font-mono text-green-400">35s (Target < 50s)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUS & Expert Review -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-surface p-4 rounded-lg border-l-4 border-yellow-500">
+                        <h3 class="text-sm font-bold text-white mb-2">SUS Score</h3>
+                        <div class="text-3xl font-bold text-white mb-1">88.9</div>
+                        <p class="text-[10px] text-gray-400">"Eccellente" - Grado A</p>
+                        <p class="text-[10px] text-gray-400 mt-1">83.3% Apprendibilità</p>
+                    </div>
+                    
+                    <div class="bg-surface p-4 rounded-lg border-l-4 border-orange-500">
+                        <h3 class="text-sm font-bold text-white mb-2">Expert Review</h3>
+                        <p class="text-[10px] text-gray-300 mb-2">
+                            Basata sulle <strong>8 Regole d'Oro di Shneiderman</strong>.
+                        </p>
+                        <ul class="text-[10px] text-gray-400 list-disc list-inside">
+                            <li>Coerenza Layout</li>
+                            <li>Feedback Informativo</li>
+                            <li>Prevenzione Errori</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Future Roadmap -->
+                <div class="bg-surface/50 p-3 rounded-lg border border-gray-600">
+                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Richieste Evolutive (Feedback)</h3>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="px-2 py-1 bg-gray-700 rounded text-[10px] text-gray-300">Calcolatrice Mutuo</span>
+                        <span class="px-2 py-1 bg-gray-700 rounded text-[10px] text-gray-300">Chat Interna</span>
+                        <span class="px-2 py-1 bg-gray-700 rounded text-[10px] text-gray-300">Wishlist</span>
                     </div>
                 </div>
             </div>
@@ -1235,10 +1385,22 @@
                     </div>
                 </div>
 
-                <div class="mt-12 pt-8 border-t border-gray-700 w-full max-w-2xl">
-                    <div class="flex items-center justify-center gap-4 text-gray-400">
-                        <i class="fab fa-github text-2xl"></i>
-                        <span class="font-mono">github.com/DietiEstates25/repo</span>
+                <div class="mt-12 pt-8 border-t border-gray-700 w-full max-w-4xl">
+                    <div class="flex justify-center gap-16 text-gray-400">
+                        <a href="https://github.com/Praise32/DietiEstate25-backend" target="_blank" class="flex items-center gap-4 hover:text-white transition-colors group">
+                            <i class="fab fa-github text-3xl group-hover:text-primary transition-colors"></i>
+                            <div class="text-left">
+                                <div class="text-xs uppercase font-bold text-gray-500 group-hover:text-gray-300">Backend Repository</div>
+                                <span class="font-mono text-sm">Praise32/DietiEstate25-backend</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/999en/DietiEstate25_frontend" target="_blank" class="flex items-center gap-4 hover:text-white transition-colors group">
+                            <i class="fab fa-github text-3xl group-hover:text-red-500 transition-colors"></i>
+                            <div class="text-left">
+                                <div class="text-xs uppercase font-bold text-gray-500 group-hover:text-gray-300">Frontend Repository</div>
+                                <span class="font-mono text-sm">999en/DietiEstate25_frontend</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
