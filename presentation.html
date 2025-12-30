@@ -727,9 +727,29 @@
                         <i class="fab fa-angular text-red-500 text-xl"></i>
                         <h3 class="text-sm font-bold text-white">Angular 20</h3>
                     </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed">
-                        <strong>Angular</strong> è un framework TypeScript-based per la costruzione di Single Page Applications (SPA). Abbiamo scelto Angular per sviluppare un'applicazione web performante ed efficiente, preferendolo ad altri framework per la sua struttura opinionated e il supporto enterprise. Angular offre un approccio moderno allo sviluppo con <strong>Standalone Components</strong>, eliminando la necessità di NgModules e riducendo il boilerplate. Include sistema di routing, gestione form reattivi e HTTP client integrato.
+                    <p class="text-[10px] text-gray-300 leading-relaxed mb-1.5">
+                        <strong>Angular</strong> è un framework TypeScript-based per la costruzione di Single Page Applications (SPA). Abbiamo scelto Angular per sviluppare un'applicazione web performante ed efficiente, preferendolo ad altri framework per la sua struttura opinionated e il supporto enterprise. Angular offre un approccio moderno allo sviluppo con <strong>Standalone Components</strong>, eliminando la necessità di NgModules e riducendo il boilerplate.
                     </p>
+                    <div class="space-y-1">
+                        <div class="bg-gray-800/50 p-1.5 rounded border border-gray-700">
+                            <div class="flex items-center gap-1 mb-0.5">
+                                <i class="fas fa-route text-orange-400 text-[9px]"></i>
+                                <strong class="text-white text-[9px]">Angular Router:</strong>
+                            </div>
+                            <p class="text-[9px] text-gray-400 leading-tight">
+                                Sistema di routing integrato per navigazione tra viste. Supporta <strong>lazy loading</strong> moduli, guards per autenticazione/autorizzazione e route parametriche. Gestisce stato via URL con strategie di preloading.
+                            </p>
+                        </div>
+                        <div class="bg-gray-800/50 p-1.5 rounded border border-gray-700">
+                            <div class="flex items-center gap-1 mb-0.5">
+                                <i class="fas fa-wpforms text-yellow-400 text-[9px]"></i>
+                                <strong class="text-white text-[9px]">Reactive Forms:</strong>
+                            </div>
+                            <p class="text-[9px] text-gray-400 leading-tight">
+                                Gestione form reattivi basata su Observable. <strong>FormControl</strong> e <strong>FormGroup</strong> permettono validazione sincrona/asincrona. Approccio model-driven con validatori custom e validazione cross-field.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- TypeScript -->
@@ -775,42 +795,10 @@
                         <strong>Figma</strong> è un potente tool di progettazione UI/UX basato su cloud, ideale per creare mockup e prototipi interattivi. Permette la <strong>collaborazione in tempo reale</strong> tra designer e sviluppatori, facilitando la condivisione e la revisione dei progetti. Offre un'interfaccia intuitiva e strumenti avanzati per il design vettoriale, rendendolo perfetto per la creazione di interfacce utente moderne. Abbiamo utilizzato Figma per progettare l'intera UI prima dell'implementazione.
                     </p>
                 </div>
-
-                <!-- Leaflet -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-green-500">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fas fa-map-marked-alt text-green-400 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">Leaflet.js</h3>
-                    </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed">
-                        Libreria JavaScript open-source per <strong>mappe interattive</strong>. Leaflet è leggera (solo 42KB) e altamente estensibile tramite plugin. Integrata in Angular per visualizzare proprietà immobiliari su mappa, gestire marker personalizzati e eventi geospaziali. Utilizza tile server OpenStreetMap per i dati cartografici. Supporta touch events per dispositivi mobili e clustering di marker per performance ottimali.
-                    </p>
-                </div>
-
-                <!-- Angular Router -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-orange-500">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fas fa-route text-orange-400 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">Angular Router</h3>
-                    </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed">
-                        Sistema di routing integrato per la navigazione tra viste in una SPA. Supporta <strong>lazy loading</strong> dei moduli per ridurre il bundle iniziale, guards per proteggere route (autenticazione/autorizzazione) e route parametriche. Il router gestisce lo stato della navigazione tramite URL, permettendo bookmark e condivisione di link. Implementa strategie di preloading per ottimizzare le performance.
-                    </p>
-                </div>
-
-                <!-- Angular Forms -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-yellow-500">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fas fa-wpforms text-yellow-400 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">Angular Reactive Forms</h3>
-                    </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed">
-                        Sistema di gestione form reattivi basato su Observable. I <strong>FormControl</strong> e <strong>FormGroup</strong> permettono validazione sincrona/asincrona, gestione errori e trasformazione dati. Approccio model-driven dove la struttura del form è definita nel componente TypeScript, facilitando testing e riutilizzo. Supporta validatori custom e validazione cross-field.
-                    </p>
-                </div>
             </div>
         </div>
     </div>
+
     <!-- Slide 7: Servizi Esterni -->
     <div class="slide" id="slide-7">
         <div class="slide-grid">
