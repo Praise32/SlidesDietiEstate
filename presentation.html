@@ -1169,127 +1169,7 @@
         </div>
     </div>
 
-        <!-- Slide 11: Diagrammi delle Classi -->
-    <div class="slide" id="slide-11">
-        <div class="slide-grid">
-            <div class="space-y-4">
-                <h2 class="text-4xl font-bold text-white mb-2">Diagrammi delle Classi</h2>
-                <p class="text-gray-400 text-sm mb-4">
-                    Analisi strutturale e scelte implementative per i principali casi d'uso del sistema.
-                </p>
-                
-                <div class="space-y-2 overflow-y-auto custom-scrollbar pr-2" style="max-height: 60vh;">
-                    <div class="bg-surface p-3 rounded border-l-4 border-blue-500 cursor-pointer hover:bg-gray-700 transition-colors" onclick="showClass('login')">
-                        <h3 class="font-bold text-white text-sm">Login & Autenticazione</h3>
-                        <p class="text-xs text-gray-400">Gestione credenziali e sessioni sicure.</p>
-                    </div>
-                    <div class="bg-surface p-3 rounded border-l-4 border-green-500 cursor-pointer hover:bg-gray-700 transition-colors" onclick="showClass('reg')">
-                        <h3 class="font-bold text-white text-sm">Registrazione</h3>
-                        <p class="text-xs text-gray-400">Creazione nuovi account utente/agenzia.</p>
-                    </div>
-                    <div class="bg-surface p-3 rounded border-l-4 border-yellow-500 cursor-pointer hover:bg-gray-700 transition-colors" onclick="showClass('profile')">
-                        <h3 class="font-bold text-white text-sm">Gestione Profilo</h3>
-                        <p class="text-xs text-gray-400">Modifica password e dati personali.</p>
-                    </div>
-                    <div class="bg-surface p-3 rounded border-l-4 border-purple-500 cursor-pointer hover:bg-gray-700 transition-colors" onclick="showClass('search')">
-                        <h3 class="font-bold text-white text-sm">Ricerca Immobili</h3>
-                        <p class="text-xs text-gray-400">Filtri avanzati e geolocalizzazione.</p>
-                    </div>
-                    <div class="bg-surface p-3 rounded border-l-4 border-orange-500 cursor-pointer hover:bg-gray-700 transition-colors" onclick="showClass('listing')">
-                        <h3 class="font-bold text-white text-sm">Gestione Inserzioni</h3>
-                        <p class="text-xs text-gray-400">CRUD immobili e upload media.</p>
-                    </div>
-                    <div class="bg-surface p-3 rounded border-l-4 border-red-500 cursor-pointer hover:bg-gray-700 transition-colors" onclick="showClass('app')">
-                        <h3 class="font-bold text-white text-sm">Appuntamenti</h3>
-                        <p class="text-xs text-gray-400">Scheduling e gestione calendario.</p>
-                    </div>
-                    <div class="bg-surface p-3 rounded border-l-4 border-cyan-500 cursor-pointer hover:bg-gray-700 transition-colors" onclick="showClass('invites')">
-                        <h3 class="font-bold text-white text-sm">Inviti</h3>
-                        <p class="text-xs text-gray-400">Gestione inviti e notifiche.</p>
-                    </div>
-                    <div class="bg-surface p-3 rounded border-l-4 border-pink-500 cursor-pointer hover:bg-gray-700 transition-colors" onclick="showClass('agencies')">
-                        <h3 class="font-bold text-white text-sm">Agenzie</h3>
-                        <p class="text-xs text-gray-400">Gestione agenzie e agenti.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tech-card bg-[#111827] p-0 flex items-center justify-center overflow-hidden relative">
-                <div id="class-login" class="class-img w-full h-full p-2 flex items-center justify-center">
-                    <img src="images/LoginUML.png" onerror="this.src='https://placehold.co/600x400/1F2937/FFF?text=Class:+Login'" class="max-w-full max-h-full object-contain">
-                </div>
-                <div id="class-reg" class="class-img w-full h-full p-2 flex items-center justify-center hidden">
-                    <img src="images/RegisterUML.png" onerror="this.src='https://placehold.co/600x400/1F2937/FFF?text=Class:+Registrazione'" class="max-w-full max-h-full object-contain">
-                </div>
-                <div id="class-profile" class="class-img w-full h-full p-2 flex items-center justify-center hidden">
-                    <img src="images/ChangePasswordUML.png" onerror="this.src='https://placehold.co/600x400/1F2937/FFF?text=Class:+Profilo'" class="max-w-full max-h-full object-contain">
-                </div>
-                <div id="class-search" class="class-img w-full h-full p-2 flex items-center justify-center hidden">
-                    <img src="images/RicercaUML.png" onerror="this.src='https://placehold.co/600x400/1F2937/FFF?text=Class:+Ricerca'" class="max-w-full max-h-full object-contain">
-                </div>
-                <div id="class-listing" class="class-img w-full h-full p-2 flex items-center justify-center hidden">
-                    <img src="images/InserzioniUML.png" onerror="this.src='https://placehold.co/600x400/1F2937/FFF?text=Class:+Inserzioni'" class="max-w-full max-h-full object-contain">
-                </div>
-                <div id="class-app" class="class-img w-full h-full p-2 flex items-center justify-center hidden">
-                    <img src="images/AppuntamentiUML.png" onerror="this.src='https://placehold.co/600x400/1F2937/FFF?text=Class:+Appuntamenti'" class="max-w-full max-h-full object-contain">
-                </div>
-                <div id="class-invites" class="class-img w-full h-full p-2 flex items-center justify-center hidden">
-                    <img src="images/InvitiUML.png" onerror="this.src='https://placehold.co/600x400/1F2937/FFF?text=Class:+Inviti'" class="max-w-full max-h-full object-contain">
-                </div>
-                <div id="class-agencies" class="class-img w-full h-full p-2 flex items-center justify-center hidden">
-                    <img src="images/AgenzieUML.png" onerror="this.src='https://placehold.co/600x400/1F2937/FFF?text=Class:+Agenzie'" class="max-w-full max-h-full object-contain">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Slide 12: Diagrammi di Sequenza -->
-    <div class="slide" id="slide-12">
-        <div class="slide-grid">
-            <div class="space-y-4">
-                <h2 class="text-4xl font-bold text-white mb-2">Diagrammi di Sequenza</h2>
-                <p class="text-gray-400 text-sm mb-4">
-                    Modellazione dinamica dell'ordine temporale degli eventi. Cruciale per tradurre i requisiti funzionali in logica tecnica.
-                </p>
-                
-                <div class="space-y-3">
-                    <div class="bg-surface p-3 rounded border-l-4 border-blue-500 cursor-pointer hover:bg-gray-700 transition-colors" onclick="showSeq('reg')">
-                        <h4 class="text-sm font-bold text-white">1. Registrazione Utente</h4>
-                        <p class="text-[10px] text-gray-400">Validazione Zod, Check Email, Hashing Password, JWT Token.</p>
-                    </div>
-                    <div class="bg-surface p-3 rounded border-l-4 border-green-500 cursor-pointer hover:bg-gray-700 transition-colors" onclick="showSeq('list')">
-                        <h4 class="text-sm font-bold text-white">2. Creazione Inserzione</h4>
-                        <p class="text-[10px] text-gray-400">Geolocalizzazione Nominatim, Upload S3, Salvataggio DB.</p>
-                    </div>
-                    <div class="bg-surface p-3 rounded border-l-4 border-purple-500 cursor-pointer hover:bg-gray-700 transition-colors" onclick="showSeq('search')">
-                        <h4 class="text-sm font-bold text-white">3. Ricerca Immobile</h4>
-                        <p class="text-[10px] text-gray-400">Query SQL ottimizzata, Filtri dinamici, Paginazione.</p>
-                    </div>
-                    <div class="bg-surface p-3 rounded border-l-4 border-orange-500 cursor-pointer hover:bg-gray-700 transition-colors" onclick="showSeq('app')">
-                        <h4 class="text-sm font-bold text-white">4. Gestione Appuntamenti</h4>
-                        <p class="text-[10px] text-gray-400">Ciclo di vita (Pending -> Accepted/Rejected), RBAC Check.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tech-card bg-[#111827] p-0 flex items-center justify-center overflow-hidden relative">
-                <div id="seq-reg" class="seq-img w-full h-full p-2 flex items-center justify-center">
-                    <img src="SequenceDiagram/SDRegistrazione.png" onerror="this.src='https://placehold.co/600x400/1F2937/FFF?text=Sequence:+Registrazione'" class="max-w-full max-h-full object-contain">
-                </div>
-                <div id="seq-list" class="seq-img w-full h-full p-2 flex items-center justify-center hidden">
-                    <img src="SequenceDiagram/SDCreaInserzioni.png" onerror="this.src='https://placehold.co/600x400/1F2937/FFF?text=Sequence:+Creazione+Inserzione'" class="max-w-full max-h-full object-contain">
-                </div>
-                <div id="seq-search" class="seq-img w-full h-full p-2 flex items-center justify-center hidden">
-                    <img src="SequenceDiagram/SDRicercaImmobile.png" onerror="this.src='https://placehold.co/600x400/1F2937/FFF?text=Sequence:+Ricerca'" class="max-w-full max-h-full object-contain">
-                </div>
-                <div id="seq-app" class="seq-img w-full h-full p-2 flex items-center justify-center hidden">
-                    <img src="SequenceDiagram/SDGestioneAppuntamenti.png" onerror="this.src='https://placehold.co/600x400/1F2937/FFF?text=Sequence:+Appuntamenti'" class="max-w-full max-h-full object-contain">
-                </div>
-            </div>
-        </div>
-    </div>
-
-<div class="slide" id="slide-13">
+<div class="slide" id="slide-11">
         <div class="slide-grid">
             <div class="space-y-5">
                 <h2 class="text-4xl font-bold text-white mb-4">DevOps & Quality Assurance</h2>
@@ -1551,8 +1431,8 @@
             </div>
         </div>
 
-    <!-- Slide 10: Verifica e Validazione -->
-    <div class="slide" id="slide-14">
+    <!-- Slide 12: Verifica e Validazione -->
+    <div class="slide" id="slide-12">
         <div class="slide-grid" style="grid-template-columns: 1fr 1fr; gap: 3rem;">
             <!-- Left Column: Verification (Static & Dynamic) -->
             <div class="space-y-6">
@@ -1695,8 +1575,8 @@
         </div>
     </div>
 
-    <!-- Slide 11: Conclusioni -->
-    <div class="slide" id="slide-15">
+    <!-- Slide 13: Conclusioni -->
+    <div class="slide" id="slide-13">
         <div class="slide-grid single-col">
             <div class="flex flex-col items-center justify-center h-full space-y-10">
                 <h2 class="text-6xl font-extrabold text-white">Conclusioni</h2>
@@ -1753,7 +1633,7 @@
 
 <script>
     let currentSlide = 1;
-    const totalSlides = 15;
+    const totalSlides = 13;
 
     function showSlide(n) {
         document.querySelectorAll('.slide').forEach(s => {
@@ -1793,21 +1673,6 @@
 
     showSlide(currentSlide);
 </script>
-
-
-    <script>
-        function showSeq(id) {
-            document.querySelectorAll('.seq-img').forEach(el => el.classList.add('hidden'));
-            document.getElementById(`seq-${id}`).classList.remove('hidden');
-        }
-    </script>
-
-    <script>
-        function showClass(id) {
-            document.querySelectorAll('.class-img').forEach(el => el.classList.add('hidden'));
-            document.getElementById(`class-${id}`).classList.remove('hidden');
-        }
-    </script>
 </body>
 
 </html>
