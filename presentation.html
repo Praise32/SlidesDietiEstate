@@ -766,6 +766,37 @@
                         </li>
                     </ul>
                 </div>
+
+                <!-- Notification System -->
+                <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-yellow-500">
+                    <h3 class="text-base font-bold text-white mb-3 flex items-center gap-2">
+                        <i class="fas fa-bell text-yellow-400"></i>
+                        Sistema Notifiche Real-Time
+                    </h3>
+                    <p class="text-xs text-gray-300 mb-3">
+                        Architettura <strong>Local-First</strong> senza dipendenze da WebSocket, SSE o Service Workers. Completamente client-side con polling REST.
+                    </p>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-eye text-yellow-400 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>Observer Pattern:</strong> RxJS Observables per reattività su cambiamenti di stato notifiche.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-sync text-blue-400 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>Polling Pattern:</strong> Controllo periodico ogni 30 secondi verso endpoint REST dedicati.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-user-shield text-purple-400 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>RBAC-Aware:</strong> Notifiche filtrate per ruolo (appuntamenti agenti, richieste admin).
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <!-- Right Column: Frontend Technologies -->
