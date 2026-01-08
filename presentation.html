@@ -422,7 +422,7 @@
         <div class="slide-grid">
             <div>
                 <h2 class="text-5xl font-bold text-white mb-4">Architettura Logica</h2>
-                <h3 class="text-2xl text-primary font-mono mb-8">3-Tier Distributed Architecture</h3>
+                <h3 class="text-2xl text-primary font-mono mb-8">Client-Server Architecture</h3>
                 
                 <div class="space-y-8 relative">
                     <!-- Connecting Line -->
@@ -432,7 +432,7 @@
                         <div class="w-12 h-12 rounded-full bg-gray-700 border border-gray-500 flex items-center justify-center text-xl font-bold text-white z-10">1</div>
                         <div>
                             <h4 class="text-xl font-bold text-white">Presentation Layer</h4>
-                            <p class="text-gray-400 mt-1">Single Page Application (SPA) Angular 20.</p>
+                            <p class="text-gray-400 mt-1">Single Page Application (SPA) Angular 21.</p>
                             <p class="text-sm text-gray-500 mt-1 font-mono">Client-side rendering, Lazy Loading.</p>
                         </div>
                     </div>
@@ -512,43 +512,33 @@
             <div class="space-y-4">
                 <div>
                     <h2 class="text-3xl font-bold text-white mb-2">Struttura del Server (Back-end)</h2>
-                    <p class="text-sm text-gray-400 mb-4">Il server è stato sviluppato seguendo un'architettura a tre livelli, con una chiara separazione delle responsabilità:</p>
+                    <p class="text-sm text-gray-400 mb-4">Il server è stato sviluppato seguendo un'architettura a due livelli, con una chiara separazione delle responsabilità:</p>
                 </div>
 
-                <!-- 3-Tier Architecture Detailed -->
+                <!-- 2-Tier Architecture Detailed -->
                 <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-primary">
                     <h3 class="text-base font-bold text-white mb-3 flex items-center gap-2">
                         <i class="fas fa-layer-group text-primary"></i>
-                        Architettura a 3 Livelli
+                        Architettura a 2 Livelli (Two-Tier)
                     </h3>
                     <div class="space-y-3 text-xs">
                         <div class="bg-gray-800 p-3 rounded border border-gray-600">
                             <div class="flex items-center gap-2 mb-1.5">
                                 <span class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-[10px] font-bold">1</span>
-                                <strong class="text-white text-sm">Presentation Layer (Controller)</strong>
+                                <strong class="text-white text-sm">Presentation & Business Logic Layer (Router/Controller)</strong>
                             </div>
                             <p class="text-gray-300 leading-relaxed">
-                                Riceve le richieste HTTP, valida i dati attraverso <strong>Zod</strong> (express-zod-safe) e li invia al livello successivo. Gestisce il formato delle risposte JSON e gli status code HTTP appropriati.
+                                I file in <strong>src/api/routes/</strong> combinano Controller e Service. Ricevono le richieste HTTP, validano i dati con <strong>Zod</strong>, implementano la logica di business tramite funzioni helper locali e orchestrano chiamate a più repository. Gestiscono RBAC e risposte JSON.
                             </p>
                         </div>
 
                         <div class="bg-gray-800 p-3 rounded border border-gray-600">
                             <div class="flex items-center gap-2 mb-1.5">
-                                <span class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center text-[10px] font-bold">2</span>
-                                <strong class="text-white text-sm">Business Logic Layer (Service)</strong>
-                            </div>
-                            <p class="text-gray-300 leading-relaxed">
-                                Contiene la logica di business e le regole del dominio. Gestisce eventuali errori, orchestrando chiamate a più repository e servizi esterni. Implementa la logica RBAC per il controllo degli accessi.
-                            </p>
-                        </div>
-
-                        <div class="bg-gray-800 p-3 rounded border border-gray-600">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="w-6 h-6 rounded-full bg-purple-500 flex items-center justify-center text-[10px] font-bold">3</span>
+                                <span class="w-6 h-6 rounded-full bg-purple-500 flex items-center justify-center text-[10px] font-bold">2</span>
                                 <strong class="text-white text-sm">Data Access Layer (Repository/DAO)</strong>
                             </div>
                             <p class="text-gray-300 leading-relaxed">
-                                Interagisce direttamente con il database attraverso <strong>Drizzle ORM</strong>, eseguendo operazioni CRUD (Create, Read, Update, Delete). Astrae completamente i dettagli SQL dal resto dell'applicazione.
+                                I file in <strong>src/repository/</strong> interagiscono con il database tramite <strong>Drizzle ORM</strong>, eseguendo operazioni CRUD. Astraggono i dettagli SQL dal resto dell'applicazione.
                             </p>
                         </div>
                     </div>
@@ -691,14 +681,14 @@
             <div class="space-y-4">
                 <div>
                     <h2 class="text-3xl font-bold text-white mb-2">Struttura del Client (Front-end)</h2>
-                    <p class="text-sm text-gray-400 mb-4">L'architettura del client è suddivisa seguendo il pattern Component-Based Architecture con separazione delle responsabilità:</p>
+                    <p class="text-sm text-gray-400 mb-4">L'architettura del client è suddivisa seguendo il pattern Model-View-ViewModel (MVVM) con separazione delle responsabilità:</p>
                 </div>
 
-                <!-- Component-Based Architecture -->
+                <!-- MVVM Architecture -->
                 <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-primary">
                     <h3 class="text-base font-bold text-white mb-3 flex items-center gap-2">
                         <i class="fas fa-cubes text-primary"></i>
-                        Component-Based Architecture
+                        Model-View-ViewModel (MVVM)
                     </h3>
                     <div class="space-y-3 text-xs">
                         <div class="bg-gray-800 p-3 rounded border border-gray-600">
@@ -743,25 +733,31 @@
                         <li class="flex items-start gap-2">
                             <span class="text-primary font-bold mt-0.5">•</span>
                             <div>
-                                <strong class="text-white">Component-Based Architecture:</strong> L'interfaccia è suddivisa in componenti indipendenti e riutilizzabili (es. Navbar, PropertyCard).
+                                <strong class="text-white">MVVM (Model-View-ViewModel):</strong> Variante di MVC adatta al data binding bidirezionale di Angular.
                             </div>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-success font-bold mt-0.5">•</span>
                             <div>
-                                <strong class="text-white">Observer Pattern:</strong> Utilizzato tramite RxJS per sottoscrivere e reagire ai cambiamenti di stato (es. aggiornamento lista immobili).
+                                <strong class="text-white">Observer Pattern:</strong> Implementato tramite RxJS BehaviorSubject per reattività su cambiamenti di stato.
                             </div>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-purple-400 font-bold mt-0.5">•</span>
                             <div>
-                                <strong class="text-white">Inversion of Control (IoC) & DI:</strong> Angular gestisce la creazione e l'iniezione delle dipendenze (es. servizi API) nei componenti.
+                                <strong class="text-white">Inversion of Control (IoC) & DI:</strong> Angular gestisce la creazione e l'iniezione delle dipendenze nei componenti.
                             </div>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-yellow-400 font-bold mt-0.5">•</span>
                             <div>
-                                <strong class="text-white">Wrapper Pattern:</strong> Utilizzato per incapsulare librerie esterne (es. Leaflet) in componenti Angular per facilitarne l'uso e il testing.
+                                <strong class="text-white">Facade Pattern:</strong> Incapsula librerie esterne (Leaflet, FullCalendar) in componenti Angular con interfaccia semplificata.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-cyan-400 font-bold mt-0.5">•</span>
+                            <div>
+                                <strong class="text-white">Singleton Pattern:</strong> Servizi con <code>providedIn: 'root'</code> garantiscono istanza unica condivisa.
                             </div>
                         </li>
                     </ul>
@@ -807,10 +803,10 @@
                 <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-red-500">
                     <div class="flex items-center gap-2 mb-1.5">
                         <i class="fab fa-angular text-red-500 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">Angular 20</h3>
+                        <h3 class="text-sm font-bold text-white">Angular 21</h3>
                     </div>
                     <p class="text-[10px] text-gray-300 leading-relaxed mb-1.5">
-                        Framework per Single Page Application (SPA). Utilizza TypeScript, componenti riutilizzabili e dependency injection.
+                        Framework per Single Page Application (SPA). Utilizza TypeScript, componenti standalone e il nuovo block control flow syntax (<code>@if</code>, <code>@for</code>).
                     </p>
                 </div>
 
@@ -825,17 +821,6 @@
                     </p>
                 </div>
 
-                <!-- Tailwind CSS -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-cyan-500">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fas fa-palette text-cyan-400 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">Tailwind CSS</h3>
-                    </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed">
-                        Framework CSS utility-first per styling rapido e responsivo direttamente nel markup HTML.
-                    </p>
-                </div>
-
                 <!-- FullCalendar -->
                 <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-blue-400">
                     <div class="flex items-center gap-2 mb-1.5">
@@ -847,25 +832,14 @@
                     </p>
                 </div>
 
-                <!-- Quill Editor -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-gray-400">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fas fa-edit text-gray-300 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">Quill</h3>
-                    </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed">
-                        Editor di testo arricchito per la formattazione delle descrizioni immobili. Integrato con <strong>ngx-markdown</strong> per rendering sicuro e sanitizzato.
-                    </p>
-                </div>
-
                 <!-- Lucide Icons -->
                 <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-orange-400">
                     <div class="flex items-center gap-2 mb-1.5">
                         <i class="fas fa-icons text-orange-300 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">Lucide Angular</h3>
+                        <h3 class="text-sm font-bold text-white">Icone SVG (Lucide)</h3>
                     </div>
                     <p class="text-[10px] text-gray-300 leading-relaxed">
-                        Set di icone vettoriali (SVG) ottimizzate per il tree-shaking, garantendo leggerezza e coerenza visiva.
+                        Set di icone vettoriali utilizzate come SVG inline nei template HTML, per coerenza visiva e leggerezza.
                     </p>
                 </div>
 
