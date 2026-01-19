@@ -580,95 +580,101 @@
             </div>
 
             <!-- Right Column: Services & Technologies (OPTIMIZED) -->
-            <div class="space-y-3 overflow-y-auto pr-2" style="max-height: 85vh;">
-                <h2 class="text-3xl font-bold text-white mb-2 sticky top-0 bg-bg pb-2">Servizi e Tecnologie Utilizzate</h2>
+            <div class="space-y-3">
+                <h2 class="text-3xl font-bold text-white mb-3">Servizi e Tecnologie Utilizzate</h2>
 
-                <!-- TypeScript & Node.js -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-blue-500">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fab fa-node-js text-green-400 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">Node.js + TypeScript</h3>
+                <!-- Technologies Grid -->
+                <div class="grid grid-cols-2 gap-3">
+                    <!-- TypeScript & Node.js -->
+                    <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-blue-500">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fab fa-node-js text-green-400 text-xl"></i>
+                            <h3 class="text-sm font-bold text-white">Node.js + TypeScript</h3>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Runtime JS lato server con tipizzazione statica per prevenire errori a compile-time.
+                        </p>
                     </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed">
-                        <strong>Node.js</strong> è un runtime JavaScript basato su V8 di Chrome, che permette l'esecuzione di JavaScript lato server. <strong>TypeScript</strong> estende JavaScript con tipizzazione statica, prevenendo errori a compile-time e migliorando la manutenibilità del codice.
-                    </p>
+
+                    <!-- Express.js -->
+                    <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-green-500">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-server text-green-400 text-xl"></i>
+                            <h3 class="text-sm font-bold text-white">Express.js v5</h3>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Framework web minimale per routing, middleware e gestione API REST.
+                        </p>
+                    </div>
+
+                    <!-- Zod -->
+                    <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-yellow-500">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-check-double text-yellow-400 text-xl"></i>
+                            <h3 class="text-sm font-bold text-white">Zod Validation</h3>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Validazione rigorosa input a runtime con schemi TypeScript.
+                        </p>
+                    </div>
+
+                    <!-- PostgreSQL + PostGIS -->
+                    <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-cyan-500">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-database text-blue-400 text-xl"></i>
+                            <h3 class="text-sm font-bold text-white">PostgreSQL + PostGIS</h3>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            DB relazionale ACID con capacità geospaziali su NeonDB serverless.
+                        </p>
+                    </div>
+
+                    <!-- Drizzle ORM -->
+                    <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-pink-500">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-code text-pink-400 text-xl"></i>
+                            <h3 class="text-sm font-bold text-white">Drizzle ORM</h3>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            ORM TypeScript-first con migrazioni Code-First via Drizzle Kit.
+                        </p>
+                    </div>
+
+                    <!-- AWS S3 -->
+                    <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-orange-500">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fab fa-aws text-orange-400 text-xl"></i>
+                            <h3 class="text-sm font-bold text-white">Amazon S3</h3>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Storage scalabile per immagini con upload streaming via multer-s3.
+                        </p>
+                    </div>
                 </div>
 
-                <!-- Express.js -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-green-500">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fas fa-server text-green-400 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">Express.js v5</h3>
+                <!-- Auth & Email Row -->
+                <div class="grid grid-cols-2 gap-3">
+                    <!-- Passport.js & Auth -->
+                    <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-red-500">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-shield-alt text-red-400 text-xl"></i>
+                            <h3 class="text-sm font-bold text-white">Passport.js + JWT</h3>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Autenticazione modulare con sessioni stateless e RBAC granulare.
+                        </p>
                     </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed">
-                        Framework web minimale e flessibile per Node.js. Fornisce funzionalità per applicazioni web e API. Gestisce routing, middleware e parsing HTTP. La versione 5 migliora la gestione delle Promise e degli errori asincroni.
-                    </p>
-                </div>
 
-                <!-- Zod -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-yellow-500">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fas fa-check-double text-yellow-400 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">Zod & express-zod-safe</h3>
+                    <!-- Nodemailer -->
+                    <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-green-500">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-envelope text-green-400 text-xl"></i>
+                            <h3 class="text-sm font-bold text-white">Nodemailer</h3>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Email transazionali asincrone per conferme e notifiche.
+                        </p>
                     </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed">
-                        Libreria per la validazione rigorosa degli input a runtime. Zod permette di definire schemi che agiscono anche come definizioni di tipo TypeScript, garantendo che i dati in ingresso rispettino il formato atteso prima di raggiungere la logica di business.
-                    </p>
-                </div>
-
-                <!-- PostgreSQL + PostGIS -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-cyan-500">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fas fa-database text-blue-400 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">PostgreSQL + PostGIS (NeonDB)</h3>
-                    </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed">
-                        <strong>PostgreSQL</strong> è un database relazionale open-source ACID-compliant. <strong>PostGIS</strong> aggiunge capacità geospaziali per query di prossimità. Ospitato su <strong>NeonDB</strong>, piattaforma serverless PaaS con auto-scaling e branching database.
-                    </p>
-                </div>
-
-                <!-- Drizzle ORM -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-pink-500">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fas fa-code text-pink-400 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">Drizzle ORM</h3>
-                    </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed">
-                        ORM moderno "TypeScript-first". La gestione delle migrazioni avviene in modalità "Code-First" tramite <strong>Drizzle Kit</strong>.
-                    </p>
-                </div>
-
-                <!-- AWS S3 -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-orange-500">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fab fa-aws text-orange-400 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">Amazon S3</h3>
-                    </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed">
-                        Storage scalabile per immagini proprietà e loghi agenzie. Offre durabilità, disponibilità garantita e integrazione CDN. Supporta versioning, lifecycle policies e controllo accessi IAM. Upload streaming via <strong>multer-s3</strong> senza salvataggi temporanei.
-                    </p>
-                </div>
-
-                <!-- Passport.js & Auth -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-red-500">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fas fa-shield-alt text-red-400 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">Passport.js + JWT + bcrypt</h3>
-                    </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed">
-                        <strong>Passport.js</strong> è middleware autenticazione modulare per Express. Supporta 500+ strategie (Local, OAuth, JWT). Integrato con <strong>bcrypt.js</strong> per hashing password con salting automatico. <strong>JWT</strong> gestisce sessioni stateless per scalabilità orizzontale. Sistema RBAC per controllo accessi granulare.
-                    </p>
-                </div>
-
-                <!-- Nodemailer -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-green-500">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fas fa-envelope text-green-400 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">Nodemailer</h3>
-                    </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed">
-                        Libreria per l'invio di email transazionali asincrone (es. conferme appuntamenti, inviti).
-                    </p>
                 </div>
             </div>
         </div>
@@ -729,50 +735,124 @@
                         <i class="fas fa-puzzle-piece text-red-400"></i>
                         Pattern Architetturali Frontend
                     </h3>
-                    <ul class="space-y-2 text-xs text-gray-300">
+                    <ul class="space-y-2 text-sm text-gray-300">
                         <li class="flex items-start gap-2">
                             <span class="text-primary font-bold mt-0.5">•</span>
                             <div>
-                                <strong class="text-white">MVVM (Model-View-ViewModel):</strong> Variante di MVC adatta al data binding bidirezionale di Angular.
+                                <strong class="text-white">MVVM:</strong> Variante di MVC adatta al data binding bidirezionale di Angular.
                             </div>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-success font-bold mt-0.5">•</span>
                             <div>
-                                <strong class="text-white">Observer Pattern:</strong> Implementato tramite RxJS BehaviorSubject per reattività su cambiamenti di stato.
+                                <strong class="text-white">Observer Pattern:</strong> RxJS BehaviorSubject per reattività su cambiamenti di stato.
                             </div>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-purple-400 font-bold mt-0.5">•</span>
                             <div>
-                                <strong class="text-white">Inversion of Control (IoC) & DI:</strong> Angular gestisce la creazione e l'iniezione delle dipendenze nei componenti.
+                                <strong class="text-white">IoC & DI:</strong> Angular gestisce creazione e iniezione delle dipendenze.
                             </div>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-yellow-400 font-bold mt-0.5">•</span>
                             <div>
-                                <strong class="text-white">Facade Pattern:</strong> Incapsula librerie esterne (Leaflet, FullCalendar) in componenti Angular con interfaccia semplificata.
+                                <strong class="text-white">Facade Pattern:</strong> Incapsula librerie esterne (Leaflet, FullCalendar).
                             </div>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-cyan-400 font-bold mt-0.5">•</span>
                             <div>
-                                <strong class="text-white">Singleton Pattern:</strong> Servizi con <code>providedIn: 'root'</code> garantiscono istanza unica condivisa.
+                                <strong class="text-white">Singleton Pattern:</strong> Servizi con <code>providedIn: 'root'</code>.
                             </div>
                         </li>
                     </ul>
                 </div>
+            </div>
 
-                <!-- Notification System -->
+            <!-- Right Column: Technologies & Notifications -->
+            <div class="space-y-4">
+                <h2 class="text-3xl font-bold text-white mb-3">Servizi e Tecnologie Front-end</h2>
+
+                <!-- Technologies Grid -->
+                <div class="grid grid-cols-2 gap-3">
+                    <!-- Angular -->
+                    <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-red-500">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fab fa-angular text-red-500 text-xl"></i>
+                            <h3 class="text-sm font-bold text-white">Angular 21</h3>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Framework SPA con TypeScript, componenti standalone e nuovo control flow syntax.
+                        </p>
+                    </div>
+
+                    <!-- RxJS -->
+                    <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-purple-500">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-stream text-purple-400 text-xl"></i>
+                            <h3 class="text-sm font-bold text-white">RxJS</h3>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Programmazione reattiva con Observable per chiamate HTTP asincrone.
+                        </p>
+                    </div>
+
+                    <!-- FullCalendar -->
+                    <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-blue-400">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-calendar-alt text-blue-300 text-xl"></i>
+                            <h3 class="text-sm font-bold text-white">FullCalendar</h3>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Gestione visuale appuntamenti su griglia temporale per agenti.
+                        </p>
+                    </div>
+
+                    <!-- ngx-toastr -->
+                    <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-green-400">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-comment-dots text-green-300 text-xl"></i>
+                            <h3 class="text-sm font-bold text-white">ngx-toastr</h3>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Notifiche Toast per feedback immediato e non intrusivo.
+                        </p>
+                    </div>
+
+                    <!-- Lucide Icons -->
+                    <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-orange-400">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-icons text-orange-300 text-xl"></i>
+                            <h3 class="text-sm font-bold text-white">Lucide Icons</h3>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Icone vettoriali SVG inline per coerenza visiva e leggerezza.
+                        </p>
+                    </div>
+
+                    <!-- Figma -->
+                    <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-pink-500">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-pencil-ruler text-pink-400 text-xl"></i>
+                            <h3 class="text-sm font-bold text-white">Figma</h3>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Design collaborativo per prototipazione UI/UX.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Notification System - Moved to Right Column -->
                 <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-yellow-500">
-                    <h3 class="text-base font-bold text-white mb-3 flex items-center gap-2">
+                    <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
                         <i class="fas fa-bell text-yellow-400"></i>
                         Sistema Notifiche Real-Time
                     </h3>
-                    <p class="text-xs text-gray-300 mb-3">
+                    <p class="text-sm text-gray-300 mb-3">
                         Architettura <strong>Local-First</strong> senza dipendenze da WebSocket, SSE o Service Workers. Completamente client-side con polling REST.
                     </p>
-                    <ul class="space-y-2 text-xs text-gray-300">
+                    <ul class="space-y-2 text-sm text-gray-300">
                         <li class="flex items-start gap-2">
                             <i class="fas fa-eye text-yellow-400 flex-shrink-0 mt-0.5"></i>
                             <div>
@@ -792,77 +872,6 @@
                             </div>
                         </li>
                     </ul>
-                </div>
-            </div>
-
-            <!-- Right Column: Frontend Technologies -->
-            <div class="space-y-3 overflow-y-auto pr-2 custom-scrollbar" style="max-height: 85vh;">
-                <h2 class="text-3xl font-bold text-white mb-2 sticky top-0 bg-bg pb-2">Servizi e Tecnologie Front-end</h2>
-
-                <!-- Angular -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-red-500">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fab fa-angular text-red-500 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">Angular 21</h3>
-                    </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed mb-1.5">
-                        Framework per Single Page Application (SPA). Utilizza TypeScript, componenti standalone e il nuovo block control flow syntax (<code>@if</code>, <code>@for</code>).
-                    </p>
-                </div>
-
-                <!-- RxJS -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-purple-500">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fas fa-stream text-purple-400 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">RxJS</h3>
-                    </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed">
-                        Libreria per la programmazione reattiva basata su flussi di eventi (Observable). Gestisce chiamate HTTP asincrone e stato dell'applicazione.
-                    </p>
-                </div>
-
-                <!-- FullCalendar -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-blue-400">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fas fa-calendar-alt text-blue-300 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">FullCalendar</h3>
-                    </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed">
-                        Libreria per la gestione visuale degli appuntamenti su griglia temporale. Migliora l'operatività degli agenti rispetto a liste tabellari.
-                    </p>
-                </div>
-
-                <!-- Lucide Icons -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-orange-400">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fas fa-icons text-orange-300 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">Icone SVG (Lucide)</h3>
-                    </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed">
-                        Set di icone vettoriali utilizzate come SVG inline nei template HTML, per coerenza visiva e leggerezza.
-                    </p>
-                </div>
-
-                <!-- Toastr -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-green-400">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fas fa-bell text-green-300 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">ngx-toastr</h3>
-                    </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed">
-                        Sistema di notifiche "Toast" per feedback immediato e non intrusivo (es. conferme salvataggio, errori), migliorando la visibilità dello stato del sistema.
-                    </p>
-                </div>
-
-                <!-- Figma -->
-                <div class="bg-surface/50 p-2.5 rounded-lg border-l-4 border-pink-500">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fas fa-pencil-ruler text-pink-400 text-xl"></i>
-                        <h3 class="text-sm font-bold text-white">Figma</h3>
-                    </div>
-                    <p class="text-[10px] text-gray-300 leading-relaxed">
-                        Strumento di design collaborativo per la prototipazione dell'interfaccia utente (UI) e dell'esperienza utente (UX).
-                    </p>
                 </div>
             </div>
         </div>
@@ -1019,8 +1028,8 @@
 
     <!-- Slide 9: Interfacce & Workflow -->
     <div class="slide" id="slide-9">
-        <div class="slide-grid">
-            <div class="space-y-5 overflow-y-auto pr-2 custom-scrollbar" style="max-height: 85vh;">
+        <div class="slide-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div class="space-y-4">
                 <h2 class="text-4xl font-bold text-white mb-4">Interfacce & Workflow</h2>
                 
                 <!-- Login / Register -->
@@ -1028,13 +1037,12 @@
                     <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
                         <i class="fas fa-sign-in-alt text-purple-400"></i> Accesso & Onboarding
                     </h3>
-                    <p class="text-xs text-gray-300 mb-2">
+                    <p class="text-sm text-gray-300 mb-2">
                         Layout <strong>Split-Card</strong> basato sul principio della "Regione Comune".
                     </p>
-                    <ul class="list-disc list-inside text-xs text-gray-400 space-y-1">
+                    <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
                         <li><strong>Area Funzionale:</strong> Input isolati su sfondo chiaro per focus.</li>
                         <li><strong>Area Emozionale:</strong> Branding su sfondo scuro per accoglienza.</li>
-                        <li><strong>Transizioni:</strong> Fade-in per ridurre il carico cognitivo iniziale.</li>
                     </ul>
                 </div>
 
@@ -1043,13 +1051,12 @@
                     <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
                         <i class="fas fa-map-marked-alt text-blue-400"></i> Dashboard & Mappa Interattiva
                     </h3>
-                    <p class="text-xs text-gray-300 mb-2">
+                    <p class="text-sm text-gray-300 mb-2">
                         Home Page come hub operativo con mappa <strong>Sticky</strong>.
                     </p>
-                    <ul class="list-disc list-inside text-xs text-gray-400 space-y-1">
+                    <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
                         <li><strong>Feedback Dinamico:</strong> Hover sulla card illumina il pin sulla mappa.</li>
                         <li><strong>Mapping Naturale:</strong> Correlazione istantanea dati-posizione.</li>
-                        <li><strong>Ricerca Semantica:</strong> Indicizzazione full-text delle descrizioni.</li>
                     </ul>
                 </div>
 
@@ -1058,10 +1065,10 @@
                     <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
                         <i class="fas fa-plus-circle text-green-400"></i> Listing Property (Single Page)
                     </h3>
-                    <p class="text-xs text-gray-300 mb-2">
+                    <p class="text-sm text-gray-300 mb-2">
                         Modulo a pagina singola per visione d'insieme, preferito al Wizard.
                     </p>
-                    <ul class="list-disc list-inside text-xs text-gray-400 space-y-1">
+                    <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
                         <li><strong>Vincoli di Norman:</strong> Tasto "List" disabilitato se form incompleto.</li>
                         <li><strong>Input Guidati:</strong> Radio button per scelte mutuamente esclusive.</li>
                     </ul>
@@ -1072,15 +1079,15 @@
                     <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
                         <i class="fas fa-calendar-check text-orange-400"></i> Gestione Appuntamenti
                     </h3>
-                    <p class="text-xs text-gray-300 mb-2">
+                    <p class="text-sm text-gray-300 mb-2">
                         Visualizzazione Duale (Toggle View) per flessibilità operativa.
                     </p>
-                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-400">
+                    <div class="grid grid-cols-2 gap-2 text-sm text-gray-400">
                         <div class="bg-gray-800 p-2 rounded">
-                            <strong>List View:</strong> Scansione rapida e dettagli.
+                            <strong>List View:</strong> Scansione rapida.
                         </div>
                         <div class="bg-gray-800 p-2 rounded">
-                            <strong>Calendar View:</strong> Visione d'insieme (The Big Picture).
+                            <strong>Calendar View:</strong> Visione d'insieme.
                         </div>
                     </div>
                 </div>
@@ -1436,8 +1443,205 @@
             </div>
         </div>
 
-    <!-- Slide 12: Verifica e Validazione -->
+    <!-- Slide 12: Deploy su Google Cloud Platform -->
     <div class="slide" id="slide-12">
+        <div class="slide-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <!-- Left Column: GCP Overview -->
+            <div class="space-y-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-2">Deploy su Google Cloud Platform</h2>
+                    <p class="text-sm text-gray-400 mb-4">Architettura serverless con Cloud Run per scalabilità automatica e gestione semplificata.</p>
+                </div>
+
+                <!-- Cloud Run Architecture -->
+                <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-blue-500">
+                    <h3 class="text-base font-bold text-white mb-3 flex items-center gap-2">
+                        <i class="fab fa-google text-blue-400"></i>
+                        Google Cloud Run: Serverless Container
+                    </h3>
+                    <p class="text-[10px] text-gray-300 leading-relaxed mb-3">
+                        Servizio completamente gestito che esegue container stateless in un ambiente altamente scalabile. Astrae la gestione dell'infrastruttura sottostante.
+                    </p>
+                    <div class="space-y-2 text-xs">
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600">
+                            <div class="flex items-center gap-2 mb-1">
+                                <i class="fab fa-angular text-red-400"></i>
+                                <span class="font-bold text-white">Frontend Service</span>
+                            </div>
+                            <p class="text-[10px] text-gray-400">Container nginx con SPA Angular sulla porta 8080. Ottimizzato per asset statici (256 MiB RAM).</p>
+                        </div>
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600">
+                            <div class="flex items-center gap-2 mb-1">
+                                <i class="fab fa-node-js text-green-400"></i>
+                                <span class="font-bold text-white">Backend Service</span>
+                            </div>
+                            <p class="text-[10px] text-gray-400">Container Node.js/Express API REST porta 5003. Integrazione con PostgreSQL, S3 e OAuth (512 MiB RAM, 1 vCPU).</p>
+                        </div>
+                    </div>
+                    <div class="mt-3 p-2 bg-blue-900/20 border border-blue-700/50 rounded text-[10px] text-blue-200">
+                        <i class="fas fa-map-marker-alt mr-1"></i>
+                        <strong>Region:</strong> europe-west1 (Belgio) - Bassa latenza EU e conformità GDPR.
+                    </div>
+                </div>
+
+                <!-- Deploy Process -->
+                <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-green-500">
+                    <h3 class="text-base font-bold text-white mb-3 flex items-center gap-2">
+                        <i class="fas fa-rocket text-green-400"></i>
+                        Processo di Deploy
+                    </h3>
+                    <div class="space-y-2 text-[10px] text-gray-300">
+                        <div class="flex items-start gap-2">
+                            <span class="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-[9px] font-bold shrink-0">1</span>
+                            <div><strong class="text-white">Config GCP:</strong> Abilitazione API (Cloud Build, Run, Artifact Registry)</div>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-[9px] font-bold shrink-0">2</span>
+                            <div><strong class="text-white">Artifact Registry:</strong> Repository Docker privato per immagini verificate</div>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-[9px] font-bold shrink-0">3</span>
+                            <div><strong class="text-white">Build & Push:</strong> Multi-stage build locale + push al registro</div>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-[9px] font-bold shrink-0">4</span>
+                            <div><strong class="text-white">Deploy Cloud Run:</strong> Configurazione risorse, env vars criptate, CORS</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Autoscaling -->
+                <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-purple-500">
+                    <h3 class="text-base font-bold text-white mb-3 flex items-center gap-2">
+                        <i class="fas fa-chart-line text-purple-400"></i>
+                        Scalabilità Automatica
+                    </h3>
+                    <div class="grid grid-cols-2 gap-3 mb-3">
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600 text-center">
+                            <div class="text-lg font-bold text-purple-400">0</div>
+                            <p class="text-[9px] text-gray-400">Min Instances</p>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600 text-center">
+                            <div class="text-lg font-bold text-purple-400">10</div>
+                            <p class="text-[9px] text-gray-400">Max Instances</p>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-gray-300">
+                        <i class="fas fa-bolt text-yellow-400 mr-1"></i>
+                        Scale-to-zero in assenza di traffico. Avvio nuove istanze in secondi durante i picchi.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Column: Benefits & URLs -->
+            <div class="space-y-4">
+                <h2 class="text-3xl font-bold text-white mb-2">Vantaggi & Produzione</h2>
+
+                <!-- Security -->
+                <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-red-500">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-shield-alt text-red-400 text-lg"></i>
+                        <h3 class="text-sm font-bold text-white">Sicurezza & Networking</h3>
+                    </div>
+                    <ul class="text-[10px] text-gray-300 space-y-1">
+                        <li class="flex items-center gap-2"><i class="fas fa-lock text-green-400"></i> SSL/TLS automatico su tutti gli endpoint</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-user-shield text-blue-400"></i> Integrazione Cloud IAM per accessi granulari</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-key text-yellow-400"></i> Variabili d'ambiente criptate (JWT, AWS, OAuth)</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-network-wired text-purple-400"></i> VPC connector per risorse private</li>
+                    </ul>
+                </div>
+
+                <!-- Pay-per-Use -->
+                <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-yellow-500">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-coins text-yellow-400 text-lg"></i>
+                        <h3 class="text-sm font-bold text-white">Modello Pay-per-Use</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300 mb-2">Costi basati su risorse effettivamente consumate:</p>
+                    <div class="grid grid-cols-2 gap-2 text-[9px] mb-2">
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600"><i class="fas fa-server text-blue-400 mr-1"></i>vCPU-secondi</div>
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600"><i class="fas fa-memory text-purple-400 mr-1"></i>GiB-secondi</div>
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600"><i class="fas fa-exchange-alt text-green-400 mr-1"></i>Richieste</div>
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600"><i class="fas fa-cloud-download-alt text-cyan-400 mr-1"></i>Egress network</div>
+                    </div>
+                    <div class="bg-green-900/20 border border-green-700/50 rounded p-2 text-[9px] text-green-200">
+                        <i class="fas fa-gift mr-1"></i>
+                        <strong>Free Tier:</strong> 2M richieste, 180K vCPU-sec, 360K GiB-sec/mese
+                    </div>
+                </div>
+
+
+                <!-- GCP Ecosystem -->
+                <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-orange-500">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fab fa-google text-orange-400 text-lg"></i>
+                        <h3 class="text-sm font-bold text-white">Ecosistema GCP Integrabile</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-[9px]">
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600 flex items-center gap-1">
+                            <i class="fas fa-chart-bar text-blue-400"></i>Cloud Monitoring
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600 flex items-center gap-1">
+                            <i class="fas fa-file-alt text-green-400"></i>Cloud Logging
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600 flex items-center gap-1">
+                            <i class="fas fa-database text-purple-400"></i>Cloud SQL
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600 flex items-center gap-1">
+                            <i class="fas fa-key text-yellow-400"></i>Secret Manager
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600 flex items-center gap-1">
+                            <i class="fas fa-tachometer-alt text-cyan-400"></i>Cloud CDN
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600 flex items-center gap-1">
+                            <i class="fas fa-shield-virus text-red-400"></i>Cloud Armor
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Architecture Diagram -->
+                <div class="tech-card bg-[#111827] p-4">
+                    <div class="text-center text-xs text-gray-400 mb-3">Architettura Cloud Run</div>
+                    <div class="flex flex-col gap-2">
+                        <div class="flex justify-center gap-4">
+                            <div class="bg-gray-800 border border-gray-600 rounded p-2 text-center text-[10px]">
+                                <i class="fas fa-users text-blue-400 text-lg mb-1"></i>
+                                <div>Users</div>
+                            </div>
+                        </div>
+                        <div class="flex justify-center"><i class="fas fa-arrow-down text-gray-500"></i></div>
+                        <div class="bg-blue-900/30 border border-blue-700/50 rounded p-2 text-center text-[10px]">
+                            <i class="fab fa-google text-blue-400 mr-1"></i>Cloud Run (HTTPS/TLS)
+                        </div>
+                        <div class="flex justify-center gap-2">
+                            <i class="fas fa-arrow-down text-gray-500"></i>
+                            <i class="fas fa-arrow-down text-gray-500"></i>
+                        </div>
+                        <div class="flex justify-center gap-3">
+                            <div class="bg-red-900/20 border border-red-700/50 rounded p-2 text-center text-[9px]">
+                                <i class="fab fa-angular text-red-400"></i><br>Frontend
+                            </div>
+                            <div class="bg-green-900/20 border border-green-700/50 rounded p-2 text-center text-[9px]">
+                                <i class="fab fa-node-js text-green-400"></i><br>Backend
+                            </div>
+                        </div>
+                        <div class="flex justify-center"><i class="fas fa-arrow-down text-gray-500"></i></div>
+                        <div class="flex justify-center gap-3">
+                            <div class="bg-cyan-900/20 border border-cyan-700/50 rounded px-2 py-1 text-[9px]">
+                                <i class="fas fa-database text-cyan-400"></i> NeonDB
+                            </div>
+                            <div class="bg-orange-900/20 border border-orange-700/50 rounded px-2 py-1 text-[9px]">
+                                <i class="fab fa-aws text-orange-400"></i> S3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 13: Verifica e Validazione -->
+    <div class="slide" id="slide-13">
         <div class="slide-grid" style="grid-template-columns: 1fr 1fr; gap: 3rem;">
             <!-- Left Column: Verification (Static & Dynamic) -->
             <div class="space-y-6">
@@ -1474,11 +1678,28 @@
                         Approccio <strong>Risk-Based Testing</strong> focalizzato sui moduli Core Business critici.
                     </p>
                     
-                    <ul class="space-y-2 text-xs text-gray-300 mb-4">
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600 text-center">
+                            <div class="text-2xl font-bold text-purple-400">60%</div>
+                            <p class="text-xs text-gray-400">Black-Box Testing</p>
+                        </div>
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600 text-center">
+                            <div class="text-2xl font-bold text-blue-400">40%</div>
+                            <p class="text-xs text-gray-400">White-Box Testing</p>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-2 text-xs text-gray-300">
                         <li class="flex items-start gap-2">
                             <i class="fas fa-check text-green-400 mt-1"></i>
                             <div>
-                                <strong>Black-Box Testing:</strong> Partizione in Classi di Equivalenza.
+                                <strong>Black-Box:</strong> Partizione in Classi di Equivalenza, Boundary Value Analysis.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-400 mt-1"></i>
+                            <div>
+                                <strong>White-Box:</strong> Statement Coverage, Branch Coverage, Path Coverage.
                             </div>
                         </li>
                         <li class="flex items-start gap-2">
@@ -1489,13 +1710,15 @@
                         </li>
                     </ul>
 
-                    <div class="bg-gray-800 p-3 rounded border border-gray-600 text-xs">
-                        <strong class="text-white block mb-1">Metodi Critici Testati:</strong>
-                        <ul class="list-disc list-inside text-gray-400 space-y-1">
-                            <li><span class="font-mono text-blue-300">deleteAppointment</span> (Sicurezza RBAC)</li>
-                            <li><span class="font-mono text-blue-300">getPostsNearby</span> (Logica Geospaziale)</li>
-                            <li><span class="font-mono text-blue-300">getAllAppointmentsForCalendar</span> (Query Dinamiche)</li>
-                        </ul>
+                    <div class="mt-4 grid grid-cols-2 gap-3">
+                        <div class="bg-green-900/20 border border-green-700/50 rounded p-3 text-center">
+                            <div class="text-2xl font-bold text-green-400">98.75%</div>
+                            <p class="text-xs text-green-200">Statement Coverage</p>
+                        </div>
+                        <div class="bg-green-900/20 border border-green-700/50 rounded p-3 text-center">
+                            <div class="text-2xl font-bold text-green-400">92.5%</div>
+                            <p class="text-xs text-green-200">Branch Coverage</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1580,8 +1803,172 @@
         </div>
     </div>
 
-    <!-- Slide 13: Conclusioni -->
-    <div class="slide" id="slide-13">
+    <!-- Slide 14: Dettaglio Unit Testing -->
+    <div class="slide" id="slide-14">
+        <div class="slide-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <!-- Left Column: Unit Testing Details -->
+            <div class="space-y-3">
+                <h2 class="text-3xl font-bold text-white mb-2">Dettaglio Unit Testing</h2>
+                <p class="text-sm text-gray-400 mb-3">40 test cases su 4 metodi selezionati con approccio Risk-Based.</p>
+                
+                <!-- Test Method 1: createSearchCenterPoint -->
+                <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-blue-500">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-map-marker-alt text-blue-400"></i>
+                        <h3 class="text-sm font-bold text-white font-mono">createSearchCenterPoint()</h3>
+                    </div>
+                    <p class="text-xs text-gray-400 mb-2">Costruisce stringa WKT per punto geografico PostGIS (SRID 4326).</p>
+                    <div class="text-xs text-gray-300 space-y-1">
+                        <div><strong class="text-white">Input:</strong> longitude (−180≤lon≤180), latitude (−90≤lat≤90)</div>
+                        <div><strong class="text-white">Output:</strong> <code class="text-cyan-300">SRID=4326;POINT(lon lat)</code></div>
+                    </div>
+                    <div class="mt-2 bg-gray-800 p-2 rounded text-[10px]">
+                        <div class="text-gray-400 mb-1">Classi di Equivalenza:</div>
+                        <div class="grid grid-cols-2 gap-1">
+                            <span class="text-green-300">• CE1: Napoli (14.26, 40.83)</span>
+                            <span class="text-yellow-300">• CE2: Boundary+ (180, 90)</span>
+                            <span class="text-orange-300">• CE3: Boundary- (-180, -90)</span>
+                            <span class="text-cyan-300">• CE4: Null Island (0, 0)</span>
+                        </div>
+                    </div>
+                    <div class="mt-2 flex gap-2 text-[10px]">
+                        <span class="bg-green-900/30 text-green-300 px-1.5 py-0.5 rounded">10 test cases</span>
+                        <span class="bg-blue-900/30 text-blue-300 px-1.5 py-0.5 rounded">100% Statement</span>
+                        <span class="bg-purple-900/30 text-purple-300 px-1.5 py-0.5 rounded">100% Path</span>
+                    </div>
+                </div>
+
+                <!-- Test Method 2: calculateOffset -->
+                <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-green-500">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-calculator text-green-400"></i>
+                        <h3 class="text-sm font-bold text-white font-mono">calculateOffset()</h3>
+                    </div>
+                    <p class="text-xs text-gray-400 mb-2">Calcola offset per query SQL paginate: <code class="text-cyan-300">offset = (page-1) × limit</code></p>
+                    <div class="text-xs text-gray-300 space-y-1">
+                        <div><strong class="text-white">Input:</strong> page (≥1, base 1), limit (>0)</div>
+                        <div><strong class="text-white">Formula:</strong> Converte numero pagina (base 1) → offset SQL (base 0)</div>
+                    </div>
+                    <div class="mt-2 bg-gray-800 p-2 rounded text-[10px]">
+                        <div class="text-gray-400 mb-1">Classi di Equivalenza:</div>
+                        <div class="grid grid-cols-2 gap-1">
+                            <span class="text-green-300">• CE1: page=1 → offset=0</span>
+                            <span class="text-yellow-300">• CE2: page=2, limit=10 → 10</span>
+                            <span class="text-orange-300">• CE3: page=100, limit=50 → 4950</span>
+                            <span class="text-cyan-300">• CE4: limit=1 (singolo)</span>
+                        </div>
+                    </div>
+                    <div class="mt-2 flex gap-2 text-[10px]">
+                        <span class="bg-green-900/30 text-green-300 px-1.5 py-0.5 rounded">10 test cases</span>
+                        <span class="bg-blue-900/30 text-blue-300 px-1.5 py-0.5 rounded">100% Statement</span>
+                        <span class="bg-purple-900/30 text-purple-300 px-1.5 py-0.5 rounded">100% Path</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: More Test Methods -->
+            <div class="space-y-3">
+                <!-- Test Method 3: sendAppointmentRescheduledEmail -->
+                <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-red-500">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-envelope text-red-400"></i>
+                        <h3 class="text-sm font-bold text-white font-mono">sendAppointmentRescheduledEmail()</h3>
+                    </div>
+                    <p class="text-xs text-gray-400 mb-2">Invia notifica email quando appuntamento viene riprogrammato.</p>
+                    <div class="text-xs text-gray-300 space-y-1">
+                        <div><strong class="text-white">Params:</strong> userEmail, propertyTitle, oldDate, newDate, notes?</div>
+                        <div><strong class="text-white">Branch:</strong> Early return (!email), ternary (notes), try/catch</div>
+                    </div>
+                    <div class="mt-2 bg-gray-800 p-2 rounded text-[10px]">
+                        <div class="text-gray-400 mb-1">Control Flow Graph (4 percorsi):</div>
+                        <div class="grid grid-cols-2 gap-1">
+                            <span class="text-gray-300">P1: Early return (email undef)</span>
+                            <span class="text-green-300">P2: Success con notes</span>
+                            <span class="text-yellow-300">P3: Success senza notes</span>
+                            <span class="text-red-300">P4: Exception (SMTP fail)</span>
+                        </div>
+                    </div>
+                    <div class="mt-2 flex gap-2 text-[10px]">
+                        <span class="bg-green-900/30 text-green-300 px-1.5 py-0.5 rounded">10 test cases</span>
+                        <span class="bg-blue-900/30 text-blue-300 px-1.5 py-0.5 rounded">100% Branch</span>
+                        <span class="bg-purple-900/30 text-purple-300 px-1.5 py-0.5 rounded">100% Path</span>
+                    </div>
+                </div>
+
+                <!-- Test Method 4: getWeatherForecast -->
+                <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-yellow-500">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-cloud-sun text-yellow-400"></i>
+                        <h3 class="text-sm font-bold text-white font-mono">getWeatherForecast()</h3>
+                    </div>
+                    <p class="text-xs text-gray-400 mb-2">Previsioni meteo OpenMeteo con caching in-memory (TTL 1h).</p>
+                    <div class="text-xs text-gray-300 space-y-1">
+                        <div><strong class="text-white">Logica:</strong> Arrotonda coord (4 dec), clamping days (max 16)</div>
+                        <div><strong class="text-white">Formula:</strong> <code class="text-cyan-300">Math.round(coord * 10000) / 10000</code></div>
+                    </div>
+                    <div class="mt-2 bg-gray-800 p-2 rounded text-[10px]">
+                        <div class="text-gray-400 mb-1">Boundary Value Analysis:</div>
+                        <div class="grid grid-cols-2 gap-1">
+                            <span class="text-green-300">• days=1 (min pratico)</span>
+                            <span class="text-yellow-300">• days=16 (max API)</span>
+                            <span class="text-orange-300">• days=30 → clamped a 16</span>
+                            <span class="text-cyan-300">• Coord negative (Sud)</span>
+                        </div>
+                    </div>
+                    <div class="mt-2 flex gap-2 text-[10px]">
+                        <span class="bg-green-900/30 text-green-300 px-1.5 py-0.5 rounded">10 test cases</span>
+                        <span class="bg-yellow-900/30 text-yellow-300 px-1.5 py-0.5 rounded">95% Statement</span>
+                        <span class="bg-orange-900/30 text-orange-300 px-1.5 py-0.5 rounded">85% Branch</span>
+                    </div>
+                </div>
+
+                <!-- Testing Summary -->
+                <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-cyan-500">
+                    <h3 class="text-sm font-bold text-white mb-2 flex items-center gap-2">
+                        <i class="fas fa-clipboard-check text-cyan-400"></i>
+                        Riepilogo Test Suite
+                    </h3>
+                    <div class="grid grid-cols-4 gap-2 text-center text-xs mb-2">
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600">
+                            <div class="text-xl font-bold text-white">40</div>
+                            <p class="text-gray-400">Test Cases</p>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600">
+                            <div class="text-xl font-bold text-white">4</div>
+                            <p class="text-gray-400">Metodi</p>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600">
+                            <div class="text-xl font-bold text-green-400">98.75%</div>
+                            <p class="text-gray-400">Stmt Cov</p>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600">
+                            <div class="text-xl font-bold text-green-400">92.5%</div>
+                            <p class="text-gray-400">Branch</p>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-300">
+                        <strong class="text-white">Criteri Selezione:</strong> Logica complessa, calcoli non triviali, gestione errori, dipendenze mockabili.
+                    </div>
+                </div>
+
+                <!-- Mock Strategy -->
+                <div class="bg-surface/50 p-3 rounded-lg border border-gray-600">
+                    <h3 class="text-sm font-bold text-white mb-2 flex items-center gap-2">
+                        <i class="fas fa-cogs text-gray-400"></i>
+                        Test in Isolation (Mock Objects)
+                    </h3>
+                    <div class="flex gap-2 flex-wrap text-xs">
+                        <span class="px-2 py-1 bg-gray-700 rounded text-gray-300 font-mono">jest.mock()</span>
+                        <span class="px-2 py-1 bg-gray-700 rounded text-gray-300 font-mono">jest.spyOn()</span>
+                        <span class="px-2 py-1 bg-gray-700 rounded text-gray-300 font-mono">mockResolvedValue()</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 15: Conclusioni -->
+    <div class="slide" id="slide-15">
         <div class="slide-grid single-col">
             <div class="flex flex-col items-center justify-center h-full space-y-10">
                 <h2 class="text-6xl font-extrabold text-white">Conclusioni</h2>
@@ -1638,7 +2025,7 @@
 
 <script>
     let currentSlide = 1;
-    const totalSlides = 13;
+    const totalSlides = 15;
 
     function showSlide(n) {
         document.querySelectorAll('.slide').forEach(s => {
