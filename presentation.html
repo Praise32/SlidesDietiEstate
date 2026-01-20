@@ -168,6 +168,43 @@
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
             background: #6B7280; 
         }
+        
+        /* Fullscreen Image Overlay */
+        .fullscreen-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .fullscreen-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .fullscreen-overlay img {
+            max-width: 95vw;
+            max-height: 95vh;
+            object-fit: contain;
+            border-radius: 0.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .clickable-image {
+            cursor: zoom-in;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .clickable-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -202,8 +239,110 @@
         </div>
     </div>
 
-    <!-- Slide 2: Analisi dei Requisiti -->
+    <!-- Slide 2: DEMO Live -->
     <div class="slide" id="slide-2">
+        <div class="slide-grid" style="grid-template-columns: 1fr 1fr; gap: 3rem;">
+            <!-- Left Column: Demo Info -->
+            <div class="flex flex-col justify-center space-y-6">
+                <div>
+                    <h2 class="text-5xl font-bold text-white mb-4">DEMO Live</h2>
+                    <p class="text-xl text-gray-400 leading-relaxed">Il progetto è deployato e accessibile online. Scansiona il QR code per accedere direttamente alla piattaforma.</p>
+                </div>
+
+                <div class="bg-surface/50 p-6 rounded-lg border-l-4 border-primary">
+                    <h3 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                        <i class="fas fa-user-shield text-primary"></i>
+                        Account di Prova
+                    </h3>
+                    <p class="text-base text-gray-300 mb-4">Utilizza le seguenti credenziali per testare le funzionalità specifiche dei diversi ruoli:</p>
+                    
+                    <!-- Credentials Table -->
+                    <div class="bg-gray-800 rounded-lg overflow-hidden">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="bg-gray-700">
+                                    <th class="px-4 py-3 text-left text-white font-bold">Ruolo</th>
+                                    <th class="px-4 py-3 text-left text-white font-bold">Username</th>
+                                    <th class="px-4 py-3 text-left text-white font-bold">Password</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-300">
+                                <tr class="border-t border-gray-600">
+                                    <td class="px-4 py-2.5">
+                                        <span class="bg-red-900/30 border border-red-700 text-white px-2 py-1 rounded text-xs font-bold inline-flex items-center gap-1">
+                                            <i class="fas fa-crown text-red-400"></i>Admin
+                                        </span>
+                                    </td>
+                                    <td class="px-4 py-2.5 font-mono">Admin</td>
+                                    <td class="px-4 py-2.5 font-mono">admin123</td>
+                                </tr>
+                                <tr class="border-t border-gray-600">
+                                    <td class="px-4 py-2.5">
+                                        <span class="bg-orange-900/30 border border-orange-700 text-white px-2 py-1 rounded text-xs font-bold inline-flex items-center gap-1">
+                                            <i class="fas fa-headset text-orange-400"></i>Support
+                                        </span>
+                                    </td>
+                                    <td class="px-4 py-2.5 font-mono">Marco Casamonica</td>
+                                    <td class="px-4 py-2.5 font-mono">password</td>
+                                </tr>
+                                <tr class="border-t border-gray-600">
+                                    <td class="px-4 py-2.5">
+                                        <span class="bg-blue-900/30 border border-blue-700 text-white px-2 py-1 rounded text-xs font-bold inline-flex items-center gap-1">
+                                            <i class="fas fa-briefcase text-blue-400"></i>Manager
+                                        </span>
+                                    </td>
+                                    <td class="px-4 py-2.5 font-mono">Tullio Casamonica</td>
+                                    <td class="px-4 py-2.5 font-mono">password</td>
+                                </tr>
+                                <tr class="border-t border-gray-600">
+                                    <td class="px-4 py-2.5">
+                                        <span class="bg-green-900/30 border border-green-700 text-white px-2 py-1 rounded text-xs font-bold inline-flex items-center gap-1">
+                                            <i class="fas fa-user-tie text-green-400"></i>Agent
+                                        </span>
+                                    </td>
+                                    <td class="px-4 py-2.5 font-mono">Teseo Fornari</td>
+                                    <td class="px-4 py-2.5 font-mono">password</td>
+                                </tr>
+                                <tr class="border-t border-gray-600">
+                                    <td class="px-4 py-2.5">
+                                        <span class="bg-gray-800 border border-gray-600 text-white px-2 py-1 rounded text-xs font-bold inline-flex items-center gap-1">
+                                            <i class="fas fa-user text-gray-400"></i>Customer
+                                        </span>
+                                    </td>
+                                    <td class="px-4 py-2.5 font-mono">Mario Rossi</td>
+                                    <td class="px-4 py-2.5 font-mono">password</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-green-900/20 border border-green-700/50 rounded-lg">
+                    <div class="flex items-center gap-3 text-green-200">
+                        <i class="fas fa-cloud-upload-alt text-2xl"></i>
+                        <div>
+                            <div class="font-bold">Deployato su Google Cloud Run</div>
+                            <div class="text-sm text-green-300">Region: europe-west1 (Belgio)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: QR Code -->
+            <div class="flex flex-col items-center justify-center">
+                <div class="tech-card bg-white p-8 rounded-2xl shadow-2xl">
+                    <img src="qr-code.png" alt="QR Code Demo" class="w-80 h-80 object-contain">
+                </div>
+                <p class="mt-6 text-lg text-gray-400 text-center">
+                    <i class="fas fa-qrcode text-primary mr-2"></i>
+                    Scansiona per accedere alla demo
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Analisi dei Requisiti -->
+    <div class="slide" id="slide-3">
         <div class="slide-grid">
             <div class="pr-8">
                 <h2 class="text-5xl font-bold text-white mb-6">Analisi dei Requisiti</h2>
@@ -346,8 +485,8 @@
         </div>
     </div>
 
-    <!-- Slide 3: Attori e Casi d'Uso -->
-    <div class="slide" id="slide-3">
+    <!-- Slide 4: Attori e Casi d'Uso -->
+    <div class="slide" id="slide-4">
         <div class="slide-grid">
             <div class="flex items-center justify-center">
                 <div class="max-w-xl w-full">
@@ -407,18 +546,18 @@
             <div class="tech-card p-0 flex items-center justify-center overflow-hidden">
                 <div class="flex flex-col h-full w-full p-4 gap-4">
                     <div class="flex-1 bg-white rounded-lg p-2 flex items-center justify-center min-h-0">
-                        <img src="UseCaseUtentiNonRegistrati.png" alt="Use Case Utenti Non Registrati" class="max-w-full max-h-full object-contain">
+                        <img src="UseCaseUtentiNonRegistrati.png" alt="Use Case Utenti Non Registrati" class="max-w-full max-h-full object-contain clickable-image" onclick="openFullscreen(this)">
                     </div>
                     <div class="flex-1 bg-white rounded-lg p-2 flex items-center justify-center min-h-0">
-                        <img src="UseCaseUtentiRegistrati.drawio.jpg" alt="Use Case Utenti Registrati" class="max-w-full max-h-full object-contain">
+                        <img src="UseCaseUtentiRegistrati.drawio.jpg" alt="Use Case Utenti Registrati" class="max-w-full max-h-full object-contain clickable-image" onclick="openFullscreen(this)">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 4: Architettura di Sistema -->
-    <div class="slide" id="slide-4">
+    <!-- Slide 5: Architettura di Sistema -->
+    <div class="slide" id="slide-5">
         <div class="slide-grid">
             <div>
                 <h2 class="text-5xl font-bold text-white mb-4">Architettura Logica</h2>
@@ -467,7 +606,6 @@
                         </p>
                         <ul class="list-disc list-inside text-xs text-gray-400 space-y-1">
                             <li><strong>Type-Safety End-to-End:</strong> Prevenzione errori a compile-time.</li>
-                            <li><strong>Condivisione Codice:</strong> Interfacce e DTO condivisi tra client e server.</li>
                             <li><strong>Ecosistema Coerente:</strong> Stessi strumenti di linting e testing.</li>
                         </ul>
                     </div>
@@ -505,8 +643,8 @@
         </div>
     </div>
 
-    <!-- Slide 5: Backend Design & Patterns -->
-    <div class="slide" id="slide-5">
+    <!-- Slide 6: Backend Design & Patterns -->
+    <div class="slide" id="slide-6">
         <div class="slide-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
             <!-- Left Column: Backend Structure -->
             <div class="space-y-4">
@@ -680,8 +818,8 @@
         </div>
     </div>
 
-    <!-- Slide 6: Frontend Engineering -->
-    <div class="slide" id="slide-6">
+    <!-- Slide 7: Frontend Engineering -->
+    <div class="slide" id="slide-7">
         <div class="slide-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
             <!-- Left Column: Frontend Structure -->
             <div class="space-y-4">
@@ -877,8 +1015,8 @@
         </div>
     </div>
 
-    <!-- Slide 7: Servizi Esterni -->
-    <div class="slide" id="slide-7">
+    <!-- Slide 8: Servizi Esterni -->
+    <div class="slide" id="slide-8">
         <div class="slide-grid">
             <div>
                 <h2 class="text-5xl font-bold text-white mb-8">Servizi Esterni & Integrazioni</h2>
@@ -932,8 +1070,8 @@
     </div>
 
     
-    <!-- Slide 8: Design System & UX -->
-    <div class="slide" id="slide-8">
+    <!-- Slide 9: Design System & UX -->
+    <div class="slide" id="slide-9">
         <div class="slide-grid">
             <div class="space-y-6">
                 <h2 class="text-5xl font-bold text-white mb-4">Design System & UX</h2>
@@ -1026,116 +1164,115 @@
         </div>
     </div>
 
-    <!-- Slide 9: Interfacce & Workflow -->
-    <div class="slide" id="slide-9">
+    <!-- Slide 10: Interfacce & Workflow -->
+    <div class="slide" id="slide-10">
         <div class="slide-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
             <div class="space-y-4">
                 <h2 class="text-4xl font-bold text-white mb-4">Interfacce & Workflow</h2>
                 
                 <!-- Login / Register -->
                 <div class="bg-surface p-4 rounded-lg border-l-4 border-purple-500">
-                    <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                    <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
                         <i class="fas fa-sign-in-alt text-purple-400"></i> Accesso & Onboarding
                     </h3>
-                    <p class="text-sm text-gray-300 mb-2">
+                    <p class="text-base text-gray-300 mb-2">
                         Layout <strong>Split-Card</strong> basato sul principio della "Regione Comune".
                     </p>
-                    <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
-                        <li><strong>Area Funzionale:</strong> Input isolati su sfondo chiaro per focus.</li>
-                        <li><strong>Area Emozionale:</strong> Branding su sfondo scuro per accoglienza.</li>
+                    <ul class="list-disc list-inside text-base text-gray-400 space-y-1">
+                        <li><strong>Area Funzionale:</strong> Input isolati su sfondo chiaro.</li>
+                        <li><strong>Area Emozionale:</strong> Branding su sfondo scuro.</li>
                     </ul>
                 </div>
 
                 <!-- Dashboard & Map -->
                 <div class="bg-surface p-4 rounded-lg border-l-4 border-blue-500">
-                    <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
-                        <i class="fas fa-map-marked-alt text-blue-400"></i> Dashboard & Mappa Interattiva
+                    <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                        <i class="fas fa-map-marked-alt text-blue-400"></i> Dashboard & Mappa
                     </h3>
-                    <p class="text-sm text-gray-300 mb-2">
-                        Home Page come hub operativo con mappa <strong>Sticky</strong>.
+                    <p class="text-base text-gray-300 mb-2">
+                        Home Page come hub con mappa <strong>Sticky</strong>.
                     </p>
-                    <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
-                        <li><strong>Feedback Dinamico:</strong> Hover sulla card illumina il pin sulla mappa.</li>
-                        <li><strong>Mapping Naturale:</strong> Correlazione istantanea dati-posizione.</li>
+                    <ul class="list-disc list-inside text-base text-gray-400 space-y-1">
+                        <li><strong>Feedback Dinamico:</strong> Hover card → pin illuminato.</li>
+                        <li><strong>Mapping Naturale:</strong> Correlazione dati-posizione.</li>
                     </ul>
                 </div>
 
                 <!-- Listing Property -->
                 <div class="bg-surface p-4 rounded-lg border-l-4 border-green-500">
-                    <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
-                        <i class="fas fa-plus-circle text-green-400"></i> Listing Property (Single Page)
+                    <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                        <i class="fas fa-plus-circle text-green-400"></i> Listing Property
                     </h3>
-                    <p class="text-sm text-gray-300 mb-2">
-                        Modulo a pagina singola per visione d'insieme, preferito al Wizard.
+                    <p class="text-base text-gray-300 mb-2">
+                        Modulo a pagina singola, preferito al Wizard multi-step.
                     </p>
-                    <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
-                        <li><strong>Vincoli di Norman:</strong> Tasto "List" disabilitato se form incompleto.</li>
-                        <li><strong>Input Guidati:</strong> Radio button per scelte mutuamente esclusive.</li>
+                    <ul class="list-disc list-inside text-base text-gray-400 space-y-1">
+                        <li><strong>Vincoli di Norman:</strong> Tasto disabilitato se incompleto.</li>
+                        <li><strong>Input Guidati:</strong> Radio button esclusivi.</li>
                     </ul>
                 </div>
 
                 <!-- Calendar -->
                 <div class="bg-surface p-4 rounded-lg border-l-4 border-orange-500">
-                    <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                    <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
                         <i class="fas fa-calendar-check text-orange-400"></i> Gestione Appuntamenti
                     </h3>
-                    <p class="text-sm text-gray-300 mb-2">
+                    <p class="text-base text-gray-300 mb-2">
                         Visualizzazione Duale (Toggle View) per flessibilità operativa.
                     </p>
-                    <div class="grid grid-cols-2 gap-2 text-sm text-gray-400">
+                    <div class="grid grid-cols-2 gap-2 text-base text-gray-400">
                         <div class="bg-gray-800 p-2 rounded">
                             <strong>List View:</strong> Scansione rapida.
                         </div>
                         <div class="bg-gray-800 p-2 rounded">
-                            <strong>Calendar View:</strong> Visione d'insieme.
+                            <strong>Calendar:</strong> Visione d'insieme.
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Right Column: Mockups Placeholder -->
-            <div class="tech-card bg-[#111827] flex flex-col gap-4 justify-center p-6">
-                <!-- Split Card Mockup -->
-                <div class="border border-gray-700 rounded-lg p-4 bg-[#1F2937] relative">
-                    <div class="absolute -top-3 left-4 bg-purple-500 text-white text-[10px] px-2 py-0.5 rounded">Split-Card Layout</div>
-                    <div class="flex h-32">
-                        <div class="w-1/2 bg-gray-800 flex items-center justify-center border-r border-gray-700">
-                            <div class="space-y-2 w-3/4">
-                                <div class="h-2 bg-gray-600 rounded w-full"></div>
-                                <div class="h-2 bg-gray-600 rounded w-2/3"></div>
-                                <div class="h-6 bg-primary rounded w-full mt-2"></div>
-                            </div>
-                        </div>
-                        <div class="w-1/2 bg-gray-900 flex items-center justify-center">
-                            <div class="text-center">
-                                <div class="w-8 h-8 bg-gray-700 rounded-full mx-auto mb-1"></div>
-                                <div class="h-1 bg-gray-700 rounded w-12 mx-auto"></div>
-                            </div>
-                        </div>
+            <!-- Right Column: GIF Demos -->
+            <div class="tech-card bg-[#111827] flex flex-col gap-4 justify-center p-4">
+                <!-- Login/Register GIF -->
+                <div class="border border-gray-700 rounded-lg p-3 bg-[#1F2937] relative">
+                    <div class="absolute -top-3 left-4 bg-purple-500 text-white text-xs px-2 py-0.5 rounded">Login & Register</div>
+                    <div class="flex justify-center items-center h-36 cursor-pointer">
+                        <!-- Placeholder: sostituire src con GIF reale -->
+                        <img src="gifs/login-register.gif" alt="Login & Register Demo" 
+                             class="clickable-image max-h-full rounded border border-gray-600"
+                             onclick="openFullscreen(this)"
+                             onerror="this.outerHTML='<div class=\'flex items-center justify-center h-full text-gray-500 text-sm\'><i class=\'fas fa-film mr-2\'></i>GIF: login-register.gif</div>'">
                     </div>
                 </div>
 
-                <!-- Map Interaction Mockup -->
-                <div class="border border-gray-700 rounded-lg p-4 bg-[#1F2937] relative">
-                    <div class="absolute -top-3 left-4 bg-blue-500 text-white text-[10px] px-2 py-0.5 rounded">Map Interaction</div>
-                    <div class="flex gap-2 h-32">
-                        <div class="w-1/2 space-y-2">
-                            <div class="h-14 bg-gray-800 rounded border border-blue-500/50 flex items-center justify-center">
-                                <span class="text-[8px] text-gray-500">Hover Card</span>
-                            </div>
-                            <div class="h-14 bg-gray-800 rounded border border-gray-700"></div>
-                        </div>
-                        <div class="w-1/2 bg-gray-900 rounded border border-gray-700 relative">
-                            <div class="absolute top-4 left-4 w-2 h-2 bg-blue-500 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div>
-                            <div class="absolute bottom-8 right-6 w-2 h-2 bg-gray-600 rounded-full"></div>
-                        </div>
+                <!-- Dashboard & Map GIF -->
+                <div class="border border-gray-700 rounded-lg p-3 bg-[#1F2937] relative">
+                    <div class="absolute -top-3 left-4 bg-blue-500 text-white text-xs px-2 py-0.5 rounded">Mappa Interattiva</div>
+                    <div class="flex justify-center items-center h-36 cursor-pointer">
+                        <!-- Placeholder: sostituire src con GIF reale -->
+                        <img src="gifs/map-interaction.gif" alt="Map Interaction Demo" 
+                             class="clickable-image max-h-full rounded border border-gray-600"
+                             onclick="openFullscreen(this)"
+                             onerror="this.outerHTML='<div class=\'flex items-center justify-center h-full text-gray-500 text-sm\'><i class=\'fas fa-film mr-2\'></i>GIF: map-interaction.gif</div>'">
+                    </div>
+                </div>
+
+                <!-- Booking Calendar GIF -->
+                <div class="border border-gray-700 rounded-lg p-3 bg-[#1F2937] relative">
+                    <div class="absolute -top-3 left-4 bg-orange-500 text-white text-xs px-2 py-0.5 rounded">Prenotazione Visita</div>
+                    <div class="flex justify-center items-center h-36 cursor-pointer">
+                        <!-- Placeholder: sostituire src con GIF reale -->
+                        <img src="gifs/booking-calendar.gif" alt="Booking Calendar Demo" 
+                             class="clickable-image max-h-full rounded border border-gray-600"
+                             onclick="openFullscreen(this)"
+                             onerror="this.outerHTML='<div class=\'flex items-center justify-center h-full text-gray-500 text-sm\'><i class=\'fas fa-film mr-2\'></i>GIF: booking-calendar.gif</div>'">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<!-- Slide 8: Persistenza -->
-    <div class="slide" id="slide-10">
+<!-- Slide 11: Persistenza -->
+    <div class="slide" id="slide-11">
         <div class="slide-grid">
             <div>
                 <h2 class="text-5xl font-bold text-white mb-8">Persistenza dei Dati</h2>
@@ -1175,16 +1312,17 @@
             </div>
             <div class="tech-card p-0 flex items-center justify-center overflow-hidden">
                 <div class="w-full h-full bg-white p-2 flex items-center justify-center">
-                    <img src="ErUML.png" alt="ER Schema" class="max-w-full max-h-full object-contain">
+                    <img src="ErUML.png" alt="ER Schema" class="max-w-full max-h-full object-contain clickable-image" onclick="openFullscreen(this)">
                 </div>
             </div>
         </div>
     </div>
 
-<div class="slide" id="slide-11">
-        <div class="slide-grid">
-            <div class="space-y-5">
-                <h2 class="text-4xl font-bold text-white mb-4">DevOps & Quality Assurance</h2>
+<div class="slide" id="slide-12">
+        <div class="slide-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <!-- Left Column: GitHub & SonarQube -->
+            <div class="space-y-4">
+                <h2 class="text-4xl font-bold text-white mb-3">DevOps & Quality Assurance</h2>
                 
                 <!-- GitHub Section -->
                 <div class="bg-surface p-4 rounded-lg border-l-4 border-blue-500">
@@ -1192,456 +1330,394 @@
                         <i class="fab fa-github"></i> GitHub: Versioning & CI/CD
                     </h3>
                     <p class="text-gray-300 text-sm mb-3">
-                        Piattaforma centralizzata per <strong>controllo versione distribuito (Git)</strong> e automazione completa del ciclo di sviluppo.
+                        Piattaforma centralizzata per <strong>controllo versione distribuito</strong> e automazione CI/CD.
                     </p>
                     
-                    <div class="space-y-2 text-xs text-gray-300">
+                    <div class="space-y-2 text-sm text-gray-300">
                         <div class="flex items-start gap-2">
                             <i class="fas fa-code-branch text-blue-400 mt-0.5"></i>
-                            <div>
-                                <strong class="text-white">Branch Strategy:</strong> Sviluppo parallelo tramite feature branches. Merge su <span class="font-mono bg-gray-700 px-1 rounded">main</span> solo dopo Code Review approvata.
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-2">
-                            <i class="fas fa-history text-green-400 mt-0.5"></i>
-                            <div>
-                                <strong class="text-white">Commit History:</strong> Tracciabilità granulare ("chi, cosa, quando"). Fondamentale per debugging e rollback immediato.
-                            </div>
+                            <div><strong class="text-white">Branch Strategy:</strong> Feature branches + Code Review</div>
                         </div>
                         <div class="flex items-start gap-2">
                             <i class="fas fa-shield-alt text-purple-400 mt-0.5"></i>
-                            <div>
-                                <strong class="text-white">Branch Protection:</strong> Permessi controllati. Impossibile push diretto su <span class="font-mono bg-gray-700 px-1 rounded">main</span> senza CI verde.
-                            </div>
+                            <div><strong class="text-white">Branch Protection:</strong> No push diretto su main senza CI verde</div>
                         </div>
                     </div>
 
                     <div class="mt-3 pt-3 border-t border-gray-600">
-                        <div class="text-xs font-bold text-white mb-2">
+                        <div class="text-sm font-bold text-white mb-2">
                             <i class="fas fa-robot text-blue-400 mr-1"></i>GitHub Actions Pipeline
                         </div>
-                        <div class="flex items-center gap-1.5 text-[10px] flex-wrap">
+                        <div class="flex items-center gap-1.5 text-xs flex-wrap">
                             <span class="font-mono bg-green-900/30 text-green-300 px-1.5 py-0.5 rounded border border-green-700">npm ci</span>
-                            <i class="fas fa-arrow-right text-gray-500 text-[8px]"></i>
+                            <i class="fas fa-arrow-right text-gray-500 text-[10px]"></i>
                             <span class="font-mono bg-yellow-900/30 text-yellow-300 px-1.5 py-0.5 rounded border border-yellow-700">ESLint</span>
-                            <i class="fas fa-arrow-right text-gray-500 text-[8px]"></i>
-                            <span class="font-mono bg-blue-900/30 text-blue-300 px-1.5 py-0.5 rounded border border-blue-700">tsc --noEmit</span>
-                            <i class="fas fa-arrow-right text-gray-500 text-[8px]"></i>
+                            <i class="fas fa-arrow-right text-gray-500 text-[10px]"></i>
+                            <span class="font-mono bg-blue-900/30 text-blue-300 px-1.5 py-0.5 rounded border border-blue-700">TypeScript</span>
+                            <i class="fas fa-arrow-right text-gray-500 text-[10px]"></i>
                             <span class="font-mono bg-purple-900/30 text-purple-300 px-1.5 py-0.5 rounded border border-purple-700">Jest</span>
-                            <i class="fas fa-arrow-right text-gray-500 text-[8px]"></i>
-                            <span class="font-mono bg-pink-900/30 text-pink-300 px-1.5 py-0.5 rounded border border-pink-700">Docker Build</span>
+                            <i class="fas fa-arrow-right text-gray-500 text-[10px]"></i>
+                            <span class="font-mono bg-cyan-900/30 text-cyan-300 px-1.5 py-0.5 rounded border border-cyan-700">Docker</span>
                         </div>
-                        <p class="text-[10px] text-gray-400 mt-2">
-                            <i class="fas fa-check-circle text-success mr-1"></i>
-                            Esecuzione automatica su ogni Push/PR. Merge consentito solo con tutti gli stage verdi.
-                        </p>
                     </div>
                 </div>
 
                 <!-- SonarQube Section -->
                 <div class="bg-surface p-4 rounded-lg border-l-4 border-purple-500">
                     <h3 class="text-lg font-bold text-white flex items-center gap-2 mb-3">
-                        <i class="fas fa-chart-line text-purple-400"></i> SonarQube: Analisi Statica Continua
+                        <i class="fas fa-chart-line text-purple-400"></i> SonarQube: Analisi Statica
                     </h3>
                     <p class="text-gray-300 text-sm mb-3">
-                        Scansione automatica del codice per <strong>monitorare debito tecnico</strong> e garantire Clean Code.
+                        Scansione automatica per <strong>monitorare debito tecnico</strong> e garantire Clean Code.
                     </p>
                     
                     <!-- Metrics Grid -->
                     <div class="grid grid-cols-3 gap-2 mb-3">
                         <div class="bg-green-900/20 border border-green-700/50 rounded p-2 text-center">
-                            <div class="flex items-center justify-center gap-1 mb-1">
-                                <div class="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-[10px] font-bold">A</div>
-                                <span class="text-xs font-bold text-green-300">Security</span>
-                            </div>
-                            <div class="text-xl font-bold text-white">0</div>
-                            <p class="text-[9px] text-gray-400">Open Issues</p>
+                            <div class="w-6 h-6 mx-auto rounded-full bg-green-500 flex items-center justify-center text-xs font-bold">A</div>
+                            <span class="text-xs text-green-300">Security</span>
                         </div>
                         <div class="bg-green-900/20 border border-green-700/50 rounded p-2 text-center">
-                            <div class="flex items-center justify-center gap-1 mb-1">
-                                <div class="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-[10px] font-bold">A</div>
-                                <span class="text-xs font-bold text-green-300">Reliability</span>
-                            </div>
-                            <div class="text-xl font-bold text-white">0</div>
-                            <p class="text-[9px] text-gray-400">Open Issues</p>
+                            <div class="w-6 h-6 mx-auto rounded-full bg-green-500 flex items-center justify-center text-xs font-bold">A</div>
+                            <span class="text-xs text-green-300">Reliability</span>
                         </div>
                         <div class="bg-green-900/20 border border-green-700/50 rounded p-2 text-center">
-                            <div class="flex items-center justify-center gap-1 mb-1">
-                                <div class="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-[10px] font-bold">A</div>
-                                <span class="text-xs font-bold text-green-300">Maintainability</span>
-                            </div>
-                            <div class="text-xl font-bold text-white">0</div>
-                            <p class="text-[9px] text-gray-400">Open Issues</p>
+                            <div class="w-6 h-6 mx-auto rounded-full bg-green-500 flex items-center justify-center text-xs font-bold">A</div>
+                            <span class="text-xs text-green-300">Maintainability</span>
                         </div>
                     </div>
 
-                    <!-- Coverage and Duplications -->
-                    <div class="grid grid-cols-3 gap-2 mb-3">
-                        <div class="bg-gray-800 border border-gray-600 rounded p-2 text-center">
-                            <div class="text-xs text-gray-400 mb-1">Accepted Issues</div>
-                            <div class="text-lg font-bold text-white">0</div>
-                        </div>
-                        <div class="bg-red-900/20 border border-red-700/50 rounded p-2 text-center">
-                            <div class="text-xs text-gray-400 mb-1">Coverage</div>
-                            <div class="text-lg font-bold text-red-300">6.2%</div>
-                            <div class="text-[8px] text-gray-500">1k Lines to cover</div>
-                        </div>
-                        <div class="bg-gray-800 border border-gray-600 rounded p-2 text-center">
-                            <div class="text-xs text-gray-400 mb-1">Duplications</div>
-                            <div class="text-lg font-bold text-white">1.3%</div>
-                            <div class="text-[8px] text-gray-500">9.8k Lines</div>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-2 text-[10px]">
+                    <div class="grid grid-cols-2 gap-2 text-xs">
                         <div class="bg-red-900/20 border border-red-700/50 rounded p-2">
-                            <div class="font-bold text-red-300 flex items-center gap-1 mb-1">
-                                <i class="fas fa-bug"></i>Bugs (Reliability)
-                            </div>
-                            <p class="text-gray-400">Errori logica → crash runtime. Priorità massima.</p>
+                            <div class="font-bold text-red-300"><i class="fas fa-bug mr-1"></i>Bugs</div>
+                            <p class="text-gray-400">0 issues rilevati</p>
                         </div>
                         <div class="bg-orange-900/20 border border-orange-700/50 rounded p-2">
-                            <div class="font-bold text-orange-300 flex items-center gap-1 mb-1">
-                                <i class="fas fa-shield-alt"></i>Vulnerabilità (Security)
-                            </div>
-                            <p class="text-gray-400">SQL Injection, XSS, CSRF. Security critical.</p>
-                        </div>
-                        <div class="bg-yellow-900/20 border border-yellow-700/50 rounded p-2">
-                            <div class="font-bold text-yellow-300 flex items-center gap-1 mb-1">
-                                <i class="fas fa-exclamation-triangle"></i>Code Smells
-                            </div>
-                            <p class="text-gray-400">Violazioni best practices (complessità, naming).</p>
-                        </div>
-                        <div class="bg-blue-900/20 border border-blue-700/50 rounded p-2">
-                            <div class="font-bold text-blue-300 flex items-center gap-1 mb-1">
-                                <i class="fas fa-clone"></i>Duplicazioni
-                            </div>
-                            <p class="text-gray-400">Violazione DRY. Solo 1.3% del codebase duplicato.</p>
+                            <div class="font-bold text-orange-300"><i class="fas fa-shield-alt mr-1"></i>Vulnerabilità</div>
+                            <p class="text-gray-400">0 issues rilevati</p>
                         </div>
                     </div>
                     
-                    <div class="mt-2 p-2 bg-purple-900/20 border border-purple-700/50 rounded text-[10px] text-purple-200">
+                    <div class="mt-2 p-2 bg-purple-900/20 border border-purple-700/50 rounded text-xs text-purple-200">
                         <i class="fas fa-info-circle mr-1"></i>
-                        <strong>Integrazione CI:</strong> Report generato automaticamente via GitHub Actions, bloccando merge se qualità sotto soglia.
+                        Report automatico via GitHub Actions. Merge bloccato se qualità sotto soglia.
                     </div>
                 </div>
             </div>
 
-            <!-- Right Column: Docker Multi-Stage -->
-            <div class="flex flex-col gap-4">
-                    <div class="bg-surface p-4 rounded-lg border-l-4 border-cyan-500">
-                        <h3 class="text-lg font-bold text-white flex items-center gap-2 mb-3">
-                            <i class="fab fa-docker text-cyan-400"></i> Docker Multi-Stage Build
-                        </h3>
-                        <p class="text-gray-300 text-sm mb-3">
-                            Ottimizzazione immagini per <strong>portabilità</strong>, <strong>riproducibilità</strong> e <strong>sicurezza</strong>.
-                        </p>
-                        
-                        <div class="grid grid-cols-2 gap-3 mb-3">
-                            <div class="bg-gray-800 p-3 rounded border border-gray-600">
-                                <div class="font-bold text-white text-xs mb-1.5">
-                                    <span class="bg-orange-900/30 text-orange-400 px-2 py-0.5 rounded text-[10px] font-mono">Stage 1</span>
-                                    Builder
-                                </div>
-                                <ul class="text-[10px] text-gray-400 space-y-0.5">
-                                    <li>• Node.js 20 completo</li>
-                                    <li>• Dev + Prod dependencies</li>
-                                    <li>• Compilazione TS → JS</li>
-                                </ul>
+            <!-- Right Column: Docker -->
+            <div class="space-y-4">
+                <h2 class="text-4xl font-bold text-white mb-3">Containerizzazione</h2>
+                
+                <!-- Docker Multi-Stage -->
+                <div class="bg-surface p-4 rounded-lg border-l-4 border-cyan-500">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2 mb-3">
+                        <i class="fab fa-docker text-cyan-400"></i> Docker Multi-Stage Build
+                    </h3>
+                    <p class="text-gray-300 text-sm mb-3">
+                        Strategia di build ottimizzata per <strong>portabilità</strong>, <strong>riproducibilità</strong> e <strong>sicurezza</strong>.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-3 mb-3">
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600">
+                            <div class="font-bold text-white text-sm mb-2">
+                                <span class="bg-orange-900/30 text-orange-400 px-2 py-0.5 rounded text-xs font-mono">Stage 1</span>
+                                Builder
                             </div>
-                            <div class="bg-gray-800 p-3 rounded border border-gray-600">
-                                <div class="font-bold text-white text-xs mb-1.5">
-                                    <span class="bg-green-900/30 text-green-400 px-2 py-0.5 rounded text-[10px] font-mono">Stage 2</span>
-                                    Runner
-                                </div>
-                                <ul class="text-[10px] text-gray-400 space-y-0.5">
-                                    <li>• Node.js 20-slim</li>
-                                    <li>• Solo prod dependencies</li>
-                                    <li>• Artefatti <span class="font-mono text-primary">/dist</span></li>
-                                </ul>
-                            </div>
+                            <ul class="text-xs text-gray-400 space-y-1">
+                                <li>• Node.js 20 completo</li>
+                                <li>• Dev + Prod dependencies</li>
+                                <li>• Compilazione TS → JS</li>
+                            </ul>
                         </div>
-
-                        <div class="flex items-center gap-2 text-[10px] mb-3">
-                            <div class="bg-red-900/20 border border-red-700/50 rounded px-2 py-1 flex-1 text-center">
-                                <i class="fas fa-times text-red-400 mr-1"></i>
-                                <span class="text-red-200">Codice TS escluso</span>
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600">
+                            <div class="font-bold text-white text-sm mb-2">
+                                <span class="bg-green-900/30 text-green-400 px-2 py-0.5 rounded text-xs font-mono">Stage 2</span>
+                                Runner
                             </div>
-                            <div class="bg-green-900/20 border border-green-700/50 rounded px-2 py-1 flex-1 text-center">
-                                <i class="fas fa-compress text-green-400 mr-1"></i>
-                                <span class="text-green-200">-60% dimensione</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tech-card p-0 bg-[#111827] flex-1">
-                        <div class="code-block h-full border-none rounded-none overflow-auto" style="font-size: 0.7rem; line-height: 1.4; padding: 1rem;">
-<span class="comment"># Dockerfile Multi-stage</span>
-
-<span class="comment"># STAGE 1: Build</span>
-<span class="keyword">FROM</span> node:20-slim <span class="keyword">AS</span> builder
-<span class="keyword">WORKDIR</span> /app
-
-<span class="comment"># Config files</span>
-<span class="keyword">COPY</span> package*.json ./
-<span class="keyword">COPY</span> tsconfig.json ./
-
-<span class="comment"># Install ALL deps (dev+prod)</span>
-<span class="keyword">RUN</span> npm install
-
-<span class="comment"># Copy source</span>
-<span class="keyword">COPY</span> . .
-
-<span class="comment"># Compile TypeScript</span>
-<span class="keyword">RUN</span> npm run build
-
-<span class="comment"># STAGE 2: Production Runner</span>
-<span class="keyword">FROM</span> node:20-slim
-<span class="keyword">WORKDIR</span> /app
-
-<span class="keyword">COPY</span> package*.json ./
-
-<span class="comment"># Install ONLY production deps</span>
-<span class="keyword">RUN</span> npm install --production
-
-<span class="comment"># Copy compiled artifacts</span>
-<span class="keyword">COPY</span> --from=builder /app/dist ./dist
-
-<span class="keyword">EXPOSE</span> <span class="string">5003</span>
-
-<span class="keyword">CMD</span> [<span class="string">"npm"</span>, <span class="string">"start"</span>]
-                        </div>
-                    </div>
-
-                    <!-- Docker Compose Deployment -->
-                    <div class="bg-surface p-3 rounded border-l-4 border-cyan-500">
-                        <div class="text-xs">
-                            <div class="font-bold text-white mb-2 flex items-center gap-2">
-                                <i class="fab fa-docker text-cyan-400"></i>
-                                Deployment Orchestration
-                            </div>
-                            <p class="text-gray-300 mb-2">
-                                Gestione automatica tramite <span class="font-mono bg-gray-700 px-1 rounded">docker-compose.yml</span>
-                            </p>
-                            <ul class="text-[10px] text-gray-400 space-y-1">
-                                <li class="flex items-center gap-2">
-                                    <i class="fas fa-server text-cyan-400"></i>
-                                    Container API Backend (porta 5003)
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <i class="fas fa-database text-blue-400"></i>
-                                    Container PostgreSQL Database
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <i class="fas fa-network-wired text-purple-400"></i>
-                                    Network bridge isolato
-                                </li>
+                            <ul class="text-xs text-gray-400 space-y-1">
+                                <li>• Node.js slim / Nginx</li>
+                                <li>• Solo prod dependencies</li>
+                                <li>• Artefatti ottimizzati</li>
                             </ul>
                         </div>
                     </div>
+
+                    <div class="flex items-center gap-2 text-xs mb-3">
+                        <div class="bg-red-900/20 border border-red-700/50 rounded px-2 py-1 flex-1 text-center">
+                            <i class="fas fa-times text-red-400 mr-1"></i>
+                            <span class="text-red-200">Source escluso</span>
+                        </div>
+                        <div class="bg-green-900/20 border border-green-700/50 rounded px-2 py-1 flex-1 text-center">
+                            <i class="fas fa-compress text-green-400 mr-1"></i>
+                            <span class="text-green-200">-60% dimensione</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend & Frontend Containers -->
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-surface p-4 rounded-lg border-l-4 border-green-500">
+                        <h4 class="text-base font-bold text-white mb-2 flex items-center gap-2">
+                            <i class="fab fa-node-js text-green-400"></i>Backend
+                        </h4>
+                        <ul class="text-xs text-gray-300 space-y-1">
+                            <li><i class="fas fa-box text-cyan-400 mr-1"></i>Node.js 20-slim</li>
+                            <li><i class="fas fa-code text-blue-400 mr-1"></i>Express.js API</li>
+                            <li><i class="fas fa-door-open text-yellow-400 mr-1"></i>Porta 5003</li>
+                        </ul>
+                    </div>
+                    <div class="bg-surface p-4 rounded-lg border-l-4 border-red-500">
+                        <h4 class="text-base font-bold text-white mb-2 flex items-center gap-2">
+                            <i class="fab fa-angular text-red-400"></i>Frontend
+                        </h4>
+                        <ul class="text-xs text-gray-300 space-y-1">
+                            <li><i class="fas fa-server text-cyan-400 mr-1"></i>Nginx Alpine</li>
+                            <li><i class="fas fa-file-code text-blue-400 mr-1"></i>Angular SPA</li>
+                            <li><i class="fas fa-door-open text-yellow-400 mr-1"></i>Porta 8080</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Docker Compose -->
+                <div class="bg-surface p-4 rounded-lg border-l-4 border-cyan-500">
+                    <div class="font-bold text-white mb-2 flex items-center gap-2">
+                        <i class="fab fa-docker text-cyan-400"></i>
+                        Docker Compose Orchestration
+                    </div>
+                    <p class="text-sm text-gray-300 mb-3">
+                        Gestione automatica tramite <span class="font-mono bg-gray-700 px-1 rounded">docker-compose.yml</span>
+                    </p>
+                    <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600">
+                            <i class="fas fa-server text-cyan-400 text-lg mb-1"></i>
+                            <div class="text-white font-bold">API</div>
+                            <div class="text-gray-400">:5003</div>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600">
+                            <i class="fab fa-angular text-red-400 text-lg mb-1"></i>
+                            <div class="text-white font-bold">Frontend</div>
+                            <div class="text-gray-400">:8080</div>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600">
+                            <i class="fas fa-database text-blue-400 text-lg mb-1"></i>
+                            <div class="text-white font-bold">PostgreSQL</div>
+                            <div class="text-gray-400">:5432</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deploy Ready Badge -->
+                <div class="p-3 bg-green-900/20 border border-green-700/50 rounded-lg text-sm text-green-200 text-center">
+                    <i class="fas fa-rocket mr-1"></i>
+                    <strong>Deploy Ready:</strong> Immagini pronte per Cloud Run, Kubernetes, o qualsiasi container runtime
                 </div>
             </div>
         </div>
+    </div>
+        </div>
 
-    <!-- Slide 12: Deploy su Google Cloud Platform -->
-    <div class="slide" id="slide-12">
+    <!-- Slide 13: Deploy su Google Cloud Platform -->
+    <div class="slide" id="slide-13">
         <div class="slide-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
             <!-- Left Column: GCP Overview -->
             <div class="space-y-4">
                 <div>
-                    <h2 class="text-3xl font-bold text-white mb-2">Deploy su Google Cloud Platform</h2>
-                    <p class="text-sm text-gray-400 mb-4">Architettura serverless con Cloud Run per scalabilità automatica e gestione semplificata.</p>
+                    <h2 class="text-4xl font-bold text-white mb-3">Deploy su Google Cloud Platform</h2>
+                    <p class="text-base text-gray-400 mb-4">Architettura serverless con Cloud Run per scalabilità automatica e gestione semplificata.</p>
                 </div>
 
                 <!-- Cloud Run Architecture -->
                 <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-blue-500">
-                    <h3 class="text-base font-bold text-white mb-3 flex items-center gap-2">
+                    <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
                         <i class="fab fa-google text-blue-400"></i>
                         Google Cloud Run: Serverless Container
                     </h3>
-                    <p class="text-[10px] text-gray-300 leading-relaxed mb-3">
-                        Servizio completamente gestito che esegue container stateless in un ambiente altamente scalabile. Astrae la gestione dell'infrastruttura sottostante.
+                    <p class="text-sm text-gray-300 leading-relaxed mb-3">
+                        Servizio completamente gestito che esegue container stateless in un ambiente altamente scalabile.
                     </p>
-                    <div class="space-y-2 text-xs">
+                    <div class="space-y-2 text-sm">
                         <div class="bg-gray-800 p-3 rounded border border-gray-600">
                             <div class="flex items-center gap-2 mb-1">
                                 <i class="fab fa-angular text-red-400"></i>
                                 <span class="font-bold text-white">Frontend Service</span>
                             </div>
-                            <p class="text-[10px] text-gray-400">Container nginx con SPA Angular sulla porta 8080. Ottimizzato per asset statici (256 MiB RAM).</p>
+                            <p class="text-xs text-gray-400">Container nginx con SPA Angular (porta 8080, 256 MiB RAM)</p>
                         </div>
                         <div class="bg-gray-800 p-3 rounded border border-gray-600">
                             <div class="flex items-center gap-2 mb-1">
                                 <i class="fab fa-node-js text-green-400"></i>
                                 <span class="font-bold text-white">Backend Service</span>
                             </div>
-                            <p class="text-[10px] text-gray-400">Container Node.js/Express API REST porta 5003. Integrazione con PostgreSQL, S3 e OAuth (512 MiB RAM, 1 vCPU).</p>
+                            <p class="text-xs text-gray-400">Container Express API (porta 5003, 512 MiB RAM, 1 vCPU)</p>
                         </div>
-                    </div>
-                    <div class="mt-3 p-2 bg-blue-900/20 border border-blue-700/50 rounded text-[10px] text-blue-200">
-                        <i class="fas fa-map-marker-alt mr-1"></i>
-                        <strong>Region:</strong> europe-west1 (Belgio) - Bassa latenza EU e conformità GDPR.
                     </div>
                 </div>
 
                 <!-- Deploy Process -->
                 <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-green-500">
-                    <h3 class="text-base font-bold text-white mb-3 flex items-center gap-2">
+                    <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
                         <i class="fas fa-rocket text-green-400"></i>
                         Processo di Deploy
                     </h3>
-                    <div class="space-y-2 text-[10px] text-gray-300">
+                    <div class="space-y-2 text-sm text-gray-300">
                         <div class="flex items-start gap-2">
-                            <span class="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-[9px] font-bold shrink-0">1</span>
+                            <span class="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold shrink-0">1</span>
                             <div><strong class="text-white">Config GCP:</strong> Abilitazione API (Cloud Build, Run, Artifact Registry)</div>
                         </div>
                         <div class="flex items-start gap-2">
-                            <span class="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-[9px] font-bold shrink-0">2</span>
-                            <div><strong class="text-white">Artifact Registry:</strong> Repository Docker privato per immagini verificate</div>
+                            <span class="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold shrink-0">2</span>
+                            <div><strong class="text-white">Artifact Registry:</strong> Repository Docker privato</div>
                         </div>
                         <div class="flex items-start gap-2">
-                            <span class="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-[9px] font-bold shrink-0">3</span>
-                            <div><strong class="text-white">Build & Push:</strong> Multi-stage build locale + push al registro</div>
+                            <span class="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold shrink-0">3</span>
+                            <div><strong class="text-white">Build & Push:</strong> Multi-stage build + push al registro</div>
                         </div>
                         <div class="flex items-start gap-2">
-                            <span class="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-[9px] font-bold shrink-0">4</span>
-                            <div><strong class="text-white">Deploy Cloud Run:</strong> Configurazione risorse, env vars criptate, CORS</div>
+                            <span class="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold shrink-0">4</span>
+                            <div><strong class="text-white">Deploy:</strong> Configurazione risorse, env vars, CORS</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Autoscaling -->
                 <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-purple-500">
-                    <h3 class="text-base font-bold text-white mb-3 flex items-center gap-2">
+                    <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
                         <i class="fas fa-chart-line text-purple-400"></i>
                         Scalabilità Automatica
                     </h3>
                     <div class="grid grid-cols-2 gap-3 mb-3">
-                        <div class="bg-gray-800 p-2 rounded border border-gray-600 text-center">
-                            <div class="text-lg font-bold text-purple-400">0</div>
-                            <p class="text-[9px] text-gray-400">Min Instances</p>
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600 text-center">
+                            <div class="text-xl font-bold text-purple-400">0</div>
+                            <p class="text-xs text-gray-400">Min Instances</p>
                         </div>
-                        <div class="bg-gray-800 p-2 rounded border border-gray-600 text-center">
-                            <div class="text-lg font-bold text-purple-400">10</div>
-                            <p class="text-[9px] text-gray-400">Max Instances</p>
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600 text-center">
+                            <div class="text-xl font-bold text-purple-400">10</div>
+                            <p class="text-xs text-gray-400">Max Instances</p>
                         </div>
                     </div>
-                    <p class="text-[10px] text-gray-300">
+                    <p class="text-sm text-gray-300">
                         <i class="fas fa-bolt text-yellow-400 mr-1"></i>
-                        Scale-to-zero in assenza di traffico. Avvio nuove istanze in secondi durante i picchi.
+                        Scale-to-zero in assenza di traffico. Nuove istanze in secondi.
                     </p>
                 </div>
             </div>
 
-            <!-- Right Column: Benefits & URLs -->
+            <!-- Right Column: Architecture Diagram + Operations -->
             <div class="space-y-4">
-                <h2 class="text-3xl font-bold text-white mb-2">Vantaggi & Produzione</h2>
-
-                <!-- Security -->
-                <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-red-500">
-                    <div class="flex items-center gap-2 mb-2">
-                        <i class="fas fa-shield-alt text-red-400 text-lg"></i>
-                        <h3 class="text-sm font-bold text-white">Sicurezza & Networking</h3>
+                <!-- Architecture Diagram - PRIORITIZED -->
+                <div class="tech-card bg-[#111827] p-5">
+                    <div class="text-center text-base font-bold text-white mb-4">
+                        <i class="fab fa-google text-blue-400 mr-2"></i>Architettura Cloud Run
                     </div>
-                    <ul class="text-[10px] text-gray-300 space-y-1">
-                        <li class="flex items-center gap-2"><i class="fas fa-lock text-green-400"></i> SSL/TLS automatico su tutti gli endpoint</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-user-shield text-blue-400"></i> Integrazione Cloud IAM per accessi granulari</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-key text-yellow-400"></i> Variabili d'ambiente criptate (JWT, AWS, OAuth)</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-network-wired text-purple-400"></i> VPC connector per risorse private</li>
-                    </ul>
-                </div>
-
-                <!-- Pay-per-Use -->
-                <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-yellow-500">
-                    <div class="flex items-center gap-2 mb-2">
-                        <i class="fas fa-coins text-yellow-400 text-lg"></i>
-                        <h3 class="text-sm font-bold text-white">Modello Pay-per-Use</h3>
-                    </div>
-                    <p class="text-[10px] text-gray-300 mb-2">Costi basati su risorse effettivamente consumate:</p>
-                    <div class="grid grid-cols-2 gap-2 text-[9px] mb-2">
-                        <div class="bg-gray-800 p-2 rounded border border-gray-600"><i class="fas fa-server text-blue-400 mr-1"></i>vCPU-secondi</div>
-                        <div class="bg-gray-800 p-2 rounded border border-gray-600"><i class="fas fa-memory text-purple-400 mr-1"></i>GiB-secondi</div>
-                        <div class="bg-gray-800 p-2 rounded border border-gray-600"><i class="fas fa-exchange-alt text-green-400 mr-1"></i>Richieste</div>
-                        <div class="bg-gray-800 p-2 rounded border border-gray-600"><i class="fas fa-cloud-download-alt text-cyan-400 mr-1"></i>Egress network</div>
-                    </div>
-                    <div class="bg-green-900/20 border border-green-700/50 rounded p-2 text-[9px] text-green-200">
-                        <i class="fas fa-gift mr-1"></i>
-                        <strong>Free Tier:</strong> 2M richieste, 180K vCPU-sec, 360K GiB-sec/mese
-                    </div>
-                </div>
-
-
-                <!-- GCP Ecosystem -->
-                <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-orange-500">
-                    <div class="flex items-center gap-2 mb-2">
-                        <i class="fab fa-google text-orange-400 text-lg"></i>
-                        <h3 class="text-sm font-bold text-white">Ecosistema GCP Integrabile</h3>
-                    </div>
-                    <div class="grid grid-cols-2 gap-2 text-[9px]">
-                        <div class="bg-gray-800 p-2 rounded border border-gray-600 flex items-center gap-1">
-                            <i class="fas fa-chart-bar text-blue-400"></i>Cloud Monitoring
+                    <div class="flex flex-col gap-3">
+                        <!-- Users -->
+                        <div class="flex justify-center">
+                            <div class="bg-gray-800 border border-gray-600 rounded-lg px-6 py-3 text-center">
+                                <i class="fas fa-users text-blue-400 text-2xl mb-1"></i>
+                                <div class="text-sm font-bold text-white">Users</div>
+                            </div>
                         </div>
-                        <div class="bg-gray-800 p-2 rounded border border-gray-600 flex items-center gap-1">
-                            <i class="fas fa-file-alt text-green-400"></i>Cloud Logging
+                        <div class="flex justify-center"><i class="fas fa-arrow-down text-gray-500 text-lg"></i></div>
+                        
+                        <!-- Cloud Run Layer -->
+                        <div class="bg-blue-900/30 border-2 border-blue-500/50 rounded-lg p-3 text-center">
+                            <div class="text-sm font-bold text-blue-300 mb-2">
+                                <i class="fab fa-google text-blue-400 mr-1"></i>Google Cloud Run
+                            </div>
+                            <div class="flex justify-center gap-4">
+                                <div class="bg-red-900/30 border border-red-500/50 rounded-lg px-4 py-2 text-center">
+                                    <i class="fab fa-angular text-red-400 text-xl"></i>
+                                    <div class="text-xs font-bold text-white mt-1">Frontend</div>
+                                </div>
+                                <div class="bg-green-900/30 border border-green-500/50 rounded-lg px-4 py-2 text-center">
+                                    <i class="fab fa-node-js text-green-400 text-xl"></i>
+                                    <div class="text-xs font-bold text-white mt-1">Backend</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="bg-gray-800 p-2 rounded border border-gray-600 flex items-center gap-1">
-                            <i class="fas fa-database text-purple-400"></i>Cloud SQL
-                        </div>
-                        <div class="bg-gray-800 p-2 rounded border border-gray-600 flex items-center gap-1">
-                            <i class="fas fa-key text-yellow-400"></i>Secret Manager
-                        </div>
-                        <div class="bg-gray-800 p-2 rounded border border-gray-600 flex items-center gap-1">
-                            <i class="fas fa-tachometer-alt text-cyan-400"></i>Cloud CDN
-                        </div>
-                        <div class="bg-gray-800 p-2 rounded border border-gray-600 flex items-center gap-1">
-                            <i class="fas fa-shield-virus text-red-400"></i>Cloud Armor
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Architecture Diagram -->
-                <div class="tech-card bg-[#111827] p-4">
-                    <div class="text-center text-xs text-gray-400 mb-3">Architettura Cloud Run</div>
-                    <div class="flex flex-col gap-2">
+                        <div class="flex justify-center"><i class="fas fa-arrow-down text-gray-500 text-lg"></i></div>
+                        
+                        <!-- External Services -->
                         <div class="flex justify-center gap-4">
-                            <div class="bg-gray-800 border border-gray-600 rounded p-2 text-center text-[10px]">
-                                <i class="fas fa-users text-blue-400 text-lg mb-1"></i>
-                                <div>Users</div>
+                            <div class="bg-cyan-900/30 border border-cyan-500/50 rounded-lg px-4 py-2 text-center">
+                                <i class="fas fa-database text-cyan-400 text-lg"></i>
+                                <div class="text-xs font-bold text-white mt-1">NeonDB</div>
                             </div>
-                        </div>
-                        <div class="flex justify-center"><i class="fas fa-arrow-down text-gray-500"></i></div>
-                        <div class="bg-blue-900/30 border border-blue-700/50 rounded p-2 text-center text-[10px]">
-                            <i class="fab fa-google text-blue-400 mr-1"></i>Cloud Run (HTTPS/TLS)
-                        </div>
-                        <div class="flex justify-center gap-2">
-                            <i class="fas fa-arrow-down text-gray-500"></i>
-                            <i class="fas fa-arrow-down text-gray-500"></i>
-                        </div>
-                        <div class="flex justify-center gap-3">
-                            <div class="bg-red-900/20 border border-red-700/50 rounded p-2 text-center text-[9px]">
-                                <i class="fab fa-angular text-red-400"></i><br>Frontend
+                            <div class="bg-orange-900/30 border border-orange-500/50 rounded-lg px-4 py-2 text-center">
+                                <i class="fab fa-aws text-orange-400 text-lg"></i>
+                                <div class="text-xs font-bold text-white mt-1">S3</div>
                             </div>
-                            <div class="bg-green-900/20 border border-green-700/50 rounded p-2 text-center text-[9px]">
-                                <i class="fab fa-node-js text-green-400"></i><br>Backend
-                            </div>
-                        </div>
-                        <div class="flex justify-center"><i class="fas fa-arrow-down text-gray-500"></i></div>
-                        <div class="flex justify-center gap-3">
-                            <div class="bg-cyan-900/20 border border-cyan-700/50 rounded px-2 py-1 text-[9px]">
-                                <i class="fas fa-database text-cyan-400"></i> NeonDB
-                            </div>
-                            <div class="bg-orange-900/20 border border-orange-700/50 rounded px-2 py-1 text-[9px]">
-                                <i class="fab fa-aws text-orange-400"></i> S3
+                            <div class="bg-purple-900/30 border border-purple-500/50 rounded-lg px-4 py-2 text-center">
+                                <i class="fas fa-cloud text-purple-400 text-lg"></i>
+                                <div class="text-xs font-bold text-white mt-1">APIs</div>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Operations Grid - Non-repetitive content -->
+                <div class="grid grid-cols-2 gap-3">
+                    <!-- Monitoring -->
+                    <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-blue-500">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-chart-area text-blue-400"></i>
+                            <h3 class="text-sm font-bold text-white">Cloud Monitoring</h3>
+                        </div>
+                        <ul class="text-xs text-gray-300 space-y-1">
+                            <li><i class="fas fa-tachometer-alt text-cyan-400 mr-1"></i>Metriche real-time</li>
+                            <li><i class="fas fa-bell text-yellow-400 mr-1"></i>Alerting automatico</li>
+                        </ul>
+                    </div>
+
+                    <!-- Logging -->
+                    <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-cyan-500">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-file-alt text-cyan-400"></i>
+                            <h3 class="text-sm font-bold text-white">Cloud Logging</h3>
+                        </div>
+                        <ul class="text-xs text-gray-300 space-y-1">
+                            <li><i class="fas fa-search text-green-400 mr-1"></i>Query strutturate</li>
+                            <li><i class="fas fa-history text-purple-400 mr-1"></i>Retention 30 giorni</li>
+                        </ul>
+                    </div>
+
+                    <!-- Security -->
+                    <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-red-500">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-shield-alt text-red-400"></i>
+                            <h3 class="text-sm font-bold text-white">Security</h3>
+                        </div>
+                        <ul class="text-xs text-gray-300 space-y-1">
+                            <li><i class="fas fa-lock text-green-400 mr-1"></i>SSL/TLS automatico</li>
+                            <li><i class="fas fa-key text-yellow-400 mr-1"></i>Secret Manager</li>
+                        </ul>
+                    </div>
+
+                    <!-- Billing -->
+                    <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-yellow-500">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-receipt text-yellow-400"></i>
+                            <h3 class="text-sm font-bold text-white">Costi Ottimizzati</h3>
+                        </div>
+                        <ul class="text-xs text-gray-300 space-y-1">
+                            <li><i class="fas fa-gift text-green-400 mr-1"></i>Free Tier incluso</li>
+                            <li><i class="fas fa-calculator text-blue-400 mr-1"></i>Pay solo per uso</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Region Info -->
+                <div class="p-3 bg-blue-900/20 border border-blue-700/50 rounded-lg text-sm text-blue-200 text-center">
+                    <i class="fas fa-map-marker-alt mr-1"></i>
+                    <strong>Region:</strong> europe-west1 (Belgio) - Bassa latenza EU e conformità GDPR
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 13: Verifica e Validazione -->
-    <div class="slide" id="slide-13">
+    <!-- Slide 14: Verifica e Validazione -->
+    <div class="slide" id="slide-14">
         <div class="slide-grid" style="grid-template-columns: 1fr 1fr; gap: 3rem;">
             <!-- Left Column: Verification (Static & Dynamic) -->
             <div class="space-y-6">
@@ -1653,16 +1729,16 @@
                         <i class="fas fa-code text-blue-400"></i>
                         Verifica Statica (Code Analysis)
                     </h3>
-                    <p class="text-sm text-gray-300 mb-3">
-                        Analisi continua per garantire manutenibilità e prevenire difetti (Fault Avoidance).
+                    <p class="text-base text-gray-300 mb-3">
+                        Analisi continua per manutenibilità e prevenzione difetti (Fault Avoidance).
                     </p>
-                    <div class="grid grid-cols-2 gap-3 text-xs">
-                        <div class="bg-gray-800 p-2 rounded border border-gray-600">
-                            <strong class="text-white block">ESLint 9.x</strong>
+                    <div class="grid grid-cols-2 gap-3 text-sm">
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600">
+                            <strong class="text-white block text-base">ESLint 9.x</strong>
                             <span class="text-gray-400">@antfu/eslint-config</span>
                         </div>
-                        <div class="bg-gray-800 p-2 rounded border border-gray-600">
-                            <strong class="text-white block">Regole Rigorose</strong>
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600">
+                            <strong class="text-white block text-base">Regole Rigorose</strong>
                             <span class="text-gray-400">kebab-case, no-console</span>
                         </div>
                     </div>
@@ -1675,49 +1751,56 @@
                         Verifica Dinamica (Unit Testing)
                     </h3>
                     <p class="text-sm text-gray-300 mb-3">
-                        Approccio <strong>Risk-Based Testing</strong> focalizzato sui moduli Core Business critici.
+                        Approccio <strong>Risk-Based Testing</strong>: 40 test cases su 4 metodi Core Business.
                     </p>
                     
-                    <div class="grid grid-cols-2 gap-3 mb-4">
-                        <div class="bg-gray-800 p-3 rounded border border-gray-600 text-center">
-                            <div class="text-2xl font-bold text-purple-400">60%</div>
-                            <p class="text-xs text-gray-400">Black-Box Testing</p>
+                    <!-- 4 Metodi Testati -->
+                    <div class="grid grid-cols-2 gap-2 mb-3 text-sm">
+                        <div class="bg-gray-800 p-2 rounded border-l-2 border-blue-400">
+                            <i class="fas fa-map-marker-alt text-blue-400 mr-1"></i>
+                            <span class="text-gray-300 font-mono text-xs">createSearchCenterPoint()</span>
                         </div>
-                        <div class="bg-gray-800 p-3 rounded border border-gray-600 text-center">
-                            <div class="text-2xl font-bold text-blue-400">40%</div>
-                            <p class="text-xs text-gray-400">White-Box Testing</p>
+                        <div class="bg-gray-800 p-2 rounded border-l-2 border-green-400">
+                            <i class="fas fa-calculator text-green-400 mr-1"></i>
+                            <span class="text-gray-300 font-mono text-xs">calculateOffset()</span>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded border-l-2 border-red-400">
+                            <i class="fas fa-envelope text-red-400 mr-1"></i>
+                            <span class="text-gray-300 font-mono text-xs">sendAppointmentReschedEmail()</span>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded border-l-2 border-yellow-400">
+                            <i class="fas fa-cloud-sun text-yellow-400 mr-1"></i>
+                            <span class="text-gray-300 font-mono text-xs">getWeatherForecast()</span>
                         </div>
                     </div>
 
-                    <ul class="space-y-2 text-xs text-gray-300">
+                    <ul class="space-y-2 text-sm text-gray-300">
                         <li class="flex items-start gap-2">
                             <i class="fas fa-check text-green-400 mt-1"></i>
                             <div>
-                                <strong>Black-Box:</strong> Partizione in Classi di Equivalenza, Boundary Value Analysis.
+                                <strong>Black-Box:</strong> Classi di Equivalenza, Boundary Value Analysis
                             </div>
                         </li>
                         <li class="flex items-start gap-2">
                             <i class="fas fa-check text-green-400 mt-1"></i>
                             <div>
-                                <strong>White-Box:</strong> Statement Coverage, Branch Coverage, Path Coverage.
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="fas fa-check text-green-400 mt-1"></i>
-                            <div>
-                                <strong>Test in Isolation:</strong> Mocking di DB e servizi esterni con Jest.
+                                <strong>White-Box:</strong> Statement, Branch, Path Coverage
                             </div>
                         </li>
                     </ul>
 
-                    <div class="mt-4 grid grid-cols-2 gap-3">
+                    <div class="mt-4 grid grid-cols-3 gap-3">
+                        <div class="bg-green-900/20 border border-green-700/50 rounded p-3 text-center">
+                            <div class="text-2xl font-bold text-green-400">40</div>
+                            <p class="text-xs text-green-200">Test Cases</p>
+                        </div>
                         <div class="bg-green-900/20 border border-green-700/50 rounded p-3 text-center">
                             <div class="text-2xl font-bold text-green-400">98.75%</div>
-                            <p class="text-xs text-green-200">Statement Coverage</p>
+                            <p class="text-xs text-green-200">Statement Cov</p>
                         </div>
                         <div class="bg-green-900/20 border border-green-700/50 rounded p-3 text-center">
                             <div class="text-2xl font-bold text-green-400">92.5%</div>
-                            <p class="text-xs text-green-200">Branch Coverage</p>
+                            <p class="text-xs text-green-200">Branch Cov</p>
                         </div>
                     </div>
                 </div>
@@ -1803,172 +1886,178 @@
         </div>
     </div>
 
-    <!-- Slide 14: Dettaglio Unit Testing -->
-    <div class="slide" id="slide-14">
+    <!-- Slide 15: Dettaglio Unit Test - sendAppointmentRescheduledEmail -->
+    <div class="slide" id="slide-15">
         <div class="slide-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
-            <!-- Left Column: Unit Testing Details -->
-            <div class="space-y-3">
-                <h2 class="text-3xl font-bold text-white mb-2">Dettaglio Unit Testing</h2>
-                <p class="text-sm text-gray-400 mb-3">40 test cases su 4 metodi selezionati con approccio Risk-Based.</p>
+            <!-- Left Column: Method Analysis -->
+            <div class="space-y-4">
+                <h2 class="text-3xl font-bold text-white mb-3">Focus: Unit Test Dettagliato</h2>
+                <p class="text-base text-gray-400 mb-4">Esempio di metodo testato con approccio <strong class="text-white">White-Box + Black-Box</strong></p>
                 
-                <!-- Test Method 1: createSearchCenterPoint -->
-                <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-blue-500">
-                    <div class="flex items-center gap-2 mb-2">
-                        <i class="fas fa-map-marker-alt text-blue-400"></i>
-                        <h3 class="text-sm font-bold text-white font-mono">createSearchCenterPoint()</h3>
+                <!-- Method Header -->
+                <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-red-500">
+                    <div class="flex items-center gap-2 mb-3">
+                        <i class="fas fa-envelope text-red-400 text-xl"></i>
+                        <h3 class="text-xl font-bold text-white font-mono">sendAppointmentRescheduledEmail()</h3>
                     </div>
-                    <p class="text-xs text-gray-400 mb-2">Costruisce stringa WKT per punto geografico PostGIS (SRID 4326).</p>
-                    <div class="text-xs text-gray-300 space-y-1">
-                        <div><strong class="text-white">Input:</strong> longitude (−180≤lon≤180), latitude (−90≤lat≤90)</div>
-                        <div><strong class="text-white">Output:</strong> <code class="text-cyan-300">SRID=4326;POINT(lon lat)</code></div>
-                    </div>
-                    <div class="mt-2 bg-gray-800 p-2 rounded text-[10px]">
-                        <div class="text-gray-400 mb-1">Classi di Equivalenza:</div>
-                        <div class="grid grid-cols-2 gap-1">
-                            <span class="text-green-300">• CE1: Napoli (14.26, 40.83)</span>
-                            <span class="text-yellow-300">• CE2: Boundary+ (180, 90)</span>
-                            <span class="text-orange-300">• CE3: Boundary- (-180, -90)</span>
-                            <span class="text-cyan-300">• CE4: Null Island (0, 0)</span>
+                    <p class="text-base text-gray-300 mb-3">
+                        Invia notifica email quando un appuntamento viene riprogrammato dall'agente.
+                    </p>
+                    <div class="bg-gray-800 p-3 rounded text-sm">
+                        <div class="text-gray-400 mb-2">Parametri:</div>
+                        <div class="font-mono text-cyan-300 text-sm">
+                            (userEmail: string, propertyTitle: string, oldDate: Date, newDate: Date, notes?: string)
                         </div>
-                    </div>
-                    <div class="mt-2 flex gap-2 text-[10px]">
-                        <span class="bg-green-900/30 text-green-300 px-1.5 py-0.5 rounded">10 test cases</span>
-                        <span class="bg-blue-900/30 text-blue-300 px-1.5 py-0.5 rounded">100% Statement</span>
-                        <span class="bg-purple-900/30 text-purple-300 px-1.5 py-0.5 rounded">100% Path</span>
                     </div>
                 </div>
 
-                <!-- Test Method 2: calculateOffset -->
-                <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-green-500">
-                    <div class="flex items-center gap-2 mb-2">
-                        <i class="fas fa-calculator text-green-400"></i>
-                        <h3 class="text-sm font-bold text-white font-mono">calculateOffset()</h3>
-                    </div>
-                    <p class="text-xs text-gray-400 mb-2">Calcola offset per query SQL paginate: <code class="text-cyan-300">offset = (page-1) × limit</code></p>
-                    <div class="text-xs text-gray-300 space-y-1">
-                        <div><strong class="text-white">Input:</strong> page (≥1, base 1), limit (>0)</div>
-                        <div><strong class="text-white">Formula:</strong> Converte numero pagina (base 1) → offset SQL (base 0)</div>
-                    </div>
-                    <div class="mt-2 bg-gray-800 p-2 rounded text-[10px]">
-                        <div class="text-gray-400 mb-1">Classi di Equivalenza:</div>
-                        <div class="grid grid-cols-2 gap-1">
-                            <span class="text-green-300">• CE1: page=1 → offset=0</span>
-                            <span class="text-yellow-300">• CE2: page=2, limit=10 → 10</span>
-                            <span class="text-orange-300">• CE3: page=100, limit=50 → 4950</span>
-                            <span class="text-cyan-300">• CE4: limit=1 (singolo)</span>
+                <!-- Control Flow Graph -->
+                <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-purple-500">
+                    <h4 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                        <i class="fas fa-project-diagram text-purple-400"></i>
+                        Control Flow Graph (CFG)
+                    </h4>
+                    <p class="text-sm text-gray-300 mb-3">
+                        Il metodo presenta <strong class="text-white">4 percorsi distinti</strong> nel CFG:
+                    </p>
+                    <div class="space-y-2 text-base">
+                        <div class="flex items-center gap-2 p-2 bg-gray-800/50 rounded">
+                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm font-bold">P1</span>
+                            <span class="text-gray-300">Early return → <code class="text-red-400">!userEmail</code> (guard clause)</span>
+                        </div>
+                        <div class="flex items-center gap-2 p-2 bg-gray-800/50 rounded">
+                            <span class="bg-green-700 text-green-200 px-2 py-1 rounded text-sm font-bold">P2</span>
+                            <span class="text-gray-300">Success → email valida + <code class="text-green-400">notes presente</code></span>
+                        </div>
+                        <div class="flex items-center gap-2 p-2 bg-gray-800/50 rounded">
+                            <span class="bg-yellow-700 text-yellow-200 px-2 py-1 rounded text-sm font-bold">P3</span>
+                            <span class="text-gray-300">Success → email valida + <code class="text-yellow-400">notes assente</code></span>
+                        </div>
+                        <div class="flex items-center gap-2 p-2 bg-gray-800/50 rounded">
+                            <span class="bg-red-700 text-red-200 px-2 py-1 rounded text-sm font-bold">P4</span>
+                            <span class="text-gray-300">Exception → <code class="text-red-400">SMTP failure (try/catch)</code></span>
                         </div>
                     </div>
-                    <div class="mt-2 flex gap-2 text-[10px]">
-                        <span class="bg-green-900/30 text-green-300 px-1.5 py-0.5 rounded">10 test cases</span>
-                        <span class="bg-blue-900/30 text-blue-300 px-1.5 py-0.5 rounded">100% Statement</span>
-                        <span class="bg-purple-900/30 text-purple-300 px-1.5 py-0.5 rounded">100% Path</span>
+                </div>
+
+                <!-- Coverage Results -->
+                <div class="grid grid-cols-3 gap-3">
+                    <div class="bg-green-900/20 border border-green-700/50 rounded p-3 text-center">
+                        <div class="text-2xl font-bold text-green-400">100%</div>
+                        <p class="text-sm text-green-200">Statement</p>
+                    </div>
+                    <div class="bg-green-900/20 border border-green-700/50 rounded p-3 text-center">
+                        <div class="text-2xl font-bold text-green-400">100%</div>
+                        <p class="text-sm text-green-200">Branch</p>
+                    </div>
+                    <div class="bg-green-900/20 border border-green-700/50 rounded p-3 text-center">
+                        <div class="text-2xl font-bold text-green-400">100%</div>
+                        <p class="text-sm text-green-200">Path</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Right Column: More Test Methods -->
-            <div class="space-y-3">
-                <!-- Test Method 3: sendAppointmentRescheduledEmail -->
-                <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-red-500">
-                    <div class="flex items-center gap-2 mb-2">
-                        <i class="fas fa-envelope text-red-400"></i>
-                        <h3 class="text-sm font-bold text-white font-mono">sendAppointmentRescheduledEmail()</h3>
-                    </div>
-                    <p class="text-xs text-gray-400 mb-2">Invia notifica email quando appuntamento viene riprogrammato.</p>
-                    <div class="text-xs text-gray-300 space-y-1">
-                        <div><strong class="text-white">Params:</strong> userEmail, propertyTitle, oldDate, newDate, notes?</div>
-                        <div><strong class="text-white">Branch:</strong> Early return (!email), ternary (notes), try/catch</div>
-                    </div>
-                    <div class="mt-2 bg-gray-800 p-2 rounded text-[10px]">
-                        <div class="text-gray-400 mb-1">Control Flow Graph (4 percorsi):</div>
-                        <div class="grid grid-cols-2 gap-1">
-                            <span class="text-gray-300">P1: Early return (email undef)</span>
-                            <span class="text-green-300">P2: Success con notes</span>
-                            <span class="text-yellow-300">P3: Success senza notes</span>
-                            <span class="text-red-300">P4: Exception (SMTP fail)</span>
-                        </div>
-                    </div>
-                    <div class="mt-2 flex gap-2 text-[10px]">
-                        <span class="bg-green-900/30 text-green-300 px-1.5 py-0.5 rounded">10 test cases</span>
-                        <span class="bg-blue-900/30 text-blue-300 px-1.5 py-0.5 rounded">100% Branch</span>
-                        <span class="bg-purple-900/30 text-purple-300 px-1.5 py-0.5 rounded">100% Path</span>
-                    </div>
-                </div>
+            <!-- Right Column: Test Cases -->
+            <div class="space-y-4">
+                <h2 class="text-3xl font-bold text-white mb-3">Test Cases (10 totali)</h2>
 
-                <!-- Test Method 4: getWeatherForecast -->
-                <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-yellow-500">
-                    <div class="flex items-center gap-2 mb-2">
-                        <i class="fas fa-cloud-sun text-yellow-400"></i>
-                        <h3 class="text-sm font-bold text-white font-mono">getWeatherForecast()</h3>
-                    </div>
-                    <p class="text-xs text-gray-400 mb-2">Previsioni meteo OpenMeteo con caching in-memory (TTL 1h).</p>
-                    <div class="text-xs text-gray-300 space-y-1">
-                        <div><strong class="text-white">Logica:</strong> Arrotonda coord (4 dec), clamping days (max 16)</div>
-                        <div><strong class="text-white">Formula:</strong> <code class="text-cyan-300">Math.round(coord * 10000) / 10000</code></div>
-                    </div>
-                    <div class="mt-2 bg-gray-800 p-2 rounded text-[10px]">
-                        <div class="text-gray-400 mb-1">Boundary Value Analysis:</div>
-                        <div class="grid grid-cols-2 gap-1">
-                            <span class="text-green-300">• days=1 (min pratico)</span>
-                            <span class="text-yellow-300">• days=16 (max API)</span>
-                            <span class="text-orange-300">• days=30 → clamped a 16</span>
-                            <span class="text-cyan-300">• Coord negative (Sud)</span>
-                        </div>
-                    </div>
-                    <div class="mt-2 flex gap-2 text-[10px]">
-                        <span class="bg-green-900/30 text-green-300 px-1.5 py-0.5 rounded">10 test cases</span>
-                        <span class="bg-yellow-900/30 text-yellow-300 px-1.5 py-0.5 rounded">95% Statement</span>
-                        <span class="bg-orange-900/30 text-orange-300 px-1.5 py-0.5 rounded">85% Branch</span>
-                    </div>
-                </div>
-
-                <!-- Testing Summary -->
-                <div class="bg-surface/50 p-3 rounded-lg border-l-4 border-cyan-500">
-                    <h3 class="text-sm font-bold text-white mb-2 flex items-center gap-2">
-                        <i class="fas fa-clipboard-check text-cyan-400"></i>
-                        Riepilogo Test Suite
-                    </h3>
-                    <div class="grid grid-cols-4 gap-2 text-center text-xs mb-2">
-                        <div class="bg-gray-800 p-2 rounded border border-gray-600">
-                            <div class="text-xl font-bold text-white">40</div>
-                            <p class="text-gray-400">Test Cases</p>
-                        </div>
-                        <div class="bg-gray-800 p-2 rounded border border-gray-600">
-                            <div class="text-xl font-bold text-white">4</div>
-                            <p class="text-gray-400">Metodi</p>
-                        </div>
-                        <div class="bg-gray-800 p-2 rounded border border-gray-600">
-                            <div class="text-xl font-bold text-green-400">98.75%</div>
-                            <p class="text-gray-400">Stmt Cov</p>
-                        </div>
-                        <div class="bg-gray-800 p-2 rounded border border-gray-600">
-                            <div class="text-xl font-bold text-green-400">92.5%</div>
-                            <p class="text-gray-400">Branch</p>
-                        </div>
-                    </div>
-                    <div class="text-xs text-gray-300">
-                        <strong class="text-white">Criteri Selezione:</strong> Logica complessa, calcoli non triviali, gestione errori, dipendenze mockabili.
-                    </div>
+                <!-- Test Case Table -->
+                <div class="bg-surface/50 rounded-lg overflow-hidden">
+                    <table class="w-full text-sm">
+                        <thead class="bg-gray-800">
+                            <tr>
+                                <th class="p-2 text-left text-gray-300">TC</th>
+                                <th class="p-2 text-left text-gray-300">Input</th>
+                                <th class="p-2 text-left text-gray-300">Path</th>
+                                <th class="p-2 text-left text-gray-300">Esito</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm">
+                            <tr class="border-t border-gray-700">
+                                <td class="p-2 text-white font-mono">TC1</td>
+                                <td class="p-2 text-gray-300">email=undefined</td>
+                                <td class="p-2"><span class="bg-gray-700 text-gray-300 px-1.5 rounded">P1</span></td>
+                                <td class="p-2 text-gray-400">Early return</td>
+                            </tr>
+                            <tr class="border-t border-gray-700 bg-gray-800/30">
+                                <td class="p-2 text-white font-mono">TC2</td>
+                                <td class="p-2 text-gray-300">email="" (empty)</td>
+                                <td class="p-2"><span class="bg-gray-700 text-gray-300 px-1.5 rounded">P1</span></td>
+                                <td class="p-2 text-gray-400">Early return</td>
+                            </tr>
+                            <tr class="border-t border-gray-700">
+                                <td class="p-2 text-white font-mono">TC3</td>
+                                <td class="p-2 text-gray-300">valid + notes="Cambio orario"</td>
+                                <td class="p-2"><span class="bg-green-700 text-green-200 px-1.5 rounded">P2</span></td>
+                                <td class="p-2 text-green-400">✓ Inviata</td>
+                            </tr>
+                            <tr class="border-t border-gray-700 bg-gray-800/30">
+                                <td class="p-2 text-white font-mono">TC4</td>
+                                <td class="p-2 text-gray-300">valid + notes=undefined</td>
+                                <td class="p-2"><span class="bg-yellow-700 text-yellow-200 px-1.5 rounded">P3</span></td>
+                                <td class="p-2 text-green-400">✓ Inviata</td>
+                            </tr>
+                            <tr class="border-t border-gray-700">
+                                <td class="p-2 text-white font-mono">TC5</td>
+                                <td class="p-2 text-gray-300">valid + notes=""</td>
+                                <td class="p-2"><span class="bg-yellow-700 text-yellow-200 px-1.5 rounded">P3</span></td>
+                                <td class="p-2 text-green-400">✓ Inviata</td>
+                            </tr>
+                            <tr class="border-t border-gray-700 bg-gray-800/30">
+                                <td class="p-2 text-white font-mono">TC6</td>
+                                <td class="p-2 text-gray-300">SMTP mock throws</td>
+                                <td class="p-2"><span class="bg-red-700 text-red-200 px-1.5 rounded">P4</span></td>
+                                <td class="p-2 text-red-400">Exception</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
                 <!-- Mock Strategy -->
-                <div class="bg-surface/50 p-3 rounded-lg border border-gray-600">
-                    <h3 class="text-sm font-bold text-white mb-2 flex items-center gap-2">
-                        <i class="fas fa-cogs text-gray-400"></i>
+                <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-cyan-500">
+                    <h4 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                        <i class="fas fa-cogs text-cyan-400"></i>
                         Test in Isolation (Mock Objects)
-                    </h3>
-                    <div class="flex gap-2 flex-wrap text-xs">
-                        <span class="px-2 py-1 bg-gray-700 rounded text-gray-300 font-mono">jest.mock()</span>
-                        <span class="px-2 py-1 bg-gray-700 rounded text-gray-300 font-mono">jest.spyOn()</span>
-                        <span class="px-2 py-1 bg-gray-700 rounded text-gray-300 font-mono">mockResolvedValue()</span>
+                    </h4>
+                    <div class="space-y-2 text-base text-gray-300">
+                        <div class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-400 mt-1"></i>
+                            <span><strong class="text-white">jest.mock('nodemailer')</strong> → Simula transporter SMTP</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-400 mt-1"></i>
+                            <span><strong class="text-white">mockResolvedValue()</strong> → Success case</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <i class="fas fa-check text-green-400 mt-1"></i>
+                            <span><strong class="text-white">mockRejectedValue()</strong> → SMTP failure</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tecniche Applicate -->
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-purple-900/20 border border-purple-700/50 rounded p-3">
+                        <div class="font-bold text-purple-300 text-sm mb-1">Black-Box</div>
+                        <ul class="text-sm text-gray-300 space-y-1">
+                            <li>• Classi di Equivalenza</li>
+                            <li>• Boundary (email vuota)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-blue-900/20 border border-blue-700/50 rounded p-3">
+                        <div class="font-bold text-blue-300 text-sm mb-1">White-Box</div>
+                        <ul class="text-sm text-gray-300 space-y-1">
+                            <li>• Path Coverage (4 percorsi)</li>
+                            <li>• Branch Coverage</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 15: Conclusioni -->
-    <div class="slide" id="slide-15">
+    <!-- Slide 16: Conclusioni -->
+    <div class="slide" id="slide-16">
         <div class="slide-grid single-col">
             <div class="flex flex-col items-center justify-center h-full space-y-10">
                 <h2 class="text-6xl font-extrabold text-white">Conclusioni</h2>
@@ -2018,6 +2107,11 @@
 
 </div>
 
+<!-- Fullscreen Image Overlay -->
+<div id="fullscreenOverlay" class="fullscreen-overlay" onclick="closeFullscreen()">
+    <img id="fullscreenImage" src="" alt="Fullscreen">
+</div>
+
 <!-- Navigation Controls -->
 <button class="nav-btn prev-btn" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
 <button class="nav-btn next-btn" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
@@ -2025,7 +2119,7 @@
 
 <script>
     let currentSlide = 1;
-    const totalSlides = 15;
+    const totalSlides = 16;
 
     function showSlide(n) {
         document.querySelectorAll('.slide').forEach(s => {
@@ -2064,6 +2158,29 @@
     });
 
     showSlide(currentSlide);
+
+    // Fullscreen image functionality
+    function openFullscreen(img) {
+        const overlay = document.getElementById('fullscreenOverlay');
+        const fullImg = document.getElementById('fullscreenImage');
+        fullImg.src = img.src;
+        fullImg.alt = img.alt;
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeFullscreen() {
+        const overlay = document.getElementById('fullscreenOverlay');
+        overlay.classList.remove('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Close fullscreen on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeFullscreen();
+        }
+    });
 </script>
 </body>
 
