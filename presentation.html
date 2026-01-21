@@ -1453,30 +1453,7 @@
                     </div>
                 </div>
 
-                <!-- Backend & Frontend Containers -->
-                <div class="grid grid-cols-2 gap-3">
-                    <div class="bg-surface p-4 rounded-lg border-l-4 border-green-500">
-                        <h4 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
-                            <i class="fab fa-node-js text-green-400"></i>Backend
-                        </h4>
-                        <ul class="text-sm text-gray-300 space-y-1">
-                            <li><i class="fas fa-box text-cyan-400 mr-1"></i>Node.js 20-slim</li>
-                            <li><i class="fas fa-code text-blue-400 mr-1"></i>Express.js API</li>
-                            <li><i class="fas fa-door-open text-yellow-400 mr-1"></i>Porta 5003</li>
-                        </ul>
-                    </div>
-                    <div class="bg-surface p-4 rounded-lg border-l-4 border-red-500">
-                        <h4 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
-                            <i class="fab fa-angular text-red-400"></i>Frontend
-                        </h4>
-                        <ul class="text-sm text-gray-300 space-y-1">
-                            <li><i class="fas fa-server text-cyan-400 mr-1"></i>Nginx Alpine</li>
-                            <li><i class="fas fa-file-code text-blue-400 mr-1"></i>Angular SPA</li>
-                            <li><i class="fas fa-door-open text-yellow-400 mr-1"></i>Porta 8080</li>
-                        </ul>
-                    </div>
-                </div>
-
+               
                 <!-- Docker Compose -->
                 <div class="bg-surface p-4 rounded-lg border-l-4 border-cyan-500">
                     <div class="text-lg font-bold text-white mb-2 flex items-center gap-2">
@@ -1506,8 +1483,8 @@
     </div>
         </div>
 
-    <!-- Slide 13: Deploy su Google Cloud Platform -->
-    <div class="slide" id="slide-13">
+    <!-- Slide 15: Deploy su Google Cloud Platform -->
+    <div class="slide" id="slide-15">
         <div class="slide-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
             <!-- Left Column: GCP Overview -->
             <div class="space-y-4">
@@ -1523,22 +1500,22 @@
                         Google Cloud Run: Serverless Container
                     </h3>
                     <p class="text-base text-gray-300 leading-relaxed mb-3">
-                        Servizio gestito per container stateless altamente scalabili.
+                        Servizio gestito per container stateless con scalabilità automatica (0→10 istanze). Scale-to-zero in assenza di traffico.
                     </p>
-                    <div class="space-y-2 text-base">
-                        <div class="bg-gray-800 p-3 rounded border border-gray-600">
+                    <div class="space-y-2 text-sm">
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600">
                             <div class="flex items-center gap-2 mb-1">
                                 <i class="fab fa-angular text-red-400"></i>
                                 <span class="font-bold text-white">Frontend Service</span>
                             </div>
-                            <p class="text-sm text-gray-400">Nginx + Angular SPA (porta 8080, 256 MiB RAM)</p>
+                            <p class="text-xs text-gray-400">Nginx + Angular SPA (porta 8080, 256 MiB RAM)</p>
                         </div>
-                        <div class="bg-gray-800 p-3 rounded border border-gray-600">
+                        <div class="bg-gray-800 p-2 rounded border border-gray-600">
                             <div class="flex items-center gap-2 mb-1">
                                 <i class="fab fa-node-js text-green-400"></i>
                                 <span class="font-bold text-white">Backend Service</span>
                             </div>
-                            <p class="text-sm text-gray-400">Express API (porta 5003, 512 MiB RAM, 1 vCPU)</p>
+                            <p class="text-xs text-gray-400">Express API (porta 5003, 512 MiB RAM, 1 vCPU)</p>
                         </div>
                     </div>
                 </div>
@@ -1547,48 +1524,38 @@
                 <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-green-500">
                     <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
                         <i class="fas fa-rocket text-green-400"></i>
-                        Processo di Deploy
+                        Processo di Deploy in 4 Fasi
                     </h3>
-                    <div class="space-y-2 text-base text-gray-300">
-                        <div class="flex items-start gap-2">
-                            <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold shrink-0">1</span>
-                            <div><strong class="text-white">Config GCP:</strong> Abilitazione API</div>
+                    <div class="space-y-3 text-sm text-gray-300">
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0">1</span>
+                                <strong class="text-white">Configurazione Progetto GCP</strong>
+                            </div>
+                            <p class="text-xs text-gray-400 ml-8">Abilitazione API: Cloud Build, Cloud Run, Artifact Registry. Impostazione regione europe-west1.</p>
                         </div>
-                        <div class="flex items-start gap-2">
-                            <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold shrink-0">2</span>
-                            <div><strong class="text-white">Artifact Registry:</strong> Repository Docker</div>
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0">2</span>
+                                <strong class="text-white">Artifact Registry</strong>
+                            </div>
+                            <p class="text-xs text-gray-400 ml-8">Repository privato <span class="font-mono">dietiestates</span> con controllo accessi IAM e scansione vulnerabilità.</p>
                         </div>
-                        <div class="flex items-start gap-2">
-                            <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold shrink-0">3</span>
-                            <div><strong class="text-white">Build & Push:</strong> Multi-stage build</div>
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0">3</span>
+                                <strong class="text-white">Build & Push Immagini</strong>
+                            </div>
+                            <p class="text-xs text-gray-400 ml-8">Multi-stage build locale, tag secondo nomenclatura Artifact Registry, push al registro privato.</p>
                         </div>
-                        <div class="flex items-start gap-2">
-                            <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold shrink-0">4</span>
-                            <div><strong class="text-white">Deploy:</strong> Risorse, env vars, CORS</div>
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0">4</span>
+                                <strong class="text-white">Deploy su Cloud Run</strong>
+                            </div>
+                            <p class="text-xs text-gray-400 ml-8">Config risorse (512MB/1vCPU backend), env vars criptate (JWT, AWS, OAuth), CORS configurato.</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- Autoscaling -->
-                <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-purple-500">
-                    <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                        <i class="fas fa-chart-line text-purple-400"></i>
-                        Scalabilità Automatica
-                    </h3>
-                    <div class="grid grid-cols-2 gap-3 mb-3">
-                        <div class="bg-gray-800 p-3 rounded border border-gray-600 text-center">
-                            <div class="text-2xl font-bold text-purple-400">0</div>
-                            <p class="text-sm text-gray-400">Min Instances</p>
-                        </div>
-                        <div class="bg-gray-800 p-3 rounded border border-gray-600 text-center">
-                            <div class="text-2xl font-bold text-purple-400">10</div>
-                            <p class="text-sm text-gray-400">Max Instances</p>
-                        </div>
-                    </div>
-                    <p class="text-base text-gray-300">
-                        <i class="fas fa-bolt text-yellow-400 mr-1"></i>
-                        Scale-to-zero in assenza di traffico. Nuove istanze in secondi.
-                    </p>
                 </div>
             </div>
 
@@ -1645,53 +1612,53 @@
                     </div>
                 </div>
 
-                <!-- Operations Grid - Non-repetitive content -->
+                <!-- Vantaggi Architetturali -->
                 <div class="grid grid-cols-2 gap-3">
-                    <!-- Monitoring -->
-                    <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-blue-500">
-                        <div class="flex items-center gap-2 mb-2">
-                            <i class="fas fa-chart-area text-blue-400 text-xl"></i>
-                            <h3 class="text-base font-bold text-white">Cloud Monitoring</h3>
-                        </div>
-                        <ul class="text-sm text-gray-300 space-y-1">
-                            <li><i class="fas fa-tachometer-alt text-cyan-400 mr-1"></i>Metriche real-time</li>
-                            <li><i class="fas fa-bell text-yellow-400 mr-1"></i>Alerting automatico</li>
-                        </ul>
-                    </div>
-
-                    <!-- Logging -->
-                    <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-cyan-500">
-                        <div class="flex items-center gap-2 mb-2">
-                            <i class="fas fa-file-alt text-cyan-400 text-xl"></i>
-                            <h3 class="text-base font-bold text-white">Cloud Logging</h3>
-                        </div>
-                        <ul class="text-sm text-gray-300 space-y-1">
-                            <li><i class="fas fa-search text-green-400 mr-1"></i>Query strutturate</li>
-                            <li><i class="fas fa-history text-purple-400 mr-1"></i>Retention 30 giorni</li>
-                        </ul>
-                    </div>
-
                     <!-- Security -->
                     <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-red-500">
                         <div class="flex items-center gap-2 mb-2">
                             <i class="fas fa-shield-alt text-red-400 text-xl"></i>
-                            <h3 class="text-base font-bold text-white">Security</h3>
+                            <h3 class="text-base font-bold text-white">Security & Networking</h3>
                         </div>
                         <ul class="text-sm text-gray-300 space-y-1">
-                            <li><i class="fas fa-lock text-green-400 mr-1"></i>SSL/TLS automatico</li>
-                            <li><i class="fas fa-key text-yellow-400 mr-1"></i>Secret Manager</li>
+                            <li><i class="fas fa-lock text-green-400 mr-1"></i>SSL/TLS gestito automaticamente</li>
+                            <li><i class="fas fa-shield text-blue-400 mr-1"></i>IAM per controllo accessi</li>
                         </ul>
                     </div>
 
-                    <!-- Billing -->
+                    <!-- Pricing -->
                     <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-yellow-500">
                         <div class="flex items-center gap-2 mb-2">
-                            <i class="fas fa-receipt text-yellow-400 text-xl"></i>
-                            <h3 class="text-base font-bold text-white">Costi Ottimizzati</h3>
+                            <i class="fas fa-dollar-sign text-yellow-400 text-xl"></i>
+                            <h3 class="text-base font-bold text-white">Pay-per-Use</h3>
                         </div>
                         <ul class="text-sm text-gray-300 space-y-1">
-                            <li><i class="fas fa-gift text-green-400 mr-1"></i>Free Tier incluso</li>
-                            <li><i class="fas fa-calculator text-blue-400 mr-1"></i>Pay solo per uso</li>
+                            <li><i class="fas fa-chart-line text-green-400 mr-1"></i>Addebito su uso effettivo</li>
+                            <li><i class="fas fa-gift text-cyan-400 mr-1"></i>2M richieste/mese gratis</li>
+                        </ul>
+                    </div>
+
+                    <!-- Scalability -->
+                    <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-purple-500">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-expand-arrows-alt text-purple-400 text-xl"></i>
+                            <h3 class="text-base font-bold text-white">Gestione Semplificata</h3>
+                        </div>
+                        <ul class="text-sm text-gray-300 space-y-1">
+                            <li><i class="fas fa-server text-blue-400 mr-1"></i>Nessun server da gestire</li>
+                            <li><i class="fas fa-history text-green-400 mr-1"></i>Rollback istantaneo</li>
+                        </ul>
+                    </div>
+
+                    <!-- Monitoring -->
+                    <div class="bg-surface/50 p-4 rounded-lg border-l-4 border-cyan-500">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-chart-area text-cyan-400 text-xl"></i>
+                            <h3 class="text-base font-bold text-white">Revision History</h3>
+                        </div>
+                        <ul class="text-sm text-gray-300 space-y-1">
+                            <li><i class="fas fa-code-branch text-purple-400 mr-1"></i>Storico versioni complete</li>
+                            <li><i class="fas fa-undo text-orange-400 mr-1"></i>Recovery rapido da errori</li>
                         </ul>
                     </div>
                 </div>
@@ -1705,8 +1672,8 @@
         </div>
     </div>
 
-    <!-- Slide 14: Verifica e Validazione -->
-    <div class="slide" id="slide-14">
+    <!-- Slide 13: Verifica e Validazione -->
+    <div class="slide" id="slide-13">
         <div class="slide-grid" style="grid-template-columns: 1fr 1fr; gap: 3rem;">
             <!-- Left Column: Verification (Static & Dynamic) -->
             <div class="space-y-6">
@@ -1806,7 +1773,7 @@
                         Validazione Sperimentale
                     </h3>
                     <p class="text-base text-gray-300 mb-3">
-                        Test su campione eterogeneo di <strong>23 utenti</strong> (Desktop, Mobile, Tablet).
+                        Test su campione eterogeneo di <strong>23 utenti</strong> tramite Google Moduli (Desktop, Mobile, Tablet).
                     </p>
                     
                     <div class="grid grid-cols-3 gap-3 mb-4">
@@ -1862,21 +1829,13 @@
                     </div>
                 </div>
 
-                <!-- Future Roadmap -->
-                <div class="bg-surface/50 p-4 rounded-lg border border-gray-600">
-                    <h3 class="text-base font-bold text-gray-400 uppercase tracking-wider mb-2">Richieste Evolutive (Feedback)</h3>
-                    <div class="flex gap-3 flex-wrap">
-                        <span class="px-3 py-1 bg-gray-700 rounded text-sm text-gray-300">Calcolatrice Mutuo</span>
-                        <span class="px-3 py-1 bg-gray-700 rounded text-sm text-gray-300">Chat Interna</span>
-                        <span class="px-3 py-1 bg-gray-700 rounded text-sm text-gray-300">Wishlist</span>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
 
-    <!-- Slide 15: Dettaglio Unit Test - sendAppointmentRescheduledEmail -->
-    <div class="slide" id="slide-15">
+    <!-- Slide 14: Dettaglio Unit Test - sendAppointmentRescheduledEmail -->
+    <div class="slide" id="slide-14">
         <div class="slide-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
             <!-- Left Column: Method Analysis -->
             <div class="space-y-4">
